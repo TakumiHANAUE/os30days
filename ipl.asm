@@ -1,4 +1,4 @@
-; hello-os
+; haribote-os
 ; TAB=4
 
 CYLS    EQU     10
@@ -74,6 +74,8 @@ next:
     ADD     CH, 1
     CMP     CH, CYLS
     JB      readloop            ; CH < CYLS だったらreadloopへ
+
+    JMP     0xc200              ; 読み終わったのでharibote.sysを実行
 
 fin:
     HLT
