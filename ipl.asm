@@ -1,6 +1,8 @@
 ; hello-os
 ; TAB=4
 
+CYLS    EQU     10
+
     ORG     0x7c00              ;   このプログラムがどこに読み込まれるのか
 
 ; 以下は標準的なFAT12フォーマットフロッピーディスクのための記述
@@ -63,7 +65,15 @@ next:
     MOV     ES, AX
     ADD     CL, 1
     CMP     CL, 18
-    JBE     readloop
+    JBE     readloop            ; CL <= 18 だったらreadloopへ
+    MOV     CL, 1
+    ADD     DH, 1
+    CMP     DH, 2
+    JB      readloop            ; DH < 2 だったらreadloopへ
+    MOV     DH, 0
+    ADD     CH, 1
+    CMP     CH, CYLS
+    JB      readloop            ; CH < CYLS だったらreadloopへ
 
 fin:
     HLT
