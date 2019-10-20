@@ -1,9 +1,10 @@
 
 IMGFILE=haribote.img
+IPLFILE=ipl10.asm
 
 all : $(IMGFILE)
 
-ipl.bin : ipl.asm
+ipl.bin : $(IPLFILE)
 	nasm $^ -o $@ -l ipl.lst
 
 haribote.sys : haribote.asm
@@ -20,4 +21,4 @@ run : $(IMGFILE)
 # -fda: use 'file' as floppy disk 0/1 image
 
 clean : 
-	rm $(IMGFILE) ipl.bin ipl.lst haribote.sys haribote.lst haribote.name
+	rm $(IMGFILE) ipl.bin ipl.lst haribote.sys haribote.lst

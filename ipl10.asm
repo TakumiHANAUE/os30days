@@ -75,7 +75,10 @@ next:
     CMP     CH, CYLS
     JB      readloop            ; CH < CYLS だったらreadloopへ
 
-    JMP     0xc200              ; 読み終わったのでharibote.sysを実行
+; 読み終わったのでharibote.sysを実行
+
+    MOV     [0x0ff0], CH        ; IPLがどこまで読んだのかメモ
+    JMP     0xc200
 
 fin:
     HLT
