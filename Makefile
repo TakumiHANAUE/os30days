@@ -7,8 +7,14 @@ all : $(IMGFILE)
 ipl.bin : $(IPLFILE)
 	nasm $^ -o $@ -l ipl.lst
 
-haribote.sys : haribote.asm
-	nasm $^ -o $@ -l haribote.lst
+asmhead.bin : asmhead.asm
+	nasm $^ -o $@ -l asmhead.lst
+
+bootpack.bin : bootpack.c
+	gcc -march=i486 -m32 -fno-pic -nostdlib -T hrb.ld $^ -o $@
+
+haribote.sys : asmhead.bin bootpack.bin
+	cat $^ > $@
 
 $(IMGFILE) : ipl.bin haribote.sys
 	mformat -f 1440 -B ipl.bin -C -i $@ ::
@@ -21,4 +27,8 @@ run : $(IMGFILE)
 # -fda: use 'file' as floppy disk 0/1 image
 
 clean : 
-	rm $(IMGFILE) ipl.bin ipl.lst haribote.sys haribote.lst
+	rm $(IMGFILE) \
+	   ipl.bin ipl.lst \
+	   asmhead.bin asnhead.lst \
+	   bootpack.bin \
+	   haribote.sys haribote.lst
