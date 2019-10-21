@@ -3,7 +3,8 @@ void io_hlt(void);
 
 void HariMain(void)
 {
-fin:
-    io_hlt();
-    goto fin;
+    while(1)
+    {
+        io_hlt();
+    }
 }
