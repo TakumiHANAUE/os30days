@@ -41,3 +41,15 @@ clean :
 	   nasmfunc.o nasmfunc.lst \
 	   bootpack.bin \
 	   haribote.sys haribote.lst
+
+#########
+
+nimsrc :
+	nim c \
+	    --cpu:i386 \
+	    --passC:-m32 \
+	    --passC:-fno-pic \
+	    --passC:-nostdlib \
+	    --passL:-m32 \
+	    --nimcache:./nimcache \
+	    bootpack.nim
