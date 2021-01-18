@@ -1,0 +1,7 @@
+{
+    "files.exclude": {
+        "*.bin": true,
+        "*.lst": true,
+        "*.o": true
+    }
+}
