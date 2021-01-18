@@ -40,4 +40,4 @@ clean :
 	   bootpack.o \
 	   nasmfunc.o nasmfunc.lst \
 	   bootpack.bin \
-	   haribote.sys haribote.lst
+	   haribote.sys
