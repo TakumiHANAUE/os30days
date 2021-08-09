@@ -4,7 +4,8 @@
 
 ## 環境
 
-- Ubuntu-20.04 on WSL2 on Windows10
+- Ubuntu-20.04 on WSL2 on Windows10  
+  img のビルドは Ubuntu-20.04 上で、img の起動は Windows10 上で行う。
 
 ## 準備 (Ubuntu-20.04 on WSL2)
 
@@ -56,6 +57,8 @@
   ```bat
   "C:\Program Files\qemu\qemu-system-i386.exe" -fda "\\wsl$\Ubuntu-20.04\PATH_TO_IMG\haribote.img"
   ```
+
+## 参考サイト
 
 ## 作業ログ
 
