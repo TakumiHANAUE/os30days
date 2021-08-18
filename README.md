@@ -517,3 +517,5 @@
   ただし、`io_hlt()`呼出しのループ処理を while 文に変更した。
 
 #### しましま模様 (harib01b)
+
+- 書籍に従って `bootpack.c` を修正する（`projects/03_day/harib01b/bootpack.c`を参照する）
