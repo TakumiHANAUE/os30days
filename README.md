@@ -519,3 +519,8 @@
 #### しましま模様 (harib01b)
 
 - 書籍に従って `bootpack.c` を修正する（`projects/04_day/harib01b/bootpack.c`を参照する）
+
+#### ポインタに挑戦 (harib01c)
+
+- 書籍に従って `bootpack.c` を修正する（`projects/04_day/harib01c/bootpack.c`を参照する）
+- 書籍に従って `nasmfunk.asm` を修正する（`projects/04_day/harib01c/naskfunk.nas`を参照する）
