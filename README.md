@@ -524,3 +524,7 @@
 
 - 書籍に従って `bootpack.c` を修正する（`projects/04_day/harib01c/bootpack.c`を参照する）
 - 書籍に従って `nasmfunk.asm` を修正する（`projects/04_day/harib01c/naskfunk.nas`を参照する）
+
+#### ポインタの応用(1) (harib01d)
+
+- 書籍に従って `bootpack.c` を修正する（`projects/04_day/harib01d/bootpack.c`を参照する）
