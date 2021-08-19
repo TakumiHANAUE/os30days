@@ -528,3 +528,7 @@
 #### ポインタの応用(1) (harib01d)
 
 - 書籍に従って `bootpack.c` を修正する（`projects/04_day/harib01d/bootpack.c`を参照する）
+
+#### ポインタの応用(2) (harib01e)
+
+- 書籍に従って `bootpack.c` を修正する（`projects/04_day/harib01e/bootpack.c`を参照する）
