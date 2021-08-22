@@ -504,9 +504,9 @@
         haribote.sys
   ```
 
-  【参考】
+【参考】
 
-  - [30 日でできる！OS 自作入門（３日目）[Ubuntu16.04/NASM]](https://qiita.com/pollenjp/items/8fcb9573cdf2dc6e2668)
+- [30 日でできる！OS 自作入門（３日目）[Ubuntu16.04/NASM]](https://qiita.com/pollenjp/items/8fcb9573cdf2dc6e2668)
 
 ### 四日目
 
