@@ -23,6 +23,9 @@ SECTIONS
         *(.bss)
     }
 
-    /DISCARD/ : { *(.eh_frame) }
+    /DISCARD/ : {
+        *(.note.gnu.property)
+        *(.eh_frame)
+    }
 
 }

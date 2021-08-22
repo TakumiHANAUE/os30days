@@ -532,3 +532,88 @@
 #### ポインタの応用(2) (harib01e)
 
 - 書籍に従って `bootpack.c` を修正する（`projects/04_day/harib01e/bootpack.c`を参照する）
+
+#### 色番号設定 (harib01f)
+
+- 書籍に従って `bootpack.c` を修正する（`projects/04_day/harib01f/bootpack.c`を参照する）
+- 書籍に従って `nasmfunc.asm` を修正する（`projects/04_day/harib01f/naskfunk.nas`を参照する）
+
+- エラー発生  
+  make したところ ld コマンドでエラーが発生した。
+
+  ```bash
+  $ ld -m elf_i386 -e HariMain -o bootpack.bin -T hrb.ld bootpack.o nasmfunc.o
+  ld: section .note.gnu.property LMA [00000000000001a0,00000000000001bb] overlaps section .data LMA [00000000000001a0,00000000000001cf]
+  make: *** [Makefile:20: bootpack.bin] Error 1
+  ```
+
+  `.note.gnu.property` セクションと `.data` セクションの配置場所が重なっているということと思われる（LMA : Load Memory Address : プログラムをロードされるときに参照されるアドレス）。
+  ここで `.note.gnu.property` とは何か確認してみる。
+
+  ```
+  $ objdump -s bootpack.o
+
+  bootpack.o:     file format elf32-i386
+
+  Contents of section .text:
+  0000 f30f1efb 5589e583 ec18e8fc ffffffc7  ....U...........
+  0010 45f00000 0a00c745 f4000000 00eb188b  E......E........
+  0020 45f489c1 8b55f48b 45f001d0 83e10f89  E....U..E.......
+  0030 ca881083 45f40181 7df4feff 00007edf  ....E...}.....~.
+  0040 e8fcffff ffebf9f3 0f1efb55 89e583ec  ...........U....
+  0050 0883ec04 68000000 006a0f6a 00e8fcff  ....h....j.j....
+  0060 ffff83c4 1090c9c3 f30f1efb 5589e583  ............U...
+  0070 ec18e8fc ffffff89 45f0e8fc ffffff83  ........E.......
+  0080 ec08ff75 0868c803 0000e8fc ffffff83  ...u.h..........
+  0090 c4108b45 088945f4 eb658b45 100fb600  ...E..E..e.E....
+  00a0 c0e8020f b6c083ec 085068c9 030000e8  .........Ph.....
+  00b0 fcffffff 83c4108b 451083c0 010fb600  ........E.......
+  00c0 c0e8020f b6c083ec 085068c9 030000e8  .........Ph.....
+  00d0 fcffffff 83c4108b 451083c0 020fb600  ........E.......
+  00e0 c0e8020f b6c083ec 085068c9 030000e8  .........Ph.....
+  00f0 fcffffff 83c41083 45100383 45f4018b  ........E...E...
+  0100 45f43b45 0c7e9383 ec0cff75 f0e8fcff  E.;E.~.....u....
+  0110 ffff83c4 1090c9c3                    ........
+  Contents of section .data:
+  0000 000000ff 000000ff 00ffff00 0000ffff  ................
+  0010 00ff00ff ffffffff c6c6c684 00000084  ................
+  0020 00848400 00008484 00840084 84848484  ................
+  Contents of section .comment:
+  0000 00474343 3a202855 62756e74 7520392e  .GCC: (Ubuntu 9.
+  0010 332e302d 31307562 756e7475 32292039  3.0-10ubuntu2) 9
+  0020 2e332e30 00                          .3.0.
+  Contents of section .note.gnu.property:
+  0000 04000000 0c000000 05000000 474e5500  ............GNU.
+  0010 020000c0 04000000 03000000           ............
+  Contents of section .eh_frame:
+  0000 14000000 00000000 017a5200 017c0801  .........zR..|..
+  0010 1b0c0404 88010000 18000000 1c000000  ................
+  0020 00000000 47000000 00450e08 8502420d  ....G....E....B.
+  0030 05000000 1c000000 38000000 47000000  ........8...G...
+  0040 21000000 00450e08 8502420d 0559c50c  !....E....B..Y..
+  0050 04040000 1c000000 58000000 68000000  ........X...h...
+  0060 b0000000 00450e08 8502420d 0502a8c5  .....E....B.....
+  0070 0c040400                             ....
+  ```
+
+  `.note.gnu.property` セクションは `bootpack.c` のコードと関係なさそうなので、gcc コマンドが `bootpack.o` 生成時に 自動で作ったセクションと思われる。
+  実処理に影響ないと思うのでリンク対象から外すことにする。  
+  （根本的な解決ではないと思うが、とりあえずこの方法を取って先に進む）
+
+  - リンカスクリプト `hrb.ld` の修正  
+    `.note.gnu.property` セクションをリンク対象から外すように修正する。
+    ```diff
+    - /DISCARD/ : { *(.eh_frame) }
+    + /DISCARD/ : {
+    +     *(.note.gnu.property)
+    +     *(.eh_frame)
+    + }
+    ```
+  - 再度 make する  
+    無事、`haribote.img` が生成でき、色の変わった縞模様が表示できた。
+
+【参考】
+
+- [リンカスクリプトの書き方](http://blueeyes.sakura.ne.jp/2018/10/31/1676/)
+- [objdump - オブジェクトファイルの情報を表示する](https://linuxcommand.net/objdump/)
+- [size - コマンド (プログラム) の説明 - Linux コマンド集 一覧表](https://kazmax.zpp.jp/cmd/s/size.1.html)
