@@ -621,3 +621,7 @@
 #### 四角形を描く (harib01g)
 
 - 書籍に従って `bootpack.c` を修正する（`projects/04_day/harib01g/bootpack.c`を参照する）
+
+#### 今日の仕上げ (harib01h)
+
+- 書籍に従って `bootpack.c` を修正する（`projects/04_day/harib01h/bootpack.c`を参照する）
