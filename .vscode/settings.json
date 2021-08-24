@@ -3,5 +3,8 @@
         "*.bin": true,
         "*.lst": true,
         "*.o": true
+    },
+    "[c]": {
+        "editor.formatOnSave": false
     }
 }
