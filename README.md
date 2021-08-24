@@ -617,3 +617,7 @@
 - [リンカスクリプトの書き方](http://blueeyes.sakura.ne.jp/2018/10/31/1676/)
 - [objdump - オブジェクトファイルの情報を表示する](https://linuxcommand.net/objdump/)
 - [size - コマンド (プログラム) の説明 - Linux コマンド集 一覧表](https://kazmax.zpp.jp/cmd/s/size.1.html)
+
+#### 四角形を描く (harib01g)
+
+- 書籍に従って `bootpack.c` を修正する（`projects/04_day/harib01g/bootpack.c`を参照する）
