@@ -90,7 +90,7 @@
 
 各節でやったことのメモ
 
-### 一日目
+### 一日目 : PC の仕組みからアセンブラ入門まで
 
 #### とにかくやるのだぁ
 
@@ -177,7 +177,7 @@
 - [Ubuntu で OS 自作入門 1 日目](https://blog.shosato.jp/2019/09/12/hand-made-os-in-30-days-day-1/)
 - [NASM Document](https://www.nasm.us/xdoc/2.15.05/html/nasmdoc3.html#section-3.5)
 
-### 二日目
+### 二日目 : アセンブラ学習と Makefile 入門
 
 #### まずはテキストエディタの紹介
 
@@ -240,7 +240,7 @@
     rm $(IMGFILE) ipl.bin ipl.lst
   ```
 
-### 三日目
+### 三日目 : ３２ビットモード突入と C 言語導入
 
 #### さあ本当の IPL を作ろう
 
@@ -508,7 +508,7 @@
 
 - [30 日でできる！OS 自作入門（３日目）[Ubuntu16.04/NASM]](https://qiita.com/pollenjp/items/8fcb9573cdf2dc6e2668)
 
-### 四日目
+### 四日目 : C 言語と画面表示の練習
 
 #### C 言語からメモリに書き込みたい (harib01a)
 
@@ -625,3 +625,23 @@
 #### 今日の仕上げ (harib01h)
 
 - 書籍に従って `bootpack.c` を修正する（`projects/04_day/harib01h/bootpack.c`を参照する）
+
+### 五日目 : 構造体と文字表示と GDT/IDT 初期化
+
+#### 起動情報の受け取り (harib02a)
+
+#### 構造体を使ってみる (harib02b)
+
+#### 矢印表記を使ってみる (harib02c)
+
+#### とにかく文字を出したい (harib02d)
+
+#### フォントを増やしたい (harib02e)
+
+#### 文字列を書きたい (harib02f)
+
+#### 変数の値の表示 (harib02g)
+
+#### マウスカーソルも描いてみよう (harib02h)
+
+#### GDT と IDT を初期化しよう (harib02i)
