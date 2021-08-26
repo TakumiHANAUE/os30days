@@ -630,6 +630,8 @@
 
 #### 起動情報の受け取り (harib02a)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/05_day/harib02a/bootpack.c`を参照する）
+
 #### 構造体を使ってみる (harib02b)
 
 #### 矢印表記を使ってみる (harib02c)
