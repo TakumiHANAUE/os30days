@@ -638,6 +638,8 @@
 
 #### 矢印表記を使ってみる (harib02c)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/05_day/harib02c/bootpack.c`を参照する）
+
 #### とにかく文字を出したい (harib02d)
 
 #### フォントを増やしたい (harib02e)
