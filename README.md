@@ -634,6 +634,8 @@
 
 #### 構造体を使ってみる (harib02b)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/05_day/harib02b/bootpack.c`を参照する）
+
 #### 矢印表記を使ってみる (harib02c)
 
 #### とにかく文字を出したい (harib02d)
