@@ -642,6 +642,8 @@
 
 #### とにかく文字を出したい (harib02d)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/05_day/harib02d/bootpack.c`を参照する）
+
 #### フォントを増やしたい (harib02e)
 
 #### 文字列を書きたい (harib02f)
