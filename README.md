@@ -690,6 +690,8 @@
 
 #### 文字列を書きたい (harib02f)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/05_day/harib02f/bootpack.c`を参照する）
+
 #### 変数の値の表示 (harib02g)
 
 #### マウスカーソルも描いてみよう (harib02h)
