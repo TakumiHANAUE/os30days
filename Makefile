@@ -13,12 +13,14 @@ asmhead.bin : asmhead.asm
 bootpack.o : bootpack.c
 	gcc -c -m32 -fno-pic -nostdlib -o $@ $^
 
+hankaku.o : hankaku.c
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $^
+
 nasmfunc.o : nasmfunc.asm
 	nasm -f elf32 $^ -o $@ -l $(@:.o=.lst)
 
-bootpack.bin : bootpack.o nasmfunc.o
+bootpack.bin : bootpack.o hankaku.o nasmfunc.o
 	ld -m elf_i386 -e HariMain -o $@ -T hrb.ld $^
-	# gcc -march=i486 -m32 -fno-pic -nostdlib -T hrb.ld $^ -o $@
 
 haribote.sys : asmhead.bin bootpack.bin
 	cat $^ > $@
@@ -38,6 +40,7 @@ clean :
 	   ipl10.bin ipl10.lst \
 	   asmhead.bin asmhead.lst \
 	   bootpack.o \
+	   hankaku.o \
 	   nasmfunc.o nasmfunc.lst \
 	   bootpack.bin \
 	   haribote.sys

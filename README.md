@@ -646,6 +646,48 @@
 
 #### フォントを増やしたい (harib02e)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/05_day/harib02e/bootpack.c`を参照する）
+- フォントデータ `hankaku.txt` を C 言語の 16 進数の配列に変換して `hankaku.c` として出力する  
+  例えば、
+  ```
+  ..***... // 0011 1000
+  .*...*.. // 0100 0100
+  ```
+  から、
+  ```c
+  char hankaku[2] = {
+    0x38,
+    0x44,
+  };
+  ```
+  に変換する。  
+  `hankaku.txt` から `hankaku.c` を生成するシェルスクリプト `convHankaku.sh` を作成した。
+- `hankaku.c` をビルドに組み込むように `Makefile` を修正する
+
+  ```diff
+  + hankaku.o : hankaku.c
+  +   gcc -c -m32 -fno-pic -nostdlib -o $@ $^
+
+    nasmfunc.o : nasmfunc.asm
+      nasm -f elf32 $^ -o $@ -l $(@:.o=.lst)
+
+  - bootpack.bin : bootpack.o nasmfunc.o
+  + bootpack.bin : bootpack.o hankaku.o nasmfunc.o
+      ld -m elf_i386 -e HariMain -o $@ -T hrb.ld $^
+  ```
+
+  ```diff
+    clean :
+      rm $(IMGFILE) \
+        ipl10.bin ipl10.lst \
+        asmhead.bin asmhead.lst \
+        bootpack.o \
+  +     hankaku.o \
+        nasmfunc.o nasmfunc.lst \
+        bootpack.bin \
+        haribote.sys
+  ```
+
 #### 文字列を書きたい (harib02f)
 
 #### 変数の値の表示 (harib02g)
