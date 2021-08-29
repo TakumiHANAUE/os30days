@@ -106,6 +106,7 @@ void boxfill8(unsigned char *vram, int xsize, unsigned char c, int x0, int y0, i
             vram[y * xsize + x] = c;
         }
     }
+    return;
 }
 
 void init_screen(char *vram, int x, int y)
@@ -146,4 +147,5 @@ void putfont8(char *vram, int xsize, int x, int y, char c, char *font)
         if (d & 0x02) { p[6] = c; }
         if (d & 0x01) { p[7] = c; }
     }
+    return;
 }
