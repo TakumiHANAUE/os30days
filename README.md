@@ -917,4 +917,6 @@
 
 #### マウスカーソルも描いてみよう (harib02h)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/05_day/harib02h/bootpack.c`を参照する）
+
 #### GDT と IDT を初期化しよう (harib02i)
