@@ -1,6 +1,7 @@
 
 IMGFILE=haribote.img
 IPLFILE=ipl10.asm
+GOLIBCPATH=./golibc
 
 all : $(IMGFILE)
 
@@ -19,8 +20,8 @@ hankaku.o : hankaku.c
 nasmfunc.o : nasmfunc.asm
 	nasm -f elf32 $^ -o $@ -l $(@:.o=.lst)
 
-bootpack.bin : bootpack.o hankaku.o nasmfunc.o
-	ld -m elf_i386 -e HariMain -o $@ -T hrb.ld $^
+bootpack.bin : bootpack.o hankaku.o nasmfunc.o $(GOLIBCPATH)/libgolibc.a
+	ld -m elf_i386 -e HariMain -o $@ -T hrb.ld $^ -static -L$(GOLIBCPATH) -lgolibc
 
 haribote.sys : asmhead.bin bootpack.bin
 	cat $^ > $@

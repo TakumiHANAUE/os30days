@@ -694,6 +694,227 @@
 
 #### 変数の値の表示 (harib02g)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/05_day/harib02g/bootpack.c`を参照する）
+- ビルドをするが、sprintf が未定義とエラーが出る
+
+  ```
+  ld: bootpack.o: in function `HariMain':
+  bootpack.c:(.text+0xcc): undefined reference to `sprintf'
+  make: *** [Makefile:28: bootpack.bin] Error 1
+  ```
+
+  - sprintf のリンクを試みる（この方法ではダメだった）  
+    ld コマンドでリンクするファイルに sprintf が定義されていないので、sprintf が定義されているライブラリを追記してみる。
+    32bit 用のライブラリを使うために `gcc-multilib`をインストール。
+
+    ```bash
+    $ sudo apt-get install gcc-multilib
+    ```
+
+    そして、`Makefile` を以下のように修正。
+    `/usr/lib32` の `libg.a` を使ってみる。
+
+    ```diff
+      bootpack.bin : bootpack.o hankaku.o nasmfunc.o
+    -     ld -m elf_i386 -e HariMain -o $@ -T hrb.ld $^
+    +     ld -m elf_i386 -e HariMain -o $@ -T hrb.ld $^ -static -L/usr/lib32 -lc
+    ```
+
+    make してみるが、大量のエラーが発生。
+    <details>
+    <summary>エラー詳細</summary>
+
+    ```
+    ld: section .text.__x86.get_pc_thunk.bx LMA [0000000000058e65,0000000000058e68] overlaps section .data LMA [0000000000058e65,0000000000075514]
+    ld: /usr/lib32/libc.a(iofclose.o):(.data.rel.local.DW.ref.__gcc_personality_v0[DW.ref.__gcc_personality_v0]+0x0): undefined reference to `__gcc_personality_v0'
+    ld: /usr/lib32/libc.a(iovsprintf.o): in function `_IO_str_chk_overflow':
+    (.text+0xc): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(iovsprintf.o): in function `__vsprintf_internal':
+    (.text+0x2f): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(genops.o): in function `save_for_backup':
+    (.text+0xb): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(genops.o): in function `flush_cleanup':
+    (.text+0x22c): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(genops.o): in function `_IO_un_link.part.0':
+    (.text+0x309): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(genops.o):(.text+0x60d): more undefined references to `_GLOBAL_OFFSET_TABLE_' follow
+    ld: /usr/lib32/libc.a(dl-misc.o): in function `_dl_strtoul':
+    (.text+0x7f0): undefined reference to `__udivdi3'
+    ld: /usr/lib32/libc.a(dl-tls.o): in function `allocate_dtv':
+    (.text+0xc): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(dl-tls.o): in function `oom':
+    (.text+0x48): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(dl-tls.o): in function `_dl_next_tls_modid':
+    (.text+0x7b): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(dl-tls.o): in function `_dl_count_modids':
+    (.text+0x18a): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(dl-tls.o): in function `_dl_get_tls_static_info':
+    (.text+0x1fa): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(dl-tls.o):(.text+0x22f): more undefined references to `_GLOBAL_OFFSET_TABLE_' follow
+    ld: /usr/lib32/libc.a(printf_fp.o): in function `__printf_fp_l':
+    (.text+0x4c6): undefined reference to `__unordtf2'
+    ld: (.text+0x52a): undefined reference to `__unordtf2'
+    ld: (.text+0x575): undefined reference to `__letf2'
+    ld: /usr/lib32/libc.a(printf_fp.o): in function `___printf_fp':
+    (.text+0x2c1a): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(reg-printf.o): in function `__register_printf_specifier':
+    (.text+0x12): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(printf_fphex.o): in function `__printf_fphex':
+    (.text+0xc): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: (.text+0xfc): undefined reference to `__unordtf2'
+    ld: (.text+0x15c): undefined reference to `__unordtf2'
+    ld: (.text+0x1aa): undefined reference to `__letf2'
+    ld: /usr/lib32/libc.a(reg-modifier.o): in function `__register_printf_modifier':
+    (.text+0xf): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(reg-modifier.o): in function `__handle_registered_modifier_mb':
+    (.text+0x1ca): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(reg-modifier.o): in function `__handle_registered_modifier_wc':
+    (.text+0x2ba): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(reg-type.o): in function `__register_printf_type':
+    (.text+0xe): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(vfwprintf-internal.o): in function `group_number':
+    (.text+0x8d): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(vfwprintf-internal.o):(.text+0x1a1): more undefined references to `_GLOBAL_OFFSET_TABLE_' follow
+    ld: /usr/lib32/libc.a(iofclose.o): in function `_IO_new_fclose.cold':
+    (.text.unlikely+0x36): undefined reference to `_Unwind_Resume'
+    ld: /usr/lib32/libc.a(iofflush.o): in function `_IO_fflush.cold':
+    (.text.unlikely+0x35): undefined reference to `_Unwind_Resume'
+    ld: /usr/lib32/libc.a(iofputs.o): in function `_IO_fputs.cold':
+    (.text.unlikely+0x35): undefined reference to `_Unwind_Resume'
+    ld: /usr/lib32/libc.a(iofwrite.o): in function `_IO_fwrite.cold':
+    (.text.unlikely+0x34): undefined reference to `_Unwind_Resume'
+    ld: /usr/lib32/libc.a(wfileops.o): in function `_IO_wfile_underflow.cold':
+    (.text.unlikely+0x34): undefined reference to `_Unwind_Resume'
+    ld: /usr/lib32/libc.a(fileops.o):(.text.unlikely+0x34): more undefined references to `_Unwind_Resume' follow
+    ld: /usr/lib32/libc.a(strcasecmp_l-ssse3.o): in function `__strcasecmp_ssse3':
+    (.text.ssse3+0xc): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(strcasecmp_l-ssse3.o): in function `__strcasecmp_l_ssse3':
+    (.text.ssse3+0x52): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    takumi@takumi-daiv:~/work/os30days (master)$ make
+    ld -m elf_i386 -e HariMain -o bootpack.bin -T hrb.ld bootpack.o hankaku.o nasmfunc.o -static -L/usr/lib32 -lc
+    ld: section .text.__x86.get_pc_thunk.bx LMA [0000000000058e65,0000000000058e68] overlaps section .data LMA [0000000000058e65,0000000000075514]
+    ld: /usr/lib32/libc.a(iofclose.o):(.data.rel.local.DW.ref.__gcc_personality_v0[DW.ref.__gcc_personality_v0]+0x0): undefined reference to `__gcc_personality_v0'
+    ld: /usr/lib32/libc.a(iovsprintf.o): in function `_IO_str_chk_overflow':
+    (.text+0xc): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(iovsprintf.o): in function `__vsprintf_internal':
+    (.text+0x2f): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(genops.o): in function `save_for_backup':
+    (.text+0xb): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(genops.o): in function `flush_cleanup':
+    (.text+0x22c): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(genops.o): in function `_IO_un_link.part.0':
+    (.text+0x309): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(genops.o):(.text+0x60d): more undefined references to `_GLOBAL_OFFSET_TABLE_' follow
+    ld: /usr/lib32/libc.a(dl-misc.o): in function `_dl_strtoul':
+    (.text+0x7f0): undefined reference to `__udivdi3'
+    ld: /usr/lib32/libc.a(dl-tls.o): in function `allocate_dtv':
+    (.text+0xc): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(dl-tls.o): in function `oom':
+    (.text+0x48): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(dl-tls.o): in function `_dl_next_tls_modid':
+    (.text+0x7b): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(dl-tls.o): in function `_dl_count_modids':
+    (.text+0x18a): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(dl-tls.o): in function `_dl_get_tls_static_info':
+    (.text+0x1fa): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(dl-tls.o):(.text+0x22f): more undefined references to `_GLOBAL_OFFSET_TABLE_' follow
+    ld: /usr/lib32/libc.a(printf_fp.o): in function `__printf_fp_l':
+    (.text+0x4c6): undefined reference to `__unordtf2'
+    ld: (.text+0x52a): undefined reference to `__unordtf2'
+    ld: (.text+0x575): undefined reference to `__letf2'
+    ld: /usr/lib32/libc.a(printf_fp.o): in function `___printf_fp':
+    (.text+0x2c1a): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(reg-printf.o): in function `__register_printf_specifier':
+    (.text+0x12): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(printf_fphex.o): in function `__printf_fphex':
+    (.text+0xc): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: (.text+0xfc): undefined reference to `__unordtf2'
+    ld: (.text+0x15c): undefined reference to `__unordtf2'
+    ld: (.text+0x1aa): undefined reference to `__letf2'
+    ld: /usr/lib32/libc.a(reg-modifier.o): in function `__register_printf_modifier':
+    (.text+0xf): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(reg-modifier.o): in function `__handle_registered_modifier_mb':
+    (.text+0x1ca): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(reg-modifier.o): in function `__handle_registered_modifier_wc':
+    (.text+0x2ba): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(reg-type.o): in function `__register_printf_type':
+    (.text+0xe): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(vfwprintf-internal.o): in function `group_number':
+    (.text+0x8d): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(vfwprintf-internal.o):(.text+0x1a1): more undefined references to `_GLOBAL_OFFSET_TABLE_' follow
+    ld: /usr/lib32/libc.a(iofclose.o): in function `_IO_new_fclose.cold':
+    (.text.unlikely+0x36): undefined reference to `_Unwind_Resume'
+    ld: /usr/lib32/libc.a(iofflush.o): in function `_IO_fflush.cold':
+    (.text.unlikely+0x35): undefined reference to `_Unwind_Resume'
+    ld: /usr/lib32/libc.a(iofputs.o): in function `_IO_fputs.cold':
+    (.text.unlikely+0x35): undefined reference to `_Unwind_Resume'
+    ld: /usr/lib32/libc.a(iofwrite.o): in function `_IO_fwrite.cold':
+    (.text.unlikely+0x34): undefined reference to `_Unwind_Resume'
+    ld: /usr/lib32/libc.a(wfileops.o): in function `_IO_wfile_underflow.cold':
+    (.text.unlikely+0x34): undefined reference to `_Unwind_Resume'
+    ld: /usr/lib32/libc.a(fileops.o):(.text.unlikely+0x34): more undefined references to `_Unwind_Resume' follow
+    ld: /usr/lib32/libc.a(strcasecmp_l-ssse3.o): in function `__strcasecmp_ssse3':
+    (.text.ssse3+0xc): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(strcasecmp_l-ssse3.o): in function `__strcasecmp_l_ssse3':
+    (.text.ssse3+0x52): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(strcasecmp_l-sse4.o): in function `__strcasecmp_sse4_2':
+    (.text.sse4.2+0xc): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(strcasecmp_l-sse4.o): in function `__strcasecmp_l_sse4_2':
+    (.text.sse4.2+0x52): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(strcspn-c.o): in function `__strcspn_sse42':
+    (.text.sse4.2+0xf): undefined reference to `_GLOBAL_OFFSET_TABLE_'
+    ld: /usr/lib32/libc.a(strspn-c.o):(.text.sse4.2+0x13): more undefined references to `_GLOBAL_OFFSET_TABLE_' follow
+    make: *** [Makefile:28: bootpack.bin] Error 1
+    ```
+
+    </details>
+    おそらく、コンパイル時に `-nostdlib` オプションを付けているために、標準の各種マクロ等々が未定義だと言っていると思われる。
+    これら１つ１つを解決していくのはちょっと大変なので別の方法を考える。
+
+  - sprintf のライブラリを作成する（この方法で上手くいった）  
+    付属の CD-ROM に sprintf のソースコード一式があることがわかった。
+    ならばこのソースコードから静的ライブラリを作り、リンクすれば良いはず。
+    - ライブラリを作る用のサブディレクトリ `golibc` を作成
+      ```
+      $ mkdir golibc`
+      ```
+    - 静的ライブラリ `libgolibc.a` を作る  
+      作り方は `golibc` ディレクトリ内の [README.md](./golibc/README.md) を参照のこと。
+
+- `libgolibc.a` を使うように `Makefile` を修正
+  ```diff
+    IMGFILE=haribote.img
+    IPLFILE=ipl10.asm
+  + GOLIBCPATH=./golibc
+  ```
+  ```diff
+  - bootpack.bin : bootpack.o hankaku.o nasmfunc.o
+  -   ld -m elf_i386 -e HariMain -o $@ -T hrb.ld $^
+  + bootpack.bin : bootpack.o hankaku.o nasmfunc.o $(GOLIBCPATH)/libgolibc.a
+  +   ld -m elf_i386 -e HariMain -o $@ -T hrb.ld $^ -static -L$(GOLIBCPATH) -lgolibc
+  ```
+- `bootpack.c` を修正  
+  標準ライブラリは使用していないので `#include <stdio.h>` を削除し、sprintf のプロトタイプ宣言を追記する。
+
+  ```diff
+  - #include <stdio.h>
+  ```
+
+  ```diff
+    void putfonts8_asc(char *vram, int xsize, int x, int y, char c, unsigned char *s);
+
+  + int sprintf(char *s, const char *format, ...);
+  ```
+
+- 再度ビルドする  
+  ビルド成功し、書籍の通りの画面が表示された。
+
+【参考】
+
+- [5 日目 その 2](https://papamitra.hatenadiary.org/entry/20060528/1148785327)
+- [はりぼて OS を NASM・GCC で動かす(Mac OSX)](https://tatsumack.hatenablog.com/entry/2017/03/24/225706)
+- [C: 静的ライブラリと共有ライブラリについて](https://blog.amedama.jp/entry/2016/05/29/222739)
+
 #### マウスカーソルも描いてみよう (harib02h)
 
 #### GDT と IDT を初期化しよう (harib02i)
