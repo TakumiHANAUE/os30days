@@ -3,6 +3,7 @@ IMGFILE=haribote.img
 IPLFILE=ipl10.asm
 GOLIBCPATH=./golibc
 
+.PHONY : all
 all : $(IMGFILE)
 
 ipl10.bin : $(IPLFILE)
@@ -32,10 +33,12 @@ $(IMGFILE) : ipl10.bin haribote.sys
 #	1440[KB] (= 512 * 2880 byte)
 #	C: to install on MS-DOS file system
 
+.PHONY : run
 run : $(IMGFILE)
 	qemu-system-i386 -fda $(IMGFILE)
 # -fda: use 'file' as floppy disk 0/1 image
 
+.PHONY : clean
 clean : 
 	rm $(IMGFILE) \
 	   ipl10.bin ipl10.lst \
