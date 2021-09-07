@@ -2,6 +2,9 @@
 IMGFILE=haribote.img
 IPLFILE=ipl10.asm
 GOLIBCPATH=./golibc
+CSOURCES=$(wildcard *.c)
+COBJS=$(CSOURCES:.c=.o)
+OBJS=$(COBJS) nasmfunc.o
 
 .PHONY : all
 all : $(IMGFILE)
@@ -15,14 +18,20 @@ asmhead.bin : asmhead.asm
 bootpack.o : bootpack.c
 	gcc -c -m32 -fno-pic -nostdlib -o $@ $^
 
+graphic.o : graphic.c
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $^
+
+dsctbl.o : dsctbl.c
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $^
+
 hankaku.o : hankaku.c
 	gcc -c -m32 -fno-pic -nostdlib -o $@ $^
 
 nasmfunc.o : nasmfunc.asm
 	nasm -f elf32 $^ -o $@ -l $(@:.o=.lst)
 
-bootpack.bin : bootpack.o hankaku.o nasmfunc.o $(GOLIBCPATH)/libgolibc.a
-	ld -m elf_i386 -e HariMain -o $@ -T hrb.ld $^ -static -L$(GOLIBCPATH) -lgolibc
+bootpack.bin : $(OBJS) $(GOLIBCPATH)/libgolibc.a
+	ld -m elf_i386 -e HariMain -o $@ -T hrb.ld $(OBJS) -static -L$(GOLIBCPATH) -lgolibc
 
 haribote.sys : asmhead.bin bootpack.bin
 	cat $^ > $@
@@ -43,8 +52,7 @@ clean :
 	rm $(IMGFILE) \
 	   ipl10.bin ipl10.lst \
 	   asmhead.bin asmhead.lst \
-	   bootpack.o \
-	   hankaku.o \
-	   nasmfunc.o nasmfunc.lst \
+	   $(OBJS) \
+	   nasmfunc.lst \
 	   bootpack.bin \
 	   haribote.sys

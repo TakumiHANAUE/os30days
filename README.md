@@ -928,6 +928,9 @@
 
 #### ソースファイルの分割 (harib03a)
 
+- 書籍に従って `bootpack.c` 分割し、`graphic.c` と `dsctbl.c` を作成する（`projects/06_day/harib02a/`を参照する）
+- 分割したソースファイルをビルドするように `Makefile` を修正する。
+
 #### Makefile 整理 (harib03b)
 
 #### ヘッダファイル整理 (harib03c)
