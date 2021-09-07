@@ -923,3 +923,17 @@
 
 - 書籍に従って `bootpack.c` を修正する（`projects/05_day/harib02i/bootpack.c`を参照する）
 - 書籍に従って `nasmfunc.asm` を修正する（`projects/05_day/harib02i/naskfunc.nas`を参照する）
+
+### 六日目 : 分割コンパイルと割り込み処理
+
+#### ソースファイルの分割 (harib03a)
+
+#### Makefile 整理 (harib03b)
+
+#### ヘッダファイル整理 (harib03c)
+
+#### やり残した説明
+
+#### PIC 初期化 (harib03d)
+
+#### 割り込みハンドラ作成 (harib03e)
