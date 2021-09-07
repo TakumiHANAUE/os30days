@@ -920,3 +920,6 @@
 - 書籍に従って `bootpack.c` を修正する（`projects/05_day/harib02h/bootpack.c`を参照する）
 
 #### GDT と IDT を初期化しよう (harib02i)
+
+- 書籍に従って `bootpack.c` を修正する（`projects/05_day/harib02i/bootpack.c`を参照する）
+- 書籍に従って `nasmfunc.asm` を修正する（`projects/05_day/harib02i/naskfunc.nas`を参照する）
