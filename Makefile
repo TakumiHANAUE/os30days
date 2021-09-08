@@ -15,17 +15,8 @@ ipl10.bin : $(IPLFILE)
 asmhead.bin : asmhead.asm
 	nasm $^ -o $@ -l $(@:.bin=.lst)
 
-bootpack.o : bootpack.c
-	gcc -c -m32 -fno-pic -nostdlib -o $@ $^
-
-graphic.o : graphic.c
-	gcc -c -m32 -fno-pic -nostdlib -o $@ $^
-
-dsctbl.o : dsctbl.c
-	gcc -c -m32 -fno-pic -nostdlib -o $@ $^
-
-hankaku.o : hankaku.c
-	gcc -c -m32 -fno-pic -nostdlib -o $@ $^
+%.o : %.c
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $<
 
 nasmfunc.o : nasmfunc.asm
 	nasm -f elf32 $^ -o $@ -l $(@:.o=.lst)

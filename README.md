@@ -933,6 +933,25 @@
 
 #### Makefile 整理 (harib03b)
 
+- 書籍を参考に`Makefile`を修正する  
+  .c から .o を生成する命令をパターンルールを使って書き直した。
+
+  ```diff
+  - bootpack.o : bootpack.c
+  -   gcc -c -m32 -fno-pic -nostdlib -o $@ $^
+  -
+  - graphic.o : graphic.c
+  -   gcc -c -m32 -fno-pic -nostdlib -o $@ $^
+  -
+  - dsctbl.o : dsctbl.c
+  -   gcc -c -m32 -fno-pic -nostdlib -o $@ $^
+  -
+  - hankaku.o : hankaku.c
+  -   gcc -c -m32 -fno-pic -nostdlib -o $@ $^
+  + %.o : %.c
+  +   gcc -c -m32 -fno-pic -nostdlib -o $@ $<
+  ```
+
 #### ヘッダファイル整理 (harib03c)
 
 #### やり残した説明
