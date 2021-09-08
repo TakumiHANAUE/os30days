@@ -3,3 +3,4 @@
 *.sys
 *.lst
 golibc/golibc/*
+haribote.img
