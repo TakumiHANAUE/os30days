@@ -954,6 +954,11 @@
 
 #### ヘッダファイル整理 (harib03c)
 
+- 書籍に従って `bootpack.h` を作成する（`projects/06_day/harib03c/bootpack.h`を参照する）
+- 書籍に従って `bootpack.c` を修正する（`projects/06_day/harib03c/bootpack.c`を参照する）
+- 書籍に従って `graphic.c` を修正する（`projects/06_day/harib03c/graphic.c`を参照する）
+- 書籍に従って `dsctbl.c` を修正する（`projects/06_day/harib03c/dsctbl.c`を参照する）
+
 #### やり残した説明
 
 #### PIC 初期化 (harib03d)
