@@ -971,3 +971,9 @@
 - `int.c` をビルドできるように `Makefile` を修正する。
 
 #### 割り込みハンドラ作成 (harib03e)
+
+- 書籍に従って `int.c` を修正する（`projects/06_day/harib03e/int.c`を参照する）
+- 書籍に従って `nasmfunc.asm` を修正する（`projects/06_day/harib03e/naskfunc.nas`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/06_day/harib03e/bootpack.h`を参照する）
+- 書籍に従って `dsctbl.c` を修正する（`projects/06_day/harib03e/dsctbl.c`を参照する）
+- 書籍に従って `bootpack.c` を修正する（`projects/06_day/harib03e/bootpack.c`を参照する）
