@@ -965,4 +965,9 @@
 
 #### PIC 初期化 (harib03d)
 
+- 書籍に従って `int.c` を作成する（`projects/06_day/harib03d/int.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/06_day/harib03d/bootpack.h`を参照する）
+- 書籍に従って `bootpack.c` を修正する（`projects/06_day/harib03d/bootpack.c`を参照する）
+- `int.c` をビルドできるように `Makefile` を修正する。
+
 #### 割り込みハンドラ作成 (harib03e)
