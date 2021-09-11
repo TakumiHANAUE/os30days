@@ -977,3 +977,19 @@
 - 書籍に従って `bootpack.h` を修正する（`projects/06_day/harib03e/bootpack.h`を参照する）
 - 書籍に従って `dsctbl.c` を修正する（`projects/06_day/harib03e/dsctbl.c`を参照する）
 - 書籍に従って `bootpack.c` を修正する（`projects/06_day/harib03e/bootpack.c`を参照する）
+
+### 七日目 : FIFO とマウス制御
+
+#### キーコードを取得しよう (harib04a)
+
+#### 割り込み処理は手早く (harib04b)
+
+#### FIFO バッファを作る (harib04c)
+
+#### FIFO バッファを改良する (harib04d)
+
+#### FIFO バッファを整理する (harib04e)
+
+#### さあマウスだ (harib04f)
+
+#### マウスからのデータ受信 (harib04g)
