@@ -6,5 +6,8 @@
     },
     "[c]": {
         "editor.formatOnSave": false
-    }
+    },
+    "files.associations": {
+        "*.h": "c"
+    },
 }
