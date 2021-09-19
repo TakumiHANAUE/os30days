@@ -990,6 +990,12 @@
 
 #### 割り込み処理は手早く (harib04b)
 
+- 書籍に従って `int.c` を修正する（`projects/07_day/harib04b/int.c`を参照する）
+- 書籍に従って `bootpack.c` を修正する（`projects/07_day/harib04b/bootpack.c`を参照する）
+- `bootpack.h` を以下の通り修正する。
+  - `io_stihlt()` のプロトタイプ宣言を追記する。
+  - `struct KEYBUF` の定義を追記する。
+
 #### FIFO バッファを作る (harib04c)
 
 #### FIFO バッファを改良する (harib04d)
