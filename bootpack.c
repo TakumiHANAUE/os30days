@@ -1,7 +1,7 @@
 
 #include "bootpack.h"
+#include "golibc.h"
 
-int sprintf(char *s, const char *format, ...);
 
 void HariMain(void)
 {

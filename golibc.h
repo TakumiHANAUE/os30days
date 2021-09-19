@@ -1,0 +1,1 @@
+int sprintf(char *s, const char *format, ...);

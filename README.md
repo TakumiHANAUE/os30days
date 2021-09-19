@@ -980,6 +980,12 @@
 
 ### 七日目 : FIFO とマウス制御
 
+- 書籍に従って `int.c` を修正する（`projects/07_day/harib04a/int.c`を参照する）
+- `bootpack.h` に `io_in8()` のプロトタイプ宣言を追記する。
+- `golibc.h` を新規作成し、`sprintf()` のプロトタイプ宣言を記載する。
+  - `bootpack.c` から `sprintf()` のプロトタイプ宣言を削除し、`golibc.h` の include 文を追記する。
+  - `int.c` に `golibc.h` の include 文を追記する。
+
 #### キーコードを取得しよう (harib04a)
 
 #### 割り込み処理は手早く (harib04b)
