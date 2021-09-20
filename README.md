@@ -1017,4 +1017,6 @@
 
 #### さあマウスだ (harib04f)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/07_day/harib04e/bootpack.c`を参照する）
+
 #### マウスからのデータ受信 (harib04g)
