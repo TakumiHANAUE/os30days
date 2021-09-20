@@ -16,7 +16,7 @@ asmhead.bin : asmhead.asm
 	nasm $^ -o $@ -l $(@:.bin=.lst)
 
 %.o : %.c
-	gcc -c -m32 -fno-pic -nostdlib -o $@ $<
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -Wall
 
 nasmfunc.o : nasmfunc.asm
 	nasm -f elf32 $^ -o $@ -l $(@:.o=.lst)
