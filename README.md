@@ -1020,3 +1020,6 @@
 - 書籍に従って `bootpack.c` を修正する（`projects/07_day/harib04e/bootpack.c`を参照する）
 
 #### マウスからのデータ受信 (harib04g)
+
+- 書籍に従って `int.c` を修正する（`projects/07_day/harib04g/int.c`を参照する）
+- 書籍に従って `bootpack.c` を修正する（`projects/07_day/harib04g/bootpack.c`を参照する）
