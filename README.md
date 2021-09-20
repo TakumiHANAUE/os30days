@@ -1010,6 +1010,11 @@
 
 #### FIFO バッファを整理する (harib04e)
 
+- 書籍に従って `fifo.c` を作成する（`projects/07_day/harib04e/fifo.c`を参照する）
+- 書籍に従って `int.c` を修正する（`projects/07_day/harib04e/int.c`を参照する）
+- 書籍に従って `bootpack.c` を修正する（`projects/07_day/harib04e/bootpack.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/07_day/harib04e/bootpack.h`を参照する）
+
 #### さあマウスだ (harib04f)
 
 #### マウスからのデータ受信 (harib04g)
