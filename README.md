@@ -1028,6 +1028,8 @@
 
 #### マウスの解読(1) (harib05a)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/08_day/harib05a/bootpack.c`を参照する）
+
 #### ちょっと整理 (harib05b)
 
 #### マウスの解読(2) (harib05c)
