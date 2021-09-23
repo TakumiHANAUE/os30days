@@ -1059,4 +1059,6 @@
 
 #### 動けマウス (harib05d)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/08_day/harib05d/bootpack.c`を参照する）
+
 #### 32 ビットモードへの道
