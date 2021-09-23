@@ -1032,6 +1032,8 @@
 
 #### ちょっと整理 (harib05b)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/08_day/harib05b/bootpack.c`を参照する）
+
 #### マウスの解読(2) (harib05c)
 
 #### 動けマウス (harib05d)
