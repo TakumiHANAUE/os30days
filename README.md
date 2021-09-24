@@ -1069,6 +1069,12 @@
 
 #### ソースの整理 (harib06a)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/09_day/harib06a/bootpack.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/09_day/harib06a/bootpack.h`を参照する）
+- 書籍に従って `int.c` を修正する（`projects/09_day/harib06a/int.c`を参照する）
+- 書籍に従って `keyboard.c` を作成する（`projects/09_day/harib06a/keyboard.c`を参照する）
+- 書籍に従って `mouse.c` を作成する（`projects/09_day/harib06a/mouse.c`を参照する）
+
 #### メモリ容量チェック(1) (harib06b)
 
 #### メモリ容量チェック(2) (harib06c)
