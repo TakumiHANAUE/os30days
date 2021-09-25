@@ -1102,3 +1102,6 @@
 - 書籍に従って `nasmfunc.asm` を修正する（`projects/09_day/harib06b/naskfunc.nas`を参照する）
 
 #### メモリ管理に挑戦 (harib06d)
+
+- 書籍に従って `bootpack.c` を修正する（`projects/09_day/harib06b/bootpack.c`を参照する）  
+  HariMain()中の 2 回 memman_free()している箇所は、それぞれ 0x9e000(632KB) と memtotal(32MB) - 0x400000(4MB) = 28MB 分の解放なので、合わせて 632KB + 28MB(=28,672KB) = 29,304KB となる。
