@@ -1097,4 +1097,8 @@
 
 #### メモリ容量チェック(2) (harib06c)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/09_day/harib06b/bootpack.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/09_day/harib06b/bootpack.h`を参照する）
+- 書籍に従って `nasmfunc.asm` を修正する（`projects/09_day/harib06b/naskfunc.nas`を参照する）
+
 #### メモリ管理に挑戦 (harib06d)
