@@ -1077,6 +1077,24 @@
 
 #### メモリ容量チェック(1) (harib06b)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/09_day/harib06b/bootpack.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/09_day/harib06b/bootpack.h`を参照する）
+- 書籍に従って `nasmfunc.asm` を修正する（`projects/09_day/harib06b/naskfunc.nas`を参照する）
+- haribote.img を実行した結果、書籍と異なり"memory 128MB" と表示された。  
+  書籍によると"32MB"というのは qemu の設定のよるとのこと。
+  [qemu コマンドのオプション](https://qemu-project.gitlab.io/qemu/system/invocation.html#hxtool-0) を見てみると、128MB がデフォルト値とわかった。
+  ```
+  -m [size=]megs[,slots=n,maxmem=size]
+    Sets guest startup RAM size to megs megabytes. Default is 128 MiB.
+    （以下略）
+  ```
+  img 起動スクリプトを以下の通り書き換えたところ、"32MB"と表示された。
+  ```diff
+  - "C:\Program Files\qemu\qemu-system-i386.exe" -fda "\\wsl$\Ubuntu-20.04\PATH_TO_IMG\haribote.img"
+  + "C:\Program Files\qemu\qemu-system-i386.exe" -fda -m 32M \\wsl$\Ubuntu-20.04\PATH_TO_IMG\haribote.img"
+  ```
+  書籍の"32MB じゃなくて 3072MB だって？"になっていないが、書籍とは環境が異なるので気にしないでおく。
+
 #### メモリ容量チェック(2) (harib06c)
 
 #### メモリ管理に挑戦 (harib06d)
