@@ -1105,3 +1105,13 @@
 
 - 書籍に従って `bootpack.c` を修正する（`projects/09_day/harib06b/bootpack.c`を参照する）  
   HariMain()中の 2 回 memman_free()している箇所は、それぞれ 0x9e000(632KB) と memtotal(32MB) - 0x400000(4MB) = 28MB 分の解放なので、合わせて 632KB + 28MB(=28,672KB) = 29,304KB となる。
+
+### 十日目 : 重ね合わせ処理
+
+#### メモリ管理の続き (harib07a)
+
+#### 重ね合わせ処理 (harib07b)
+
+#### 重ね合わせ処理の高速化(1) (harib07c)
+
+#### 重ね合わせ処理の高速化(2) (harib07d)
