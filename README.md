@@ -1110,6 +1110,10 @@
 
 #### メモリ管理の続き (harib07a)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/10_day/harib07a/bootpack.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/10_day/harib07a/bootpack.h`を参照する）
+- 書籍に従って `memory.c` を作成する（`projects/10_day/harib07a/memory.c`を参照する）
+
 #### 重ね合わせ処理 (harib07b)
 
 #### 重ね合わせ処理の高速化(1) (harib07c)
