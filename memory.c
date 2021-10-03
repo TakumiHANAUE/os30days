@@ -81,8 +81,8 @@ unsigned int memman_alloc(struct MEMMAN *man, unsigned int size)
                 {
                     man->free[i] = man->free[i + 1]; /* 構造体の代入 */
                 }
-                return a;
             }
+            return a;
         }
     }
     return 0; /* あきがない */
