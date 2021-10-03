@@ -1116,6 +1116,10 @@
 
 #### 重ね合わせ処理 (harib07b)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/10_day/harib07b/bootpack.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/10_day/harib07b/bootpack.h`を参照する）
+- 書籍に従って `sheet.c` を作成する（`projects/10_day/harib07b/sheet.c`を参照する）
+
 #### 重ね合わせ処理の高速化(1) (harib07c)
 
 #### 重ね合わせ処理の高速化(2) (harib07d)
