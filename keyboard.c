@@ -2,7 +2,7 @@
 
 #include "bootpack.h"
 
-struct FIFO8 keyinfo;
+struct FIFO8 keyfifo;
 
 /* PS/2キーボードからの割り込み */
 void inthandler21(int *esp)
@@ -10,7 +10,7 @@ void inthandler21(int *esp)
     unsigned char data;
     io_out8(PIC0_OCW2, 0x61); /* IRQ-01受付完了をPICに通知 */
     data = io_in8(PORT_KEYDAT);
-    fifo8_put(&keyinfo, data);
+    fifo8_put(&keyfifo, data);
     return;
 }
 

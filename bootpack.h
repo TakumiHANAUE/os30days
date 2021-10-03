@@ -112,7 +112,7 @@ void inthandler27(int *esp);
 void inthandler21(int *esp);
 void wait_KBC_sendready(void);
 void init_keyboard(void);
-extern struct FIFO8 keyinfo;
+extern struct FIFO8 keyfifo;
 #define PORT_KEYDAT 0x0060
 #define PORT_KEYCMD 0x0064
 
@@ -124,7 +124,7 @@ struct MOUSE_DEC {
 void inthandler2c(int *esp);
 void enable_mouse(struct MOUSE_DEC *mdec);
 int mouse_decode(struct MOUSE_DEC *mdec, unsigned char dat);
-extern struct FIFO8 mouseinfo;
+extern struct FIFO8 mousefifo;
 
 /* memory.c */
 #define MEMMAN_FREES 4090 /* これで約32KB */

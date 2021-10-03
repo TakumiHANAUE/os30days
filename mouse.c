@@ -2,7 +2,7 @@
 
 #include "bootpack.h"
 
-struct FIFO8 mouseinfo;
+struct FIFO8 mousefifo;
 
 /* PS/2マウスからの割り込み */
 void inthandler2c(int *esp)
@@ -11,7 +11,7 @@ void inthandler2c(int *esp)
     io_out8(PIC1_OCW2, 0x64); /* IRQ-12受付完了をPIC1に通知 */
     io_out8(PIC0_OCW2, 0x62); /* IRQ-02受付完了をPIC0に通知 */
     data = io_in8(PORT_KEYDAT);
-    fifo8_put(&mouseinfo, data);
+    fifo8_put(&mousefifo, data);
     return;
 }
 

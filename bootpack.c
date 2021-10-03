@@ -16,8 +16,8 @@ void HariMain(void)
     init_pic();
     io_sti(); /* IDT/PICの初期化が終わったのでCPUの割り込み禁止を解除 */
 
-    fifo8_init(&keyinfo, 32, keybuf);
-    fifo8_init(&mouseinfo, 128, mousebuf);
+    fifo8_init(&keyfifo, 32, keybuf);
+    fifo8_init(&mousefifo, 128, mousebuf);
     io_out8(PIC0_IMR, 0xf9); /* PIC1とキーボードを許可(11111001) */
     io_out8(PIC1_IMR, 0xef); /* マウスを許可(11101111) */
 
@@ -44,23 +44,23 @@ void HariMain(void)
     while (1)
     {
         io_cli();
-        if ( (fifo8_status(&keyinfo) + fifo8_status(&mouseinfo) ) == 0)
+        if ( (fifo8_status(&keyfifo) + fifo8_status(&mousefifo) ) == 0)
         {
             io_stihlt();
         }
         else
         {
-            if (fifo8_status(&keyinfo) != 0)
+            if (fifo8_status(&keyfifo) != 0)
             {
-                i = fifo8_get(&keyinfo);
+                i = fifo8_get(&keyfifo);
                 io_sti();
                 sprintf(s, "%02X", i);
                 boxfill8(binfo->vram, binfo->scrnx, COL8_008484, 0, 16, 15, 31);
                 putfonts8_asc(binfo->vram, binfo->scrnx, 0, 16, COL8_FFFFFF, (unsigned char *)s);
             }
-            else if (fifo8_status(&mouseinfo) != 0)
+            else if (fifo8_status(&mousefifo) != 0)
             {
-                i = fifo8_get(&mouseinfo);
+                i = fifo8_get(&mousefifo);
                 io_sti();
                 if (mouse_decode(&mdec, i) != 0)
                 {
