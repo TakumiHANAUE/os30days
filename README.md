@@ -1139,6 +1139,8 @@
 
 #### 画面外サポート (harib08b)
 
+- 書籍に従って `sheet.c` を修正する（`projects/10_day/harib08b/sheet.c`を参照する）
+
 #### shtctl の指定省略 (harib08c)
 
 #### ウィンドウを出してみよう (harib08d)
