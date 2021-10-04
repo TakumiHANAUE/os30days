@@ -1128,7 +1128,7 @@
 
 #### 重ね合わせ処理の高速化(2) (harib07d)
 
-- 書籍に従って `sheet.c` を修正する（`projects/10_day/harib07c/sheet.c`を参照する）
+- 書籍に従って `sheet.c` を修正する（`projects/10_day/harib07d/sheet.c`を参照する）
 
 ### 十一日目 : 重ね合わせ処理
 
