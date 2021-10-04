@@ -1134,6 +1134,9 @@
 
 #### もっとマウス (harib08a)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/10_day/harib08a/bootpack.c`を参照する）  
+  （マウスが画面外に出ると誤動作する状態）
+
 #### 画面外サポート (harib08b)
 
 #### shtctl の指定省略 (harib08c)
