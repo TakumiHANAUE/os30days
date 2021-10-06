@@ -1143,6 +1143,10 @@
 
 #### shtctl の指定省略 (harib08c)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/10_day/harib08c/bootpack.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/10_day/harib08c/bootpack.h`を参照する）
+- 書籍に従って `sheet.c` を修正する（`projects/10_day/harib08c/sheet.c`を参照する）
+
 #### ウィンドウを出してみよう (harib08d)
 
 #### 少し遊んでみる (harib08e)
