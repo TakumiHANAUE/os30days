@@ -1149,6 +1149,8 @@
 
 #### ウィンドウを出してみよう (harib08d)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/10_day/harib08d/bootpack.c`を参照する）
+
 #### 少し遊んでみる (harib08e)
 
 #### 高速カウンタだぁ (harib08f)
