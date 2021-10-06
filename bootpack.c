@@ -2,7 +2,7 @@
 #include "bootpack.h"
 #include "golibc.h"
 
-void make_window8(char *buf, int xsize, int ysize, unsigned char *title);
+void make_window8(char *buf, int xsize, int ysize, char *title);
 
 void HariMain(void)
 {
@@ -45,9 +45,9 @@ void HariMain(void)
     sheet_setbuf(sht_win, buf_win, 160, 68, -1); /* 透明色なし */
     init_screen8(buf_back, binfo->scrnx, binfo->scrny);
     init_mouse_cursor8(buf_mouse, 99); /* 背景色は99 */
-    make_window8(buf_win, 160, 68, (unsigned char *)"window");
-    putfonts8_asc(buf_win, 160, 24, 28, COL8_000000, (unsigned char *)"Welcome to");
-    putfonts8_asc(buf_win, 160, 24, 44, COL8_000000, (unsigned char *)"Haribote-OS!");
+    make_window8(buf_win, 160, 68, "window");
+    putfonts8_asc(buf_win, 160, 24, 28, COL8_000000, "Welcome to");
+    putfonts8_asc(buf_win, 160, 24, 44, COL8_000000, "Haribote-OS!");
     sheet_slide(sht_back, 0, 0);
     mx = (binfo->scrnx - 16) / 2;   /* 画面中央になるように座標計算 */
     my = (binfo->scrny - 28 - 16) / 2;
@@ -57,10 +57,10 @@ void HariMain(void)
     sheet_updown(sht_win, 1);
     sheet_updown(sht_mouse, 2);
     sprintf(s, "(%3d, %3d)", mx, my);
-    putfonts8_asc(buf_back, binfo->scrnx, 0, 0, COL8_FFFFFF, (unsigned char *)s);
+    putfonts8_asc(buf_back, binfo->scrnx, 0, 0, COL8_FFFFFF, s);
     sprintf(s, "memory %dMB   free : %dKB",
             memtotal / (1024 * 1024), memman_total(memman) / 1024);
-    putfonts8_asc(buf_back, binfo->scrnx, 0, 32, COL8_FFFFFF, (unsigned char *)s);
+    putfonts8_asc(buf_back, binfo->scrnx, 0, 32, COL8_FFFFFF, s);
     sheet_refresh(sht_back, 0, 0, binfo->scrnx, 48);
 
     while (1)
@@ -78,7 +78,7 @@ void HariMain(void)
                 io_sti();
                 sprintf(s, "%02X", i);
                 boxfill8(buf_back, binfo->scrnx, COL8_008484, 0, 16, 15, 31);
-                putfonts8_asc(buf_back, binfo->scrnx, 0, 16, COL8_FFFFFF, (unsigned char *)s);
+                putfonts8_asc(buf_back, binfo->scrnx, 0, 16, COL8_FFFFFF, s);
                 sheet_refresh(sht_back, 0, 16, 16, 32);
             }
             else if (fifo8_status(&mousefifo) != 0)
@@ -102,7 +102,7 @@ void HariMain(void)
                         s[2] = 'C';
                     }
                     boxfill8(buf_back, binfo->scrnx, COL8_008484, 32, 16, 32 + 15 * 8 - 1, 31);
-                    putfonts8_asc(buf_back, binfo->scrnx, 32, 16, COL8_FFFFFF, (unsigned char *)s);
+                    putfonts8_asc(buf_back, binfo->scrnx, 32, 16, COL8_FFFFFF, s);
                     sheet_refresh(sht_back, 32, 16, 32 + 15 * 8, 32);
                     /* マウスカーソルの移動 */
                     mx += mdec.x;
@@ -125,7 +125,7 @@ void HariMain(void)
                     }
                     sprintf(s, "(%3d, %3d)", mx, my);
                     boxfill8(buf_back, binfo->scrnx, COL8_008484, 0, 0, 79, 15); /* 座標消す */
-                    putfonts8_asc(buf_back, binfo->scrnx, 0, 0, COL8_FFFFFF, (unsigned char *)s); /* 座標書く */
+                    putfonts8_asc(buf_back, binfo->scrnx, 0, 0, COL8_FFFFFF, s); /* 座標書く */
                     sheet_refresh(sht_back, 0, 0, 80, 16);
                     sheet_slide(sht_mouse, mx, my); /* sheet_refreshを含む */
                 }
@@ -134,7 +134,7 @@ void HariMain(void)
     }
 }
 
-void make_window8(char *buf, int xsize, int ysize, unsigned char *title)
+void make_window8(char *buf, int xsize, int ysize, char *title)
 {
     static char closebtn[14][16] = {
         "OOOOOOOOOOOOOOO@",
