@@ -1153,6 +1153,8 @@
 
 #### 少し遊んでみる (harib08e)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/10_day/harib08e/bootpack.c`を参照する）
+
 #### 高速カウンタだぁ (harib08f)
 
 #### チラチラ解消(1) (harib08g)
