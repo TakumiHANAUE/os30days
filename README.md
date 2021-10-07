@@ -1157,6 +1157,8 @@
 
 #### 高速カウンタだぁ (harib08f)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/10_day/harib08f/bootpack.c`を参照する）
+
 #### チラチラ解消(1) (harib08g)
 
 #### チラチラ解消(2) (harib08h)
