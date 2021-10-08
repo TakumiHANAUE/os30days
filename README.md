@@ -1165,3 +1165,6 @@
   - 書籍と実装差異があったので合わせて修正
 
 #### チラチラ解消(2) (harib08h)
+
+- 書籍に従って `bootpack.h` を修正する（`projects/10_day/harib08h/bootpack.h`を参照する）
+- 書籍に従って `sheet.c` を修正する（`projects/10_day/harib08h/sheet.c`を参照する）
