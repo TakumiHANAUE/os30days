@@ -1168,3 +1168,19 @@
 
 - 書籍に従って `bootpack.h` を修正する（`projects/10_day/harib08h/bootpack.h`を参照する）
 - 書籍に従って `sheet.c` を修正する（`projects/10_day/harib08h/sheet.c`を参照する）
+
+### 十二日目 : タイマ‐１
+
+#### タイマを使おう (harib09a)
+
+#### 時間をはかってみよう (harib09b)
+
+#### タイムアウト機能 (harib09c)
+
+#### 複数のタイマを (harib09d)
+
+#### 割り込み処理は短く(1) (harib09e)
+
+#### 割り込み処理は短く(2) (harib09f)
+
+#### 割り込み処理は短く(3) (harib09g)
