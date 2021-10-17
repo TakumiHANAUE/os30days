@@ -1173,6 +1173,12 @@
 
 #### タイマを使おう (harib09a)
 
+- 書籍に従って `timer.c` を作成する（`projects/12_day/harib09a/timer.c`を参照する）
+- 書籍に従って `bootpack.c` を修正する（`projects/12_day/harib09a/bootpack.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/12_day/harib09a/bootpack.h`を参照する）
+- 書籍に従って `dsctbl.c` を修正する（`projects/12_day/harib09a/dsctbl.c`を参照する）
+- 書籍に従って `nasmfunc.asm` を修正する（`projects/12_day/harib09a/naskfunk.nas`を参照する）
+
 #### 時間をはかってみよう (harib09b)
 
 #### タイムアウト機能 (harib09c)
