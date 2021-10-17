@@ -1134,40 +1134,40 @@
 
 #### もっとマウス (harib08a)
 
-- 書籍に従って `bootpack.c` を修正する（`projects/10_day/harib08a/bootpack.c`を参照する）  
+- 書籍に従って `bootpack.c` を修正する（`projects/11_day/harib08a/bootpack.c`を参照する）  
   （マウスが画面外に出ると誤動作する状態）
 
 #### 画面外サポート (harib08b)
 
-- 書籍に従って `sheet.c` を修正する（`projects/10_day/harib08b/sheet.c`を参照する）
+- 書籍に従って `sheet.c` を修正する（`projects/11_day/harib08b/sheet.c`を参照する）
 
 #### shtctl の指定省略 (harib08c)
 
-- 書籍に従って `bootpack.c` を修正する（`projects/10_day/harib08c/bootpack.c`を参照する）
-- 書籍に従って `bootpack.h` を修正する（`projects/10_day/harib08c/bootpack.h`を参照する）
-- 書籍に従って `sheet.c` を修正する（`projects/10_day/harib08c/sheet.c`を参照する）
+- 書籍に従って `bootpack.c` を修正する（`projects/11_day/harib08c/bootpack.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/11_day/harib08c/bootpack.h`を参照する）
+- 書籍に従って `sheet.c` を修正する（`projects/11_day/harib08c/sheet.c`を参照する）
 
 #### ウィンドウを出してみよう (harib08d)
 
-- 書籍に従って `bootpack.c` を修正する（`projects/10_day/harib08d/bootpack.c`を参照する）
+- 書籍に従って `bootpack.c` を修正する（`projects/11_day/harib08d/bootpack.c`を参照する）
 
 #### 少し遊んでみる (harib08e)
 
-- 書籍に従って `bootpack.c` を修正する（`projects/10_day/harib08e/bootpack.c`を参照する）
+- 書籍に従って `bootpack.c` を修正する（`projects/11_day/harib08e/bootpack.c`を参照する）
 
 #### 高速カウンタだぁ (harib08f)
 
-- 書籍に従って `bootpack.c` を修正する（`projects/10_day/harib08f/bootpack.c`を参照する）
+- 書籍に従って `bootpack.c` を修正する（`projects/11_day/harib08f/bootpack.c`を参照する）
 
 #### チラチラ解消(1) (harib08g)
 
-- 書籍に従って `sheet.c` を修正する（`projects/10_day/harib08g/sheet.c`を参照する）
+- 書籍に従って `sheet.c` を修正する（`projects/11_day/harib08g/sheet.c`を参照する）
   - 書籍と実装差異があったので合わせて修正
 
 #### チラチラ解消(2) (harib08h)
 
-- 書籍に従って `bootpack.h` を修正する（`projects/10_day/harib08h/bootpack.h`を参照する）
-- 書籍に従って `sheet.c` を修正する（`projects/10_day/harib08h/sheet.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/11_day/harib08h/bootpack.h`を参照する）
+- 書籍に従って `sheet.c` を修正する（`projects/11_day/harib08h/sheet.c`を参照する）
 
 ### 十二日目 : タイマ‐１
 
