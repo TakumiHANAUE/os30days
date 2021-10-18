@@ -117,7 +117,7 @@ asm_inthandler20:
     MOV     ES, AX
     CALL    inthandler20
     POP     EAX
-    POPD
+    POPAD
     POP     DS
     POP     ES
     IRETD
