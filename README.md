@@ -1181,6 +1181,10 @@
 
 #### 時間をはかってみよう (harib09b)
 
+- 書籍に従って `timer.c` を修正する（`projects/12_day/harib09b/timer.c`を修正する）
+- 書籍に従って `bootpack.c` を修正する（`projects/12_day/harib09b/bootpack.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/12_day/harib09b/bootpack.h`を参照する）
+
 #### タイムアウト機能 (harib09c)
 
 #### 複数のタイマを (harib09d)

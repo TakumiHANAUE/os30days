@@ -10,7 +10,7 @@ void HariMain(void)
     char s[40];
     unsigned char keybuf[32], mousebuf[128];
     int mx, my, i;
-    unsigned int memtotal, count = 0;
+    unsigned int memtotal;
     struct MOUSE_DEC mdec;
     struct MEMMAN *memman = (struct MEMMAN *) MEMMAN_ADDR;
     struct SHTCTL *shtctl;
@@ -64,8 +64,7 @@ void HariMain(void)
 
     while (1)
     {
-        count++;
-        sprintf(s, "%010d", count);
+        sprintf(s, "%010d", timerctl.count);
         boxfill8(buf_win, 160, COL8_C6C6C6, 40, 28, 119, 43);
         putfonts8_asc(buf_win, 160, 40, 28, COL8_000000, s);
         sheet_refresh(sht_win, 40, 28, 120, 44);
