@@ -1187,6 +1187,10 @@
 
 #### タイムアウト機能 (harib09c)
 
+- 書籍に従って `timer.c` を修正する（`projects/12_day/harib09c/timer.c`を修正する）
+- 書籍に従って `bootpack.c` を修正する（`projects/12_day/harib09c/bootpack.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/12_day/harib09c/bootpack.h`を参照する）
+
 #### 複数のタイマを (harib09d)
 
 #### 割り込み処理は短く(1) (harib09e)
