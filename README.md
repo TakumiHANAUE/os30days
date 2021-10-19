@@ -1193,6 +1193,10 @@
 
 #### 複数のタイマを (harib09d)
 
+- 書籍に従って `timer.c` を修正する（`projects/12_day/harib09d/timer.c`を修正する）
+- 書籍に従って `bootpack.c` を修正する（`projects/12_day/harib09d/bootpack.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/12_day/harib09d/bootpack.h`を参照する）
+
 #### 割り込み処理は短く(1) (harib09e)
 
 #### 割り込み処理は短く(2) (harib09f)
