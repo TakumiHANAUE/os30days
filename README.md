@@ -1199,7 +1199,7 @@
 
 #### 割り込み処理は短く(1) (harib09e)
 
-- 書籍に従って `timer.c` を修正する（`projects/12_day/harib09d/timer.c`を修正する）
+- 書籍に従って `timer.c` を修正する（`projects/12_day/harib09e/timer.c`を修正する）
 
 #### 割り込み処理は短く(2) (harib09f)
 
