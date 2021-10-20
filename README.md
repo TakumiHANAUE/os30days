@@ -1207,3 +1207,6 @@
 - 書籍に従って `bootpack.h` を修正する（`projects/12_day/harib09f/bootpack.h`を参照する）
 
 #### 割り込み処理は短く(3) (harib09g)
+
+- 書籍に従って `timer.c` を修正する（`projects/12_day/harib09g/timer.c`を修正する）
+- 書籍に従って `bootpack.h` を修正する（`projects/12_day/harib09g/bootpack.h`を参照する）
