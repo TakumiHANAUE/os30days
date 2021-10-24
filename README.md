@@ -1299,6 +1299,23 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### FIFO バッファを見直す(2) (harib10g)
 
+- 書籍に従って `bootpack.h` を修正する（`projects/13_day/harib10g/bootpack.h`を参照する）
+- 書籍に従って `bootpack.c` を修正する（`projects/13_day/harib10g/bootpack.c`を参照する）
+- 書籍に従って `fifo.c` を修正する（`projects/13_day/harib10g/fifo.c`を参照する）
+- 書籍に従って `keyboard.c` を修正する（`projects/13_day/harib10g/keyboard.c`を参照する）
+- 書籍に従って `mouse.c` を修正する（`projects/13_day/harib10g/mouse.c`を参照する）
+- 書籍に従って `timer.c` を修正する（`projects/13_day/harib10g/timer.c`を参照する）
+
+測定結果(QEMU) : 平均値 214835
+
+| N 回目 | count 値 |
+| :----: | :------: |
+|   1    |  217260  |
+|   2    |  219412  |
+|   3    |  218822  |
+|   4    |  200946  |
+|   5    |  217737  |
+
 #### 割り込み処理は短く(4) (harib10h)
 
 #### 番兵を使ってプログラムを短くしてみる (harib10i)
