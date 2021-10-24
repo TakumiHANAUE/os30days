@@ -1318,4 +1318,7 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### 割り込み処理は短く(4) (harib10h)
 
+- 書籍に従って `bootpack.h` を修正する（`projects/13_day/harib10h/bootpack.h`を参照する）
+- 書籍に従って `timer.c` を修正する（`projects/13_day/harib10h/timer.c`を参照する）
+
 #### 番兵を使ってプログラムを短くしてみる (harib10i)
