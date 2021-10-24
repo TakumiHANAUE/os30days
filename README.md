@@ -1215,6 +1215,8 @@
 
 #### 文字列表示を簡単に (harib10a)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/13_day/harib10a/bootpack.c`を参照する）
+
 #### FIFO バッファを見直す(1) (harib10b)
 
 #### 性能を測定してみる (harib10c ～ harib10f)
