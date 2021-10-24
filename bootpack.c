@@ -27,7 +27,7 @@ void HariMain(void)
     fifo8_init(&keyfifo, 32, keybuf);
     fifo8_init(&mousefifo, 128, mousebuf);
     init_pit();
-    io_out8(PIC0_IMR, 0xf8); /* PIC1とキーボードを許可(11111000) */
+    io_out8(PIC0_IMR, 0xf8); /* PITとPIC1とキーボードを許可(11111000) */
     io_out8(PIC1_IMR, 0xef); /* マウスを許可(11101111) */
 
     fifo8_init(&timerfifo, 8, timerbuf);
@@ -74,7 +74,6 @@ void HariMain(void)
     sprintf(s, "memory %dMB   free : %dKB",
             memtotal / (1024 * 1024), memman_total(memman) / 1024);
     putfonts8_asc_sht(sht_back, 0, 32, COL8_FFFFFF, COL8_008484, s, 40);
-    sheet_refresh(sht_back, 0, 0, binfo->scrnx, 48);
 
     while (1)
     {
