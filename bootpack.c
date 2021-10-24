@@ -12,7 +12,7 @@ void HariMain(void)
     struct FIFO8 timerfifo;
     unsigned char keybuf[32], mousebuf[128], timerbuf[8];
     struct TIMER *timer, *timer2, *timer3;
-    int mx, my, i;
+    int mx, my, i, count = 0;
     unsigned int memtotal;
     struct MOUSE_DEC mdec;
     struct MEMMAN *memman = (struct MEMMAN *) MEMMAN_ADDR;
@@ -77,8 +77,9 @@ void HariMain(void)
 
     while (1)
     {
-        sprintf(s, "%010d", timerctl.count);
-        putfonts8_asc_sht(sht_win, 40, 28, COL8_000000, COL8_C6C6C6, s, 10);
+        count++;
+        /* ダミーのリフレッシュ処理 */
+        sheet_refresh(sht_win, 40, 28, 40 + 10 * 8, 28 + 16);
         io_cli();
         if ( (fifo8_status(&keyfifo) + fifo8_status(&mousefifo) + fifo8_status(&timerfifo)) == 0)
         {
@@ -145,10 +146,13 @@ void HariMain(void)
                 if (i == 10)
                 {
                     putfonts8_asc_sht(sht_back, 0, 64, COL8_FFFFFF, COL8_008484, "10[sec]", 7);
+                    sprintf(s, "%010d", count);
+                    putfonts8_asc_sht(sht_win, 40, 28, COL8_000000, COL8_C6C6C6, s, 10);
                 }
                 else if (i == 3)
                 {
                     putfonts8_asc_sht(sht_back, 0, 80, COL8_FFFFFF, COL8_008484, "3[sec]", 6);
+                    count++;
                 }
                 else
                 {

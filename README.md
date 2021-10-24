@@ -1223,6 +1223,42 @@
 
 #### 性能を測定してみる (harib10c ～ harib10f)
 
+- harib10c
+
+  - 書籍に従って `bootpack.c` を修正する（`projects/13_day/harib10c/bootpack.c`を参照する）
+  - `count++` に `sheet_refresh()` を追記する（引数は、ここに元々書かれていた`putfonts8_asc_sht()`の引数に従っている）  
+    この処理を入れなかった場合に、OS の動作がすごく遅くなった
+    （マウスがほとんど動かない、点滅カーソル・3 秒・10 秒の表示がされない など）  
+    原因は分かっていないが、
+
+    > IC/PIT もしくは CPU クロック数に原因があると推測
+
+    と書かれている [ページ](https://github.com/zacfukuda/hariboteos#harib10charib11e) があった。
+
+    ```diff
+        while (1)
+        {
+            count++;
+    +       /* ダミーのリフレッシュ処理 */
+    +       sheet_refresh(sht_win, 40, 28, 40 + 10 * 8, 28 + 16);
+            io_cli();
+    ```
+
+    - 測定結果 : 平均値 211440  
+      結構なばらつきがあるが、環境要因と思うため気にしない。
+
+      | N 回目 | count 値 |
+      | :----: | :------: |
+      |   1    |  219636  |
+      |   2    |  192873  |
+      |   3    |  223634  |
+      |   4    |  222305  |
+      |   5    |  198756  |
+
+【参考】
+
+- [30 日でできる!OS 自作入門 on macOS](https://github.com/zacfukuda/hariboteos)
+
 #### FIFO バッファを見直す(2) (harib10g)
 
 #### 割り込み処理は短く(4) (harib10h)
