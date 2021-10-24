@@ -1219,6 +1219,8 @@
 
 #### FIFO バッファを見直す(1) (harib10b)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/13_day/harib10b/bootpack.c`を参照する）
+
 #### 性能を測定してみる (harib10c ～ harib10f)
 
 #### FIFO バッファを見直す(2) (harib10g)
