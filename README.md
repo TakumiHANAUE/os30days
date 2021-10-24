@@ -1210,3 +1210,17 @@
 
 - 書籍に従って `timer.c` を修正する（`projects/12_day/harib09g/timer.c`を修正する）
 - 書籍に従って `bootpack.h` を修正する（`projects/12_day/harib09g/bootpack.h`を参照する）
+
+### 十三日目
+
+#### 文字列表示を簡単に (harib10a)
+
+#### FIFO バッファを見直す(1) (harib10b)
+
+#### 性能を測定してみる (harib10c ～ harib10f)
+
+#### FIFO バッファを見直す(2) (harib10g)
+
+#### 割り込み処理は短く(4) (harib10h)
+
+#### 番兵を使ってプログラムを短くしてみる (harib10i)
