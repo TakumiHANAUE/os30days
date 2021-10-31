@@ -1211,7 +1211,7 @@
 - 書籍に従って `timer.c` を修正する（`projects/12_day/harib09g/timer.c`を修正する）
 - 書籍に従って `bootpack.h` を修正する（`projects/12_day/harib09g/bootpack.h`を参照する）
 
-### 十三日目
+### 十三日目 : タイマ-２
 
 #### 文字列表示を簡単に (harib10a)
 
@@ -1325,3 +1325,19 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 - 書籍に従って `bootpack.h` を修正する（`projects/13_day/harib10i/bootpack.h`を参照する）
 - 書籍に従って `timer.c` を修正する（`projects/13_day/harib10i/timer.c`を参照する）
+
+### 十四日目 : 高解像度・キー入力
+
+#### また性能を測定してみる (harib11a ～ harib11c)
+
+#### 高解像度にしよう(1) (harib11d)
+
+#### 高解像度にしよう(2) (harib11e)
+
+#### キー入力(1) (harib11f)
+
+#### キー入力(2) (harib11g)
+
+#### おまけ(1) (harib11h)
+
+#### おまけ(2) (harib11i)
