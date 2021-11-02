@@ -162,6 +162,11 @@ void HariMain(void)
                     sprintf(s, "(%3d, %3d)", mx, my);
                     putfonts8_asc_sht(sht_back, 0, 0, COL8_FFFFFF, COL8_008484, s, 10);
                     sheet_slide(sht_mouse, mx, my); /* sheet_refreshを含む */
+                    if ( (mdec.btn & 0x01) != 0 )
+                    {
+                        /* 左ボタンを押していたら、sht_winを動かす */
+                        sheet_slide(sht_win, mx - 80, my - 8);
+                    }
                 }
             }
             else if (i == 10) /* 10秒タイマ */
