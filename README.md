@@ -1334,7 +1334,7 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### 高解像度にしよう(1) (harib11d)
 
-- 書籍に従って `asmhead.asm` を修正する（`projects/13_day/harib11d/asmhead.nas`を参照する）
+- 書籍に従って `asmhead.asm` を修正する（`projects/14_day/harib11d/asmhead.nas`を参照する）
   - グラフィックバッファの開始番地変更  
     グラフィックバッファの開始番地を `0xe0000000` としたら、画面が真っ黒になった。
     [「30 日でできる！ OS 自作入門」を Mac 向けに環境構築する](https://qiita.com/tatsumack/items/491e47c1a7f0d48fc762) を参考に
@@ -1348,7 +1348,7 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### 高解像度にしよう(2) (harib11e)
 
-- 書籍に従って `asmhead.asm` を修正する（`projects/13_day/harib11e/asmhead.nas`を参照する）
+- 書籍に従って `asmhead.asm` を修正する（`projects/14_day/harib11e/asmhead.nas`を参照する）
   - グラフィックバッファの開始番地確認  
     `HariMain()`で `binfo-vram`の値を画面に出力したところ、`0xfd000000`となっていることが確認できた。
 
