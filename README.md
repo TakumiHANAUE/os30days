@@ -1366,4 +1366,6 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### おまけ(1) (harib11h)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/14_day/harib11h/bootpack.c`を参照する）
+
 #### おまけ(2) (harib11i)
