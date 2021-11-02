@@ -12,7 +12,7 @@ void HariMain(void)
     char s[40];
     int fifobuf[128];
     struct TIMER *timer, *timer2, *timer3;
-    int mx, my, i, count = 0;
+    int mx, my, i;
     unsigned int memtotal;
     struct MOUSE_DEC mdec;
     struct MEMMAN *memman = (struct MEMMAN *) MEMMAN_ADDR;
@@ -58,7 +58,7 @@ void HariMain(void)
     sheet_setbuf(sht_win, buf_win, 160, 52, -1); /* 透明色なし */
     init_screen8(buf_back, binfo->scrnx, binfo->scrny);
     init_mouse_cursor8(buf_mouse, 99); /* 背景色は99 */
-    make_window8(buf_win, 160, 52, "counter");
+    make_window8(buf_win, 160, 52, "window");
     sheet_slide(sht_back, 0, 0);
     mx = (binfo->scrnx - 16) / 2;   /* 画面中央になるように座標計算 */
     my = (binfo->scrny - 28 - 16) / 2;
@@ -75,13 +75,10 @@ void HariMain(void)
 
     while (1)
     {
-        count++;
-        /* ダミーのリフレッシュ処理 */
-        sheet_refresh(sht_win, 40, 28, 40 + 10 * 8, 28 + 16);
         io_cli();
         if (fifo32_status(&fifo) == 0)
         {
-            io_sti();
+            io_stihlt();
         }
         else
         {
@@ -91,6 +88,10 @@ void HariMain(void)
             {
                 sprintf(s, "%02X", i - 256);
                 putfonts8_asc_sht(sht_back, 0, 16, COL8_FFFFFF, COL8_008484, s, 2);
+                if (i == 0x1e + 256)
+                {
+                    putfonts8_asc_sht(sht_win, 40, 28, COL8_000000, COL8_C6C6C6, "A", 1);
+                }
             }
             else if (512 <= i && i <= 767) /* マウスデータ */
             {
@@ -135,16 +136,13 @@ void HariMain(void)
                     sheet_slide(sht_mouse, mx, my); /* sheet_refreshを含む */
                 }
             }
-            else if (i == 10)
+            else if (i == 10) /* 10秒タイマ */
             {
                 putfonts8_asc_sht(sht_back, 0, 64, COL8_FFFFFF, COL8_008484, "10[sec]", 7);
-                sprintf(s, "%010d", count);
-                putfonts8_asc_sht(sht_win, 40, 28, COL8_000000, COL8_C6C6C6, s, 10);
             }
-            else if (i == 3)
+            else if (i == 3) /* 3秒タイマ */
             {
                 putfonts8_asc_sht(sht_back, 0, 80, COL8_FFFFFF, COL8_008484, "3[sec]", 6);
-                count++; /* 測定開始 */
             }
             /* 0か1 */
             else if (i == 1) /* カーソル用タイマ */
