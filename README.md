@@ -1382,6 +1382,10 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### もっとタスクスイッチ (harib12b)
 
+- 書籍に従って `nasmfunc.asm` を修正する（`projects/14_day/harib12b/naskfunc.nas`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/14_day/harib12b/bootpack.h`を参照する）
+- 書籍に従って `bootpack.c` を修正する（`projects/14_day/harib12b/bootpack.c`を参照する）
+
 #### 簡単なマルチタスクをやってみる(1) (harib12c)
 
 #### 簡単なマルチタスクをやってみる(2) (harib12d)
