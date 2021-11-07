@@ -1421,3 +1421,8 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 - 書籍に従って `bootpack.c` を修正する（`projects/15_day/harib12f/bootpack.c`を参照する）
 
 #### もっとマルチタスク (harib12g)
+
+- 書籍に従って `mtask.c` を新規作成する（`projects/15_day/harib12g/mtask.c`を参照する）
+- 書籍に従って `timer.c` を修正する（`projects/15_day/harib12g/timer.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/15_day/harib12g/bootpack.h`を参照する）
+- 書籍に従って `bootpack.c` を修正する（`projects/15_day/harib12g/bootpack.c`を参照する）
