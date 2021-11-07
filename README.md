@@ -1398,7 +1398,23 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### スピードアップ (harib12e)
 
-- 書籍に従って `bootpack.c` を修正する（`projects/15_day/harib12e/bootpack.c`を参照する）
+- 書籍に従って `bootpack.c` を修正する（`projects/15_day/harib12e/bootpack.c`を参照する）  
+   `task_b_main()`にダミーのリフレッシュ処理を追加。
+  ```c
+  while(1)
+  {
+      count++;
+      putfonts8_asc_sht(sht_back, 0, 144, COL8_FFFFFF, COL8_008484, " ", 1); /* ダミーのリフレッシュ処理 */
+      io_cli();
+      if (fifo32_status(&fifo) == 0)
+      {
+          io_sti();
+      }
+  ```
+  `fifo32_status()` が 0 のときに `io_stihlt()` を呼ぶ場合は問題ないが、
+  `io_sti()` だとカウンタ等が描画されなくなる。
+  この場合は上記のようにダミーのリフレッシュ処理を入れることで解決。  
+   （harib10c の減少と同じなのかな？）
 
 #### スピード測定 (harib12f)
 

@@ -346,10 +346,11 @@ void task_b_main(struct SHEET *sht_back)
     while(1)
     {
         count++;
+        putfonts8_asc_sht(sht_back, 0, 144, COL8_FFFFFF, COL8_008484, " ", 1); /* ダミーのリフレッシュ処理 */
         io_cli();
         if (fifo32_status(&fifo) == 0)
         {
-            io_stihlt();
+            io_sti();
         }
         else
         {
