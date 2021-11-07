@@ -1398,6 +1398,8 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### スピードアップ (harib12e)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/15_day/harib12e/bootpack.c`を参照する）
+
 #### スピード測定 (harib12f)
 
 #### もっとマルチタスク (harib12g)
