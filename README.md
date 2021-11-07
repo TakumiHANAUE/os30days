@@ -1398,8 +1398,8 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### スピードアップ (harib12e)
 
-- 書籍に従って `bootpack.c` を修正する（`projects/15_day/harib12e/bootpack.c`を参照する）  
-   `task_b_main()`にダミーのリフレッシュ処理を追加。
+- 書籍に従って `bootpack.c` を修正する（`projects/15_day/harib12e/bootpack.c`を参照する）
+  - `task_b_main()`にダミーのリフレッシュ処理を追加。
   ```c
   while(1)
   {
@@ -1417,5 +1417,7 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
    （harib10c の減少と同じなのかな？）
 
 #### スピード測定 (harib12f)
+
+- 書籍に従って `bootpack.c` を修正する（`projects/15_day/harib12f/bootpack.c`を参照する）
 
 #### もっとマルチタスク (harib12g)
