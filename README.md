@@ -1431,6 +1431,11 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### タスク管理の自動化 (harib13a)
 
+- 書籍に従って `mtask.c` を修正する（`projects/16_day/harib13a/mtask.c`を参照する）
+- 書籍に従って `timer.c` を修正する（`projects/16_day/harib13a/timer.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/16_day/harib13a/bootpack.h`を参照する）
+- 書籍に従って `bootpack.c` を修正する（`projects/16_day/harib13a/bootpack.c`を参照する）
+
 #### スリープしてみる (harib12b)
 
 #### ウィンドウを増やそう (harib13c)
