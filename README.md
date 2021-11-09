@@ -1426,3 +1426,15 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 - 書籍に従って `timer.c` を修正する（`projects/15_day/harib12g/timer.c`を参照する）
 - 書籍に従って `bootpack.h` を修正する（`projects/15_day/harib12g/bootpack.h`を参照する）
 - 書籍に従って `bootpack.c` を修正する（`projects/15_day/harib12g/bootpack.c`を参照する）
+
+### 十六日目 マルチタスク-2
+
+#### タスク管理の自動化 (harib13a)
+
+#### スリープしてみる (harib12b)
+
+#### ウィンドウを増やそう (harib13c)
+
+#### 優先順位を付けよう(1) (harib13d)
+
+#### 優先順位を付けよう(2) (harib13e)
