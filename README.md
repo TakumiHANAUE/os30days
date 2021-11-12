@@ -1436,7 +1436,7 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 - 書籍に従って `bootpack.h` を修正する（`projects/16_day/harib13a/bootpack.h`を参照する）
 - 書籍に従って `bootpack.c` を修正する（`projects/16_day/harib13a/bootpack.c`を参照する）
 
-#### スリープしてみる (harib12b)
+#### スリープしてみる (harib13b)
 
 #### ウィンドウを増やそう (harib13c)
 
