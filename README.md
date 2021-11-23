@@ -1438,6 +1438,11 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### スリープしてみる (harib13b)
 
+- 書籍に従って `bootpack.h` を修正する（`projects/16_day/harib13b/bootpack.h`を参照する）
+- 書籍に従って `bootpack.c` を修正する（`projects/16_day/harib13b/bootpack.c`を参照する）
+- 書籍に従って `mtask.c` を修正する（`projects/16_day/harib13b/mtask.c`を参照する）
+- 書籍に従って `fifo.c` を修正する（`projects/16_day/harib13b/fifo.c`を参照する）
+
 #### ウィンドウを増やそう (harib13c)
 
 #### 優先順位を付けよう(1) (harib13d)
