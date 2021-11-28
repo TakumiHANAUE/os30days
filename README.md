@@ -1456,3 +1456,9 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 - 書籍に従って `fifo.c` を修正する（`projects/16_day/harib13d/fifo.c`を参照する）
 
 #### 優先順位を付けよう(2) (harib13e)
+
+- 書籍に従って `bootpack.h` を修正する（`projects/16_day/harib13e/bootpack.h`を参照する）
+- 書籍に従って `bootpack.c` を修正する（`projects/16_day/harib13e/bootpack.c`を参照する）
+- 書籍に従って `mtask.c` を修正する（`projects/16_day/harib13e/mtask.c`を参照する）
+- 書籍に従って `fifo.c` を修正する（`projects/16_day/harib13e/fifo.c`を参照する）
+- マウスの動きカクカクが解消されず。
