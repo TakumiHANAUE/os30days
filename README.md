@@ -1450,4 +1450,9 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### 優先順位を付けよう(1) (harib13d)
 
+- 書籍に従って `bootpack.h` を修正する（`projects/16_day/harib13d/bootpack.h`を参照する）
+- 書籍に従って `bootpack.c` を修正する（`projects/16_day/harib13d/bootpack.c`を参照する）
+- 書籍に従って `mtask.c` を修正する（`projects/16_day/harib13d/mtask.c`を参照する）
+- 書籍に従って `fifo.c` を修正する（`projects/16_day/harib13d/fifo.c`を参照する）
+
 #### 優先順位を付けよう(2) (harib13e)
