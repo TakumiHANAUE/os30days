@@ -1445,8 +1445,9 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### ウィンドウを増やそう (harib13c)
 
-- 書籍に従って `bootpack.c` を修正する（`projects/16_day/harib13c/bootpack.c`を参照する）  
-  マウスの動きがカクカクして遅くなったが、 harib13e 修正されるようなのでここでは気にしない。
+- 書籍に従って `bootpack.c` を修正する（`projects/16_day/harib13c/bootpack.c`を参照する）
+- マウスの動きがカクカクして遅くなったが、 harib13e 修正されるようなのでここでは気にしない。  
+  (harib10c での現象と同じものと思われる。)
 
 #### 優先順位を付けよう(1) (harib13d)
 
@@ -1461,4 +1462,11 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 - 書籍に従って `bootpack.c` を修正する（`projects/16_day/harib13e/bootpack.c`を参照する）
 - 書籍に従って `mtask.c` を修正する（`projects/16_day/harib13e/mtask.c`を参照する）
 - 書籍に従って `fifo.c` を修正する（`projects/16_day/harib13e/fifo.c`を参照する）
-- マウスの動きカクカクが解消されず。
+- マウスの動きカクカクが解消されずだが、harib10c で参照した[ページ](https://github.com/zacfukuda/hariboteos#harib13charib13g)に
+  言及されていた。  
+  ダミーのリフレッシュとして task_b_main() の for 文で毎回、空白文字を描く処理を追加
+  （カウンタ値はとても小さくなった）
+
+【参考】
+
+- [30 日でできる!OS 自作入門 on macOS](https://github.com/zacfukuda/hariboteos)
