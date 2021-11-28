@@ -1445,7 +1445,8 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### ウィンドウを増やそう (harib13c)
 
-- 書籍に従って `bootpack.c` を修正する（`projects/16_day/harib13c/bootpack.c`を参照する）
+- 書籍に従って `bootpack.c` を修正する（`projects/16_day/harib13c/bootpack.c`を参照する）  
+  マウスの動きがカクカクして遅くなったが、 harib13e 修正されるようなのでここでは気にしない。
 
 #### 優先順位を付けよう(1) (harib13d)
 
