@@ -1470,3 +1470,19 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 【参考】
 
 - [30 日でできる!OS 自作入門 on macOS](https://github.com/zacfukuda/hariboteos)
+
+### 十七日目 コンソール
+
+#### アイドルタスク (harib14a)
+
+#### コンソールを作ろう (harib14b)
+
+#### 入力切り替えをやってみる (harib14c)
+
+#### 文字入力をできるようにしてみる (harib14d)
+
+#### 記号入力 (harib14e)
+
+#### 大文字と小文字 (harib14f)
+
+#### Lock キー対応 (harib14g)
