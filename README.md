@@ -1482,6 +1482,9 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### アイドルタスク (harib14a)
 
+- 書籍に従って `mtask.c` を修正する（`projects/17_day/harib14a/mtask.c`を参照する）
+- 書籍に従って `bootpack.c` を修正する（`projects/17_day/harib14a/bootpack.c`を参照する）
+
 #### コンソールを作ろう (harib14b)
 
 #### 入力切り替えをやってみる (harib14c)
