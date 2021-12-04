@@ -1487,6 +1487,9 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### コンソールを作ろう (harib14b)
 
+- 書籍に従って `bootpack.h` を修正する（`projects/17_day/harib14b/bootpack.h`を参照する）
+- 書籍に従って `bootpack.c` を修正する（`projects/17_day/harib14b/bootpack.c`を参照する）
+
 #### 入力切り替えをやってみる (harib14c)
 
 #### 文字入力をできるようにしてみる (harib14d)
