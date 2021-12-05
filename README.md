@@ -1501,6 +1501,12 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### 記号入力 (harib14e)
 
+- 書籍に従って `bootpack.h` を修正する（`projects/17_day/harib14d/bootpack.h`を参照する）
+- 書籍に従って `bootpack.c` を修正する（`projects/17_day/harib14d/bootpack.c`を参照する）
+- 右 Shift キーが効いていないようだ。左 Shift キーでは記号が打てるが、右 Shift キーでは記号が打てない。
+  右 Shift キー押下時の `fifo32_get(&fifo)` の値を確認したが、何も表示されなかった（右 Shift はデータが来ていない？）  
+  （左 Shift で記号打てるのでいったん気にしない）
+
 #### 大文字と小文字 (harib14f)
 
 #### Lock キー対応 (harib14g)
