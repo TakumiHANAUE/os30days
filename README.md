@@ -1512,3 +1512,5 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 - 書籍に従って `bootpack.c` を修正する（`projects/17_day/harib14f/bootpack.c`を参照する）
 
 #### Lock キー対応 (harib14g)
+
+- 書籍に従って `bootpack.c` を修正する（`projects/17_day/harib14g/bootpack.c`を参照する）
