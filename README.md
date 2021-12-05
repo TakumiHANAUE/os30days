@@ -1496,6 +1496,9 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### 文字入力をできるようにしてみる (harib14d)
 
+- 書籍に従って `bootpack.h` を修正する（`projects/17_day/harib14d/bootpack.h`を参照する）
+- 書籍に従って `bootpack.c` を修正する（`projects/17_day/harib14d/bootpack.c`を参照する）
+
 #### 記号入力 (harib14e)
 
 #### 大文字と小文字 (harib14f)
