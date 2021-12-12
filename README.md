@@ -1541,4 +1541,7 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### cls コマンド (harib15f)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/18_day/harib15f/bootpack.c`を参照する）
+- `golibc.h` に `strcmp()` のプロトタイプ宣言を記載する。
+
 #### dir コマンド (harib15g)
