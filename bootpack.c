@@ -502,8 +502,6 @@ void console_task(struct SHEET *sheet)
                     cursor_c = COL8_000000;
                 }
                 timer_settime(timer, 50);
-                boxfill8(sheet->buf, sheet->bxsize, cursor_c, cursor_x, 28, cursor_x + 7, 43);
-                sheet_refresh(sheet, cursor_x, 28, cursor_x + 8, 44);
             }
             if (256 <= i && i <= 511) /* キーボードデータ(タスクA経由) */
             {
@@ -530,6 +528,8 @@ void console_task(struct SHEET *sheet)
                     }
                 }
             }
+            boxfill8(sheet->buf, sheet->bxsize, cursor_c, cursor_x, 28, cursor_x + 7, 43);
+            sheet_refresh(sheet, cursor_x, 28, cursor_x + 8, 44);
         }
     }
 }
