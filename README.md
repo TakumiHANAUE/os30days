@@ -1525,6 +1525,8 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### カーソルの点滅制御(2) (harib15b)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/18_day/harib15b/bootpack.c`を参照する）
+
 #### Enter キーに対応 (harib15c)
 
 #### スクロールにも対応 (harib15d)
