@@ -1545,3 +1545,15 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 - `golibc.h` に `strcmp()` のプロトタイプ宣言を記載する。
 
 #### dir コマンド (harib15g)
+
+- 書籍に従って `bootpack.c` を修正する（`projects/18_day/harib15g/bootpack.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/18_day/harib15g/bootpack.h`を参照する）
+- 書籍を参考に `Makefile` を修正する（`projects/18_day/harib15g/bootpack.c`を参考にする）  
+  dir コマンドのファイル名出力のため、`haribote.img` に `ipl10.asm`, `Makefile` を含めるように修正。
+  ```diff
+    $(IMGFILE) : ipl10.bin haribote.sys
+      mformat -f 1440 -B ipl10.bin -C -i $@ ::
+      mcopy haribote.sys -i $@ ::
+  +   mcopy ipl10.asm -i $@ ::
+  +   mcopy Makefile -i $@ ::
+  ```

@@ -30,6 +30,8 @@ haribote.sys : asmhead.bin bootpack.bin
 $(IMGFILE) : ipl10.bin haribote.sys
 	mformat -f 1440 -B ipl10.bin -C -i $@ ::
 	mcopy haribote.sys -i $@ ::
+	mcopy ipl10.asm -i $@ ::
+	mcopy Makefile -i $@ ::
 #	1440[KB] (= 512 * 2880 byte)
 #	C: to install on MS-DOS file system
 
