@@ -1516,3 +1516,19 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 - 書籍に従って `bootpack.c` を修正する（`projects/17_day/harib14g/bootpack.c`を参照する）
 - 使っている環境のせいなのか、CapsLock/NumLock/ScrollLock のキーコードが書籍の記載と一致していないため、
   プログラムは書いたものの正しく動作しているかわからない。
+
+### 十八日目 dir コマンド
+
+#### カーソルの点滅制御(1) (harib15a)
+
+#### カーソルの点滅制御(2) (harib15b)
+
+#### Enter キーに対応 (harib15c)
+
+#### スクロールにも対応 (harib15d)
+
+#### mem コマンド (harib15e)
+
+#### cls コマンド (harib15f)
+
+#### dir コマンド (harib15g)
