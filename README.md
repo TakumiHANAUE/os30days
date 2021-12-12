@@ -1537,6 +1537,8 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### mem コマンド (harib15e)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/18_day/harib15e/bootpack.c`を参照する）
+
 #### cls コマンド (harib15f)
 
 #### dir コマンド (harib15g)
