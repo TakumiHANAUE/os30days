@@ -1607,4 +1607,10 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### ソースの整理 (harib16d)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/19_day/harib16d/bootpack.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/19_day/harib16d/bootpack.h`を参照する）
+- 書籍に従って `window.c` を新規作成する（`projects/19_day/harib16d/window.c`を参照する）
+- 書籍に従って `file.c` を新規作成する（`projects/19_day/harib16d/file.c`を参照する）
+- 書籍に従って `console.c` を新規作成する（`projects/19_day/harib16d/console.c`を参照する）
+
 #### ついに初アプリ (harib16e)
