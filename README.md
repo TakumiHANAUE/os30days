@@ -1566,6 +1566,20 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### type コマンド改良 (harib16b)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/19_day/harib16b/bootpack.c`を参照する）
+- `golibc.h` を修正する
+
+  - `strncmp()` のプロトタイプ宣言を記載する。
+  - `size_t` 型定義を使うために `stddef.h` を include する。
+
+  ```diff
+  + #include <stddef.h>
+
+    int sprintf(char *s, const char *format, ...);
+    int strcmp (const char *d, const char *s);
+  + int strncmp (char *d, const char *s, size_t sz);
+  ```
+
 #### FAT に対応 (harib16c)
 
 #### ソースの整理 (harib16d)
