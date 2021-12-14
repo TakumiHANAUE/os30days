@@ -1603,6 +1603,8 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### FAT に対応 (harib16c)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/19_day/harib16c/bootpack.c`を参照する）
+
 #### ソースの整理 (harib16d)
 
 #### ついに初アプリ (harib16e)
