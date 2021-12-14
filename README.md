@@ -1580,6 +1580,27 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
   + int strncmp (char *d, const char *s, size_t sz);
   ```
 
+- ファイル出力後に 1 行ズラすように追加修正  
+  出力ファイルの最終行に空行がない場合に、プロンプト表示がファイル最終行と同じ行に表示されるため。
+  ```diff
+            else
+            {
+                putfonts8_asc_sht(sheet, cursor_x, cursor_y, COL8_FFFFFF, COL8_000000, s, 1);
+                cursor_x += 8;
+                if (cursor_x == 8 + 240) /* 右端まで来たので改行 */
+                {
+                    cursor_x = 8;
+                    cursor_y = cons_newline(cursor_y, sheet);
+                }
+            }
+        }
+  +     cursor_y = cons_newline(cursor_y, sheet); /* ファイルの出力が終わったらプロンプト表示の前に1行ずらす */
+    }
+    else
+    {
+        /* ファイルが見つからなかった場合 */
+  ```
+
 #### FAT に対応 (harib16c)
 
 #### ソースの整理 (harib16d)

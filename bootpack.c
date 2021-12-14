@@ -682,6 +682,7 @@ type_next_file:
                                     }
                                 }
                             }
+                            cursor_y = cons_newline(cursor_y, sheet); /* ファイルの出力が終わったらプロンプト表示の前に1行ずらす */
                         }
                         else
                         {
