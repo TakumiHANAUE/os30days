@@ -1557,3 +1557,15 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
   +   mcopy ipl10.asm -i $@ ::
   +   mcopy Makefile -i $@ ::
   ```
+
+### 十九日目 アプリケーション
+
+#### type コマンド (harib16a)
+
+#### type コマンド改良 (harib16b)
+
+#### FAT に対応 (harib16c)
+
+#### ソースの整理 (harib16d)
+
+#### ついに初アプリ (harib16e)
