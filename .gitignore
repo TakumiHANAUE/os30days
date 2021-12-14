@@ -2,5 +2,6 @@
 *.o
 *.sys
 *.lst
+*.hrb
 golibc/golibc/*
 haribote.img
