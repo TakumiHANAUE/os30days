@@ -1562,6 +1562,8 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### type コマンド (harib16a)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/19_day/harib16a/bootpack.c`を参照する）
+
 #### type コマンド改良 (harib16b)
 
 #### FAT に対応 (harib16c)
