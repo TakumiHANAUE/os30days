@@ -1686,6 +1686,8 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### 文字列表示 API を今度こそ (harib18a)
 
+- 書籍に従って `console.c` を修正する（`projects/21_day/harib18a/console.c`を参照する）
+
 #### アプリケーションを C 言語で作ってみたい (harib18b)
 
 #### OS を守ろう(1) (harib18c)
