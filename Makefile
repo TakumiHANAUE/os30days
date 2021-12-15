@@ -22,7 +22,7 @@ nasmfunc.o : nasmfunc.asm
 	nasm -f elf32 $^ -o $@ -l $(@:.o=.lst)
 
 bootpack.bin : $(OBJS) $(GOLIBCPATH)/libgolibc.a
-	ld -m elf_i386 -e HariMain -o $@ -T hrb.ld $(OBJS) -static -L$(GOLIBCPATH) -lgolibc
+	ld -m elf_i386 -e HariMain -o $@ -T hrb.ld $(OBJS) -static -L$(GOLIBCPATH) -lgolibc -Map bootpack.map
 
 hlt.hrb : hlt.asm
 	nasm $^ -o $@ -l $(@:.hrb=.lst)
@@ -51,6 +51,6 @@ clean :
 	   asmhead.bin asmhead.lst \
 	   $(OBJS) \
 	   nasmfunc.lst \
-	   bootpack.bin \
+	   bootpack.bin bootpack.map\
 	   hlt.hrb hlt.lst \
 	   haribote.sys

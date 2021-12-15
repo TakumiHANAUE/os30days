@@ -1616,7 +1616,7 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 #### ついに初アプリ (harib16e)
 
 - 書籍に従って `console.c` を修正する（`projects/19_day/harib16e/console.c`を参照する）
-- 書籍に従って `hlt.asm` を新規作成する（`projects/19_day/harib16d/hlt.asm`を参照する）
+- 書籍に従って `hlt.asm` を新規作成する（`projects/19_day/harib16d/hlt.nas`を参照する）
 - `Makefile` を修正する
 
 ### 二十日目 API
@@ -1629,7 +1629,23 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### 一文字表示 API(1) (harib17b)
 
+- 書籍に従って `hlt.asm` を修正する（`projects/20_day/harib17b/hlt.nas`を参照する）
+- 書籍に従って `nasmfunc.asm` を修正する（`projects/20_day/harib17b/naskfunc.nas`を参照する）
+- 書籍に従って `console.c` を修正する（`projects/20_day/harib17b/console.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/20_day/harib17b/bootpack.h`を参照する）
+
 #### 一文字表示 API(2) (harib17c)
+
+- 書籍に従って `hlt.asm` を修正する（`projects/20_day/harib17c/hlt.nas`を参照する）
+- 書籍に従って `nasmfunc.asm` を修正する（`projects/20_day/harib17c/naskfunc.nas`を参照する）
+- `Makefile`を修正する  
+  `bootpack.bin` 生成時にマップファイルも生成するようにオプションを追加する。
+  `hlt.asm` に書く asm_cons_putchar のアドレスは `bootpack.map` を見て確認する。
+  ```diff
+    bootpack.bin : $(OBJS) $(GOLIBCPATH)/libgolibc.a
+  -   ld -m elf_i386 -e HariMain -o $@ -T hrb.ld $(OBJS) -static -L$(GOLIBCPATH) -lgolibc
+  +   ld -m elf_i386 -e HariMain -o $@ -T hrb.ld $(OBJS) -static -L$(GOLIBCPATH) -lgolibc -Map bootpack.map
+  ```
 
 #### アプリケーションの終了 (harib17d)
 

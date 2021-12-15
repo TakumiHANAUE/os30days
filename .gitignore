@@ -3,5 +3,6 @@
 *.sys
 *.lst
 *.hrb
+bootpack.map
 golibc/golibc/*
 haribote.img
