@@ -1656,6 +1656,10 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### OS のバージョンが変わっても変わらない API (harib17e)
 
+- 書籍に従って `dsctbl.c` を修正する（`projects/20_day/harib17e/dsctbl.c`を参照する）
+- 書籍に従って `hlt.asm` を修正する（`projects/20_day/harib17e/hlt.nas`を参照する）
+- 書籍に従って `nasmfunc.asm` を修正する（`projects/20_day/harib17e/naskfunc.nas`を参照する）
+
 #### アプリケーション名を自由に (harib17f)
 
 #### レジスタに気をつけよう (harib17g)
