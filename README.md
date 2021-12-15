@@ -1623,6 +1623,10 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### プログラムの整理 (harib17a)
 
+- 書籍に従って `console.c` を修正する（`projects/20_day/harib17a/console.c`を参照する）
+- 書籍に従って `file.c` を修正する（`projects/20_day/harib17a/file.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/20_day/harib17a/bootpack.h`を参照する）
+
 #### 一文字表示 API(1) (harib17b)
 
 #### 一文字表示 API(2) (harib17c)
