@@ -1618,3 +1618,21 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 - 書籍に従って `console.c` を修正する（`projects/19_day/harib16e/console.c`を参照する）
 - 書籍に従って `hlt.asm` を新規作成する（`projects/19_day/harib16d/hlt.asm`を参照する）
 - `Makefile` を修正する
+
+### 二十日目 API
+
+#### プログラムの整理 (harib17a)
+
+#### 一文字表示 API(1) (harib17b)
+
+#### 一文字表示 API(2) (harib17c)
+
+#### アプリケーションの終了 (harib17d)
+
+#### OS のバージョンが変わっても変わらない API (harib17e)
+
+#### アプリケーション名を自由に (harib17f)
+
+#### レジスタに気をつけよう (harib17g)
+
+#### 文字列表示 API (harib17h)
