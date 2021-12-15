@@ -1669,4 +1669,7 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### レジスタに気をつけよう (harib17g)
 
+- 書籍に従って `hello.asm` を修正する（`projects/20_day/harib17g/hello.nas`を参照する）
+- 書籍に従って `nasmfunc.asm` を修正する（`projects/20_day/harib17g/naskfunc.nas`を参照する）
+
 #### 文字列表示 API (harib17h)
