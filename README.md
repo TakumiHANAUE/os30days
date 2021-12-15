@@ -1649,6 +1649,11 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### アプリケーションの終了 (harib17d)
 
+- 書籍に従って `hlt.asm` を修正する（`projects/20_day/harib17d/hlt.nas`を参照する）
+- 書籍に従って `nasmfunc.asm` を修正する（`projects/20_day/harib17d/naskfunc.nas`を参照する）
+- 書籍に従って `console.c` を修正する（`projects/20_day/harib17d/console.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/20_day/harib17d/bootpack.h`を参照する）
+
 #### OS のバージョンが変わっても変わらない API (harib17e)
 
 #### アプリケーション名を自由に (harib17f)
