@@ -27,15 +27,19 @@ bootpack.bin : $(OBJS) $(GOLIBCPATH)/libgolibc.a
 hello.hrb : hello.asm
 	nasm $^ -o $@ -l $(@:.hrb=.lst)
 
+hello2.hrb : hello2.asm
+	nasm $^ -o $@ -l $(@:.hrb=.lst)
+
 haribote.sys : asmhead.bin bootpack.bin
 	cat $^ > $@
 
-$(IMGFILE) : ipl10.bin haribote.sys hello.hrb
+$(IMGFILE) : ipl10.bin haribote.sys hello.hrb hello2.hrb
 	mformat -f 1440 -B ipl10.bin -C -i $@ ::
 	mcopy haribote.sys -i $@ ::
 	mcopy ipl10.asm -i $@ ::
 	mcopy Makefile -i $@ ::
 	mcopy hello.hrb -i $@ ::
+	mcopy hello2.hrb -i $@ ::
 #	1440[KB] (= 512 * 2880 byte)
 #	C: to install on MS-DOS file system
 

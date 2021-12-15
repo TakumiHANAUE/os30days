@@ -1673,3 +1673,11 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 - 書籍に従って `nasmfunc.asm` を修正する（`projects/20_day/harib17g/naskfunc.nas`を参照する）
 
 #### 文字列表示 API (harib17h)
+
+- 書籍に従って `console.c` を修正する（`projects/20_day/harib17h/console.c`を参照する）
+- 書籍に従って `dsctbl.c` を修正する（`projects/20_day/harib17h/dsctbl.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/20_day/harib17h/bootpack.h`を参照する）
+- 書籍に従って `hello.asm` を修正する（`projects/20_day/harib17h/hello.nas`を参照する）
+- 書籍に従って `nasmfunc.asm` を修正する（`projects/20_day/harib17h/naskfunc.nas`を参照する）
+- 書籍に従って `hello2.asm` を新規作成する（`projects/20_day/harib17h/hello2.nas`を参照する）
+- `Makefile` を修正する
