@@ -1681,3 +1681,19 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 - 書籍に従って `nasmfunc.asm` を修正する（`projects/20_day/harib17h/naskfunc.nas`を参照する）
 - 書籍に従って `hello2.asm` を新規作成する（`projects/20_day/harib17h/hello2.nas`を参照する）
 - `Makefile` を修正する
+
+### 二十一日目 OS を守ろう
+
+#### 文字列表示 API を今度こそ (harib18a)
+
+#### アプリケーションを C 言語で作ってみたい (harib18b)
+
+#### OS を守ろう(1) (harib18c)
+
+#### OS を守ろう(2) (harib18d)
+
+#### 例外をサポートしよう (harib18e)
+
+#### OS を守ろう(3) (harib18f)
+
+#### OS を守ろう(4) (harib18g)
