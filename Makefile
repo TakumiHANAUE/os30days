@@ -24,18 +24,18 @@ nasmfunc.o : nasmfunc.asm
 bootpack.bin : $(OBJS) $(GOLIBCPATH)/libgolibc.a
 	ld -m elf_i386 -e HariMain -o $@ -T hrb.ld $(OBJS) -static -L$(GOLIBCPATH) -lgolibc -Map bootpack.map
 
-hlt.hrb : hlt.asm
+hello.hrb : hello.asm
 	nasm $^ -o $@ -l $(@:.hrb=.lst)
 
 haribote.sys : asmhead.bin bootpack.bin
 	cat $^ > $@
 
-$(IMGFILE) : ipl10.bin haribote.sys hlt.hrb
+$(IMGFILE) : ipl10.bin haribote.sys hello.hrb
 	mformat -f 1440 -B ipl10.bin -C -i $@ ::
 	mcopy haribote.sys -i $@ ::
 	mcopy ipl10.asm -i $@ ::
 	mcopy Makefile -i $@ ::
-	mcopy hlt.hrb -i $@ ::
+	mcopy hello.hrb -i $@ ::
 #	1440[KB] (= 512 * 2880 byte)
 #	C: to install on MS-DOS file system
 
@@ -52,5 +52,5 @@ clean :
 	   $(OBJS) \
 	   nasmfunc.lst \
 	   bootpack.bin bootpack.map\
-	   hlt.hrb hlt.lst \
+	   hello.hrb hello.lst \
 	   haribote.sys

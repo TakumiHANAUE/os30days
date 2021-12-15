@@ -1662,6 +1662,11 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### アプリケーション名を自由に (harib17f)
 
+- 書籍に従って `console.c` を修正する（`projects/20_day/harib17f/console.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/20_day/harib17f/bootpack.h`を参照する）
+- 書籍に従って `hlt.asm` を `hello.asm` にリネームする  
+  伴って、`Makefile` を修正する
+
 #### レジスタに気をつけよう (harib17g)
 
 #### 文字列表示 API (harib17h)
