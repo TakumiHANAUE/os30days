@@ -1726,6 +1726,11 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### 例外をサポートしよう (harib18e)
 
+- 書籍に従って `console.c` を修正する（`projects/21_day/harib18e/console.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/21_day/harib18e/bootpack.h`を参照する）
+- 書籍に従って `dsctbl.c` を修正する（`projects/21_day/harib18e/dsctbl.c`を参照する）
+- 書籍に従って `nasmfunc.asm` を修正する（`projects/21_day/harib18e/naskfunc.nas`を参照する）
+
 #### OS を守ろう(3) (harib18f)
 
 #### OS を守ろう(4) (harib18g)

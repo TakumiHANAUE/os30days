@@ -15,11 +15,13 @@ GLOBAL      load_cr0, store_cr0
 GLOBAL      load_tr
 GLOBAL      asm_inthandler20, asm_inthandler21
 GLOBAL      asm_inthandler27, asm_inthandler2c
+GLOBAL      asm_inthandler0d
 GLOBAL      memtest_sub
 GLOBAL      farjmp, farcall
 GLOBAL      asm_hrb_api, start_app
 EXTERN      inthandler20, inthandler21
 EXTERN      inthandler27, inthandler2c
+EXTERN      inthandler0d
 EXTERN      hrb_api
 
 ; 以下は実際の関数
@@ -277,6 +279,67 @@ asm_inthandler2c:
     POP     DS
     POP     ES
     IRETD
+
+asm_inthandler0d:
+    STI
+    PUSH    ES
+    PUSH    DS
+    PUSHAD
+    MOV     AX, SS
+    CMP     AX, 1*8
+    JNE     .from_app
+; OSが動いているときに割り込まれたのでほぼ今まで通り
+    MOV     EAX, ESP
+    PUSH    SS                  ; 割り込まれたときのSSを保存
+    PUSH    EAX                 ; 割り込まれたときのESPを保存
+    MOV     AX, SS
+    MOV     DS, AX
+    MOV     ES, AX
+    CALL    inthandler0d
+    ADD     ESP, 8
+    POPAD
+    POP     DS
+    POP     ES
+    ADD     ESP, 4              ; INT 0x0d では、これが必要
+    IRETD
+.from_app:
+; アプリが動いているときに割り込まれた
+    CLI
+    MOV     EAX, 1*8
+    MOV     DS, AX              ; とりあえずDSだけOS用にする
+    MOV     ECX, [0xfe4]        ; OSのESP
+    ADD     ECX, -8
+    MOV     [ECX+4], SS         ; 割り込まれたときのSSを保存
+    MOV     [ECX], ESP          ; 割り込まれたときのESPを保存
+    MOV     SS, AX
+    MOV     ES, AX
+    MOV     ESP, ECX
+    STI
+    CALL    inthandler0d
+    CLI
+    CMP     EAX, 0
+    JNE     .kill
+    POP     ECX
+    POP     EAX
+    MOV     SS, AX              ; SSをアプリ用に戻す
+    MOV     ESP, ECX            ; ESPもアプリ用に戻す
+    POPAD
+    POP     DS
+    POP     ES
+    ADD     ESP, 4
+    IRETD
+.kill:
+; アプリを異常終了させることにした
+    MOV     EAX, 1*8            ; OS用のDS/SS
+    MOV     ES, AX
+    MOV     SS, AX
+    MOV     DS, AX
+    MOV     FS, AX
+    MOV     GS, AX
+    MOV     ESP, [0xfe4]        ; start_appのときのESPに無理やり戻す
+    STI                         ; 切り替え完了なので割り込み可能に戻す
+    POPAD                       ; 保存しておいたレジスタを回復
+    RET
 
 memtest_sub:                            ; unsigned int memtest_sub(unsigned int start, unsigned int end)
     PUSH    EDI                         ; (EBX, ESI, EDI も使いたいので)
