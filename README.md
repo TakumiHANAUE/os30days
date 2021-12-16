@@ -1737,3 +1737,15 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 - `Makefile` を修正する
 
 #### OS を守ろう(4) (harib18g)
+
+- 書籍に従って `console.c` を修正する（`projects/21_day/harib18g/console.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/21_day/harib18g/bootpack.h`を参照する）
+- 書籍に従って `dsctbl.c` を修正する（`projects/21_day/harib18g/dsctbl.c`を参照する）
+- 書籍に従って `nasmfunc.asm` を修正する（`projects/21_day/harib18g/naskfunc.nas`を参照する）
+- 書籍に従って `a_nasm.asm` を修正する（`projects/21_day/harib18g/a_nask.nas`を参照する）
+- 書籍に従って `hello.asm` を修正する（`projects/21_day/harib18g/hello.nas`を参照する）
+- 書籍に従って `hello2.asm` を修正する（`projects/21_day/harib18g/hello2.nas`を参照する）
+- 書籍に従って `a.c` を修正する（`projects/21_day/harib18g/a.c`を参照する）
+- 書籍に従って `hello3.c` を修正する（`projects/21_day/harib18g/hello3.c`を参照する）
+- 書籍に従って `crack1.c` を修正する（`projects/21_day/harib18g/crack1.c`を参照する）
+- 書籍に従って `crack2.asm` を修正する（`projects/21_day/harib18g/hello2.nas`を参照する）
