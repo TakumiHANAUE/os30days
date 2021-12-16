@@ -1690,6 +1690,21 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### アプリケーションを C 言語で作ってみたい (harib18b)
 
+- 書籍に従って `console.c` を修正する（`projects/21_day/harib18b/console.c`を参照する）
+- 書籍に従って `a_nasm.asm` を新規作成する（`projects/21_day/harib18b/a_nask.nas`を参照する）
+- 書籍に従って `a.c` を新規作成する（`projects/21_day/harib18b/a.c`を参照する）
+- 書籍に従って `hello3.c` を新規作成する（`projects/21_day/harib18b/hello3.c`を参照する）
+- アプリケーション用のリンカスクリプト `app.ld` を作成する  
+  [このページ](https://vanya.jp.net/os/haribote.html#hrb)の "アプリケーション用リンカスクリプト" を作成する。
+  `app.ld` は ld コマンドで a.hrb, hello3.hrb を生成するときに使用する。
+- アプリ関連のファイルを app ディレクトリ内に移動する
+- `Makefile` を修正する
+
+【参考】
+
+- [30 日でできる!OS 自作入門 on macOS](https://github.com/zacfukuda/hariboteos)
+- [『30 日でできる！OS 自作入門』のメモ](https://vanya.jp.net/os/haribote.html)
+
 #### OS を守ろう(1) (harib18c)
 
 #### OS を守ろう(2) (harib18d)

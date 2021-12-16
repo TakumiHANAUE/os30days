@@ -5,9 +5,15 @@ GOLIBCPATH=./golibc
 CSOURCES=$(wildcard *.c)
 COBJS=$(CSOURCES:.c=.o)
 OBJS=$(COBJS) nasmfunc.o
+APPDIR=app
+APPASMSOURCES=$(APPDIR)/hello.asm $(APPDIR)/hello2.asm
+APPCSOURCES=$(APPDIR)/a.c $(APPDIR)/hello3.c
+HRBFILES=$(APPASMSOURCES:.asm=.hrb) $(APPCSOURCES:.c=.hrb)
 
 .PHONY : all
 all : $(IMGFILE)
+
+# OS files
 
 ipl10.bin : $(IPLFILE)
 	nasm $^ -o $@ -l $(@:.bin=.lst)
@@ -24,22 +30,44 @@ nasmfunc.o : nasmfunc.asm
 bootpack.bin : $(OBJS) $(GOLIBCPATH)/libgolibc.a
 	ld -m elf_i386 -e HariMain -o $@ -T hrb.ld $(OBJS) -static -L$(GOLIBCPATH) -lgolibc -Map bootpack.map
 
-hello.hrb : hello.asm
-	nasm $^ -o $@ -l $(@:.hrb=.lst)
-
-hello2.hrb : hello2.asm
-	nasm $^ -o $@ -l $(@:.hrb=.lst)
-
 haribote.sys : asmhead.bin bootpack.bin
 	cat $^ > $@
 
-$(IMGFILE) : ipl10.bin haribote.sys hello.hrb hello2.hrb
+# Application
+
+$(APPDIR)/hello.hrb : $(APPDIR)/hello.asm
+	nasm $^ -o $@ -l $(@:.hrb=.lst)
+
+$(APPDIR)/hello2.hrb : $(APPDIR)/hello2.asm
+	nasm $^ -o $@ -l $(@:.hrb=.lst)
+
+$(APPDIR)/a_nasm.o : $(APPDIR)/a_nasm.asm
+	nasm -f elf32 $^ -o $@ -l $(@:.o=.lst)
+
+$(APPDIR)/a.o : $(APPDIR)/a.c
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -Wall
+
+$(APPDIR)/a.hrb : $(APPDIR)/a.o $(APPDIR)/a_nasm.o
+	ld -m elf_i386 -e HariMain -o $@ -T $(APPDIR)/app.ld $^ -Map $(@:.hrb=.map)
+
+$(APPDIR)/hello3.o : $(APPDIR)/hello3.c
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -Wall
+
+$(APPDIR)/hello3.hrb : $(APPDIR)/hello3.o $(APPDIR)/a_nasm.o
+	ld -m elf_i386 -e HariMain -o $@ -T $(APPDIR)/app.ld $^ -Map $(@:.hrb=.map)
+
+
+# Generate Image file
+
+$(IMGFILE) : ipl10.bin haribote.sys $(HRBFILES)
 	mformat -f 1440 -B ipl10.bin -C -i $@ ::
 	mcopy haribote.sys -i $@ ::
 	mcopy ipl10.asm -i $@ ::
 	mcopy Makefile -i $@ ::
-	mcopy hello.hrb -i $@ ::
-	mcopy hello2.hrb -i $@ ::
+	mcopy $(APPDIR)/hello.hrb -i $@ ::
+	mcopy $(APPDIR)/hello2.hrb -i $@ ::
+	mcopy $(APPDIR)/a.hrb -i $@ ::
+	mcopy $(APPDIR)/hello3.hrb -i $@ ::
 #	1440[KB] (= 512 * 2880 byte)
 #	C: to install on MS-DOS file system
 
@@ -51,10 +79,13 @@ run : $(IMGFILE)
 .PHONY : clean
 clean : 
 	rm $(IMGFILE) \
-	   ipl10.bin ipl10.lst \
-	   asmhead.bin asmhead.lst \
+	   ipl10.bin \
+	   asmhead.bin \
 	   $(OBJS) \
-	   nasmfunc.lst \
 	   bootpack.bin bootpack.map\
-	   hello.hrb hello.lst \
+	   *.lst \
 	   haribote.sys
+	rm $(APPDIR)/*.o \
+	   $(APPDIR)/*.lst \
+	   $(APPDIR)/*.hrb \
+	   $(APPDIR)/*.map
