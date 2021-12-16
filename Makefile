@@ -7,7 +7,7 @@ COBJS=$(CSOURCES:.c=.o)
 OBJS=$(COBJS) nasmfunc.o
 APPDIR=app
 APPASMSOURCES=$(APPDIR)/hello.asm $(APPDIR)/hello2.asm
-APPCSOURCES=$(APPDIR)/a.c $(APPDIR)/hello3.c
+APPCSOURCES=$(wildcard $(APPDIR)/*.c)
 HRBFILES=$(APPASMSOURCES:.asm=.hrb) $(APPCSOURCES:.c=.hrb)
 
 .PHONY : all
@@ -56,6 +56,12 @@ $(APPDIR)/hello3.o : $(APPDIR)/hello3.c
 $(APPDIR)/hello3.hrb : $(APPDIR)/hello3.o $(APPDIR)/a_nasm.o
 	ld -m elf_i386 -e HariMain -o $@ -T $(APPDIR)/app.ld $^ -Map $(@:.hrb=.map)
 
+$(APPDIR)/crack1.o : $(APPDIR)/crack1.c
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -Wall
+
+$(APPDIR)/crack1.hrb : $(APPDIR)/crack1.o $(APPDIR)/a_nasm.o
+	ld -m elf_i386 -e HariMain -o $@ -T $(APPDIR)/app.ld $^ -Map $(@:.hrb=.map)
+
 
 # Generate Image file
 
@@ -68,6 +74,7 @@ $(IMGFILE) : ipl10.bin haribote.sys $(HRBFILES)
 	mcopy $(APPDIR)/hello2.hrb -i $@ ::
 	mcopy $(APPDIR)/a.hrb -i $@ ::
 	mcopy $(APPDIR)/hello3.hrb -i $@ ::
+	mcopy $(APPDIR)/crack1.hrb -i $@ ::
 #	1440[KB] (= 512 * 2880 byte)
 #	C: to install on MS-DOS file system
 

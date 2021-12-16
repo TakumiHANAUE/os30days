@@ -1707,6 +1707,9 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### OS を守ろう(1) (harib18c)
 
+- 書籍に従って `crack1.c` を新規作成する（`projects/21_day/harib18c/crack1.c`を参照する）
+- `Makefile` を修正する
+
 #### OS を守ろう(2) (harib18d)
 
 #### 例外をサポートしよう (harib18e)
