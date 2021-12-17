@@ -56,6 +56,12 @@ $(APPDIR)/hello3.o : $(APPDIR)/hello3.c
 $(APPDIR)/hello3.hrb : $(APPDIR)/hello3.o $(APPDIR)/a_nasm.o
 	ld -m elf_i386 -e HariMain -o $@ -T $(APPDIR)/app.ld $^ -Map $(@:.hrb=.map)
 
+$(APPDIR)/hello4.o : $(APPDIR)/hello4.c
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -Wall
+
+$(APPDIR)/hello4.hrb : $(APPDIR)/hello4.o $(APPDIR)/a_nasm.o
+	ld -m elf_i386 -e HariMain -o $@ -T $(APPDIR)/app.ld $^ -Map $(@:.hrb=.map)
+
 $(APPDIR)/bug1.o : $(APPDIR)/bug1.c
 	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -Wall
 
@@ -88,6 +94,7 @@ $(IMGFILE) : ipl10.bin haribote.sys $(HRBFILES)
 	mcopy $(APPDIR)/bug1.hrb -i $@ ::
 	mcopy $(APPDIR)/bug2.hrb -i $@ ::
 	mcopy $(APPDIR)/bug3.hrb -i $@ ::
+	mcopy $(APPDIR)/hello4.hrb -i $@ ::
 #	1440[KB] (= 512 * 2880 byte)
 #	C: to install on MS-DOS file system
 

@@ -1783,6 +1783,11 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### C 言語で文字列表示(1) (harib19d)
 
+- 書籍に従って `console.c` を修正する（`projects/22_day/harib19d/console.c`を参照する）
+- 書籍に従って `a_nasm.asm` を修正する（`projects/22_day/harib19d/a_nask.nas`を参照する）
+- 書籍に従って `hello4.c` を新規作成する（`projects/22_day/harib19c/hello4.c`を参照する）
+- `Makefile` を修正する
+
 #### C 言語で文字列表示(2) (harib19e)
 
 #### ウィンドウを出そう (harib19f)
