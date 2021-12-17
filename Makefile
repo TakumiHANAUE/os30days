@@ -6,7 +6,7 @@ CSOURCES=$(wildcard *.c)
 COBJS=$(CSOURCES:.c=.o)
 OBJS=$(COBJS) nasmfunc.o
 APPDIR=app
-APPASMSOURCES=$(APPDIR)/hello.asm $(APPDIR)/hello2.asm $(APPDIR)/crack2.asm $(APPDIR)/crack3.asm $(APPDIR)/crack4.asm $(APPDIR)/crack5.asm $(APPDIR)/crack6.asm
+APPASMSOURCES=$(APPDIR)/hello.asm $(APPDIR)/hello2.asm
 APPCSOURCES=$(wildcard $(APPDIR)/*.c)
 HRBFILES=$(APPASMSOURCES:.asm=.hrb) $(APPCSOURCES:.c=.hrb)
 
@@ -56,26 +56,11 @@ $(APPDIR)/hello3.o : $(APPDIR)/hello3.c
 $(APPDIR)/hello3.hrb : $(APPDIR)/hello3.o $(APPDIR)/a_nasm.o
 	ld -m elf_i386 -e HariMain -o $@ -T $(APPDIR)/app.ld $^ -Map $(@:.hrb=.map)
 
-$(APPDIR)/crack1.o : $(APPDIR)/crack1.c
+$(APPDIR)/bug1.o : $(APPDIR)/bug1.c
 	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -Wall
 
-$(APPDIR)/crack1.hrb : $(APPDIR)/crack1.o $(APPDIR)/a_nasm.o
+$(APPDIR)/bug1.hrb : $(APPDIR)/bug1.o $(APPDIR)/a_nasm.o
 	ld -m elf_i386 -e HariMain -o $@ -T $(APPDIR)/app.ld $^ -Map $(@:.hrb=.map)
-
-$(APPDIR)/crack2.hrb : $(APPDIR)/crack2.asm
-	nasm $^ -o $@ -l $(@:.hrb=.lst)
-
-$(APPDIR)/crack3.hrb : $(APPDIR)/crack3.asm
-	nasm $^ -o $@ -l $(@:.hrb=.lst)
-
-$(APPDIR)/crack4.hrb : $(APPDIR)/crack4.asm
-	nasm $^ -o $@ -l $(@:.hrb=.lst)
-
-$(APPDIR)/crack5.hrb : $(APPDIR)/crack5.asm
-	nasm $^ -o $@ -l $(@:.hrb=.lst)
-
-$(APPDIR)/crack6.hrb : $(APPDIR)/crack6.asm
-	nasm $^ -o $@ -l $(@:.hrb=.lst)
 
 # Generate Image file
 
@@ -88,12 +73,7 @@ $(IMGFILE) : ipl10.bin haribote.sys $(HRBFILES)
 	mcopy $(APPDIR)/hello2.hrb -i $@ ::
 	mcopy $(APPDIR)/a.hrb -i $@ ::
 	mcopy $(APPDIR)/hello3.hrb -i $@ ::
-	mcopy $(APPDIR)/crack1.hrb -i $@ ::
-	mcopy $(APPDIR)/crack2.hrb -i $@ ::
-	mcopy $(APPDIR)/crack3.hrb -i $@ ::
-	mcopy $(APPDIR)/crack4.hrb -i $@ ::
-	mcopy $(APPDIR)/crack5.hrb -i $@ ::
-	mcopy $(APPDIR)/crack6.hrb -i $@ ::
+	mcopy $(APPDIR)/bug1.hrb -i $@ ::
 #	1440[KB] (= 512 * 2880 byte)
 #	C: to install on MS-DOS file system
 

@@ -1763,6 +1763,14 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### バグ発見を手伝おう (harib19b)
 
+- 書籍に従って `bootpack.h` を修正する（`projects/22_day/harib19b/bootpack.h`を参照する）
+- 書籍に従って `console.c` を修正する（`projects/22_day/harib19b/console.c`を参照する）
+- 書籍に従って `dsctbl.c` を修正する（`projects/22_day/harib19b/dsctbl.c`を参照する）
+- 書籍に従って `nasmfunc.asm` を修正する（`projects/22_day/harib19b/naskfunc.nas`を参照する）
+- 書籍に従って `bug1.c` を新規作成する（`projects/22_day/harib19b/bug1.c`を参照する）
+- crack1 ～ crack6 のファイルを削除する
+- `Makefile` を修正する
+
 #### アプリの強制終了 (harib19c)
 
 #### C 言語で文字列表示(1) (harib19d)
