@@ -1754,6 +1754,13 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### OS を守ろう(5) (harib19a)
 
+- 書籍に従って `console.c` を修正する（`projects/22_day/harib19a/console.c`を参照する）
+- 書籍に従って `crack3.asm` を新規作成する（`projects/21_day/harib19a/crack3.nas`を参照する）
+- 書籍に従って `crack4.asm` を新規作成する（`projects/21_day/harib19a/crack4.nas`を参照する）
+- 書籍に従って `crack5.asm` を新規作成する（`projects/21_day/harib19a/crack5.nas`を参照する）
+- 書籍に従って `crack6.asm` を新規作成する（`projects/21_day/harib19a/crack6.nas`を参照する）
+- `Makefile` を修正する
+
 #### バグ発見を手伝おう (harib19b)
 
 #### アプリの強制終了 (harib19c)
