@@ -6,9 +6,6 @@ CSOURCES=$(wildcard *.c)
 COBJS=$(CSOURCES:.c=.o)
 OBJS=$(COBJS) nasmfunc.o
 APPDIR=app
-APPASMSOURCES=$(APPDIR)/hello.asm $(APPDIR)/hello2.asm $(APPDIR)/hello5.asm
-APPCSOURCES=$(wildcard $(APPDIR)/*.c)
-HRBFILES=$(APPASMSOURCES:.asm=.hrb) $(APPCSOURCES:.c=.hrb)
 
 .PHONY : all
 all : $(IMGFILE)
@@ -34,55 +31,10 @@ haribote.sys : asmhead.bin bootpack.bin
 	cat $^ > $@
 
 # Application
+$(APPDIR)/.app : 
+	make -C app
 
-$(APPDIR)/hello.hrb : $(APPDIR)/hello.asm
-	nasm $^ -o $@ -l $(@:.hrb=.lst)
-
-$(APPDIR)/hello2.hrb : $(APPDIR)/hello2.asm
-	nasm $^ -o $@ -l $(@:.hrb=.lst)
-
-$(APPDIR)/a_nasm.o : $(APPDIR)/a_nasm.asm
-	nasm -f elf32 $^ -o $@ -l $(@:.o=.lst)
-
-$(APPDIR)/a.o : $(APPDIR)/a.c
-	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -Wall
-
-$(APPDIR)/a.hrb : $(APPDIR)/a.o $(APPDIR)/a_nasm.o
-	ld -m elf_i386 -e HariMain -o $@ -T $(APPDIR)/app.ld $^ -Map $(@:.hrb=.map)
-
-$(APPDIR)/hello3.o : $(APPDIR)/hello3.c
-	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -Wall
-
-$(APPDIR)/hello3.hrb : $(APPDIR)/hello3.o $(APPDIR)/a_nasm.o
-	ld -m elf_i386 -e HariMain -o $@ -T $(APPDIR)/app.ld $^ -Map $(@:.hrb=.map)
-
-$(APPDIR)/hello4.o : $(APPDIR)/hello4.c
-	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -Wall
-
-$(APPDIR)/hello4.hrb : $(APPDIR)/hello4.o $(APPDIR)/a_nasm.o
-	ld -m elf_i386 -e HariMain -o $@ -T $(APPDIR)/app.ld $^ -Map $(@:.hrb=.map)
-
-$(APPDIR)/hello5.o : $(APPDIR)/hello5.asm
-	nasm -f elf32 $^ -o $@ -l $(@:.o=.lst)
-
-$(APPDIR)/hello5.hrb : $(APPDIR)/hello5.o
-	ld -m elf_i386 -e HariMain -o $@ -T $(APPDIR)/app.ld $^ -Map $(@:.hrb=.map)
-
-$(APPDIR)/winhelo.o : $(APPDIR)/winhelo.c
-	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -Wall
-
-$(APPDIR)/winhelo.hrb : $(APPDIR)/winhelo.o $(APPDIR)/a_nasm.o
-	ld -m elf_i386 -e HariMain -o $@ -T $(APPDIR)/app.ld $^ -Map $(@:.hrb=.map)
-
-$(APPDIR)/winhelo2.o : $(APPDIR)/winhelo2.c
-	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -Wall
-
-$(APPDIR)/winhelo2.hrb : $(APPDIR)/winhelo2.o $(APPDIR)/a_nasm.o
-	ld -m elf_i386 -e HariMain -o $@ -T $(APPDIR)/app.ld $^ -Map $(@:.hrb=.map)
-
-# Generate Image file
-
-$(IMGFILE) : ipl10.bin haribote.sys $(HRBFILES)
+$(IMGFILE) : ipl10.bin haribote.sys $(APPDIR)/.app
 	mformat -f 1440 -B ipl10.bin -C -i $@ ::
 	mcopy haribote.sys -i $@ ::
 	mcopy ipl10.asm -i $@ ::
@@ -112,7 +64,12 @@ clean :
 	   bootpack.bin bootpack.map\
 	   *.lst \
 	   haribote.sys
-	rm $(APPDIR)/*.o \
-	   $(APPDIR)/*.lst \
-	   $(APPDIR)/*.hrb \
-	   $(APPDIR)/*.map
+
+.PHONY : appclean
+appclean : 
+	make -C app clean
+
+.PHONY : allclean
+allclean :
+	make clean
+	make -C app clean
