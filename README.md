@@ -1796,4 +1796,10 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### ウィンドウを出そう (harib19f)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/22_day/harib19f/bootpack.c`を参照する）
+- 書籍に従って `console.c` を修正する（`projects/22_day/harib19f/console.c`を参照する）
+- 書籍に従って `a_nasm.asm` を修正する（`projects/22_day/harib19f/a_nask.nas`を参照する）
+- 書籍に従って `winhelo.c` を新規作成する（`projects/22_day/harib19f/winhelo.c`を参照する）
+- `Makefile` を修正する
+
 #### ウィンドウに文字や四角を描こう (harib19g)

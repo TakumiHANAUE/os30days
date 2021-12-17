@@ -86,6 +86,12 @@ $(APPDIR)/bug3.o : $(APPDIR)/bug3.c
 $(APPDIR)/bug3.hrb : $(APPDIR)/bug3.o $(APPDIR)/a_nasm.o
 	ld -m elf_i386 -e HariMain -o $@ -T $(APPDIR)/app.ld $^ -Map $(@:.hrb=.map)
 
+$(APPDIR)/winhelo.o : $(APPDIR)/winhelo.c
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -Wall
+
+$(APPDIR)/winhelo.hrb : $(APPDIR)/winhelo.o $(APPDIR)/a_nasm.o
+	ld -m elf_i386 -e HariMain -o $@ -T $(APPDIR)/app.ld $^ -Map $(@:.hrb=.map)
+
 # Generate Image file
 
 $(IMGFILE) : ipl10.bin haribote.sys $(HRBFILES)
@@ -102,6 +108,7 @@ $(IMGFILE) : ipl10.bin haribote.sys $(HRBFILES)
 	mcopy $(APPDIR)/bug3.hrb -i $@ ::
 	mcopy $(APPDIR)/hello4.hrb -i $@ ::
 	mcopy $(APPDIR)/hello5.hrb -i $@ ::
+	mcopy $(APPDIR)/winhelo.hrb -i $@ ::
 #	1440[KB] (= 512 * 2880 byte)
 #	C: to install on MS-DOS file system
 
