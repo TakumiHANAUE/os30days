@@ -6,7 +6,7 @@ CSOURCES=$(wildcard *.c)
 COBJS=$(CSOURCES:.c=.o)
 OBJS=$(COBJS) nasmfunc.o
 APPDIR=app
-APPASMSOURCES=$(APPDIR)/hello.asm $(APPDIR)/hello2.asm
+APPASMSOURCES=$(APPDIR)/hello.asm $(APPDIR)/hello2.asm $(APPDIR)/hello5.asm
 APPCSOURCES=$(wildcard $(APPDIR)/*.c)
 HRBFILES=$(APPASMSOURCES:.asm=.hrb) $(APPCSOURCES:.c=.hrb)
 
@@ -62,6 +62,12 @@ $(APPDIR)/hello4.o : $(APPDIR)/hello4.c
 $(APPDIR)/hello4.hrb : $(APPDIR)/hello4.o $(APPDIR)/a_nasm.o
 	ld -m elf_i386 -e HariMain -o $@ -T $(APPDIR)/app.ld $^ -Map $(@:.hrb=.map)
 
+$(APPDIR)/hello5.o : $(APPDIR)/hello5.asm
+	nasm -f elf32 $^ -o $@ -l $(@:.o=.lst)
+
+$(APPDIR)/hello5.hrb : $(APPDIR)/hello5.o
+	ld -m elf_i386 -e HariMain -o $@ -T $(APPDIR)/app.ld $^ -Map $(@:.hrb=.map)
+
 $(APPDIR)/bug1.o : $(APPDIR)/bug1.c
 	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -Wall
 
@@ -95,6 +101,7 @@ $(IMGFILE) : ipl10.bin haribote.sys $(HRBFILES)
 	mcopy $(APPDIR)/bug2.hrb -i $@ ::
 	mcopy $(APPDIR)/bug3.hrb -i $@ ::
 	mcopy $(APPDIR)/hello4.hrb -i $@ ::
+	mcopy $(APPDIR)/hello5.hrb -i $@ ::
 #	1440[KB] (= 512 * 2880 byte)
 #	C: to install on MS-DOS file system
 

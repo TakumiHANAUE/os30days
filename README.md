@@ -1790,6 +1790,10 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### C 言語で文字列表示(2) (harib19e)
 
+- 書籍に従って `console.c` を修正する（`projects/22_day/harib19e/console.c`を参照する）
+- 書籍に従って `hello5.asm` を新規作成する（`projects/22_day/harib19e/hello5.nas`を参照する）
+- `Makefile` を修正する
+
 #### ウィンドウを出そう (harib19f)
 
 #### ウィンドウに文字や四角を描こう (harib19g)
