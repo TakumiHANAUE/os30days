@@ -1773,6 +1773,14 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### アプリの強制終了 (harib19c)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/22_day/harib19c/bootpack.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/22_day/harib19c/bootpack.h`を参照する）
+- 書籍に従って `mtask.c` を修正する（`projects/22_day/harib19c/mtask.c`を参照する）
+- 書籍に従って `nasmfunc.asm` を修正する（`projects/22_day/harib19c/naskfunc.nas`を参照する）
+- 書籍に従って `bug2.c` を新規作成する（`projects/22_day/harib19c/bug2.c`を参照する）
+- 書籍に従って `bug3.c` を新規作成する（`projects/22_day/harib19c/bug3.c`を参照する）
+- `Makefile` を修正する
+
 #### C 言語で文字列表示(1) (harib19d)
 
 #### C 言語で文字列表示(2) (harib19e)

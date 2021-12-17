@@ -41,6 +41,7 @@ void HariMain(void)
           0,   0,   0, '_',   0,   0,   0,   0,   0,   0,   0,   0,   0, '|',   0,   0,
     };
     int key_to = 0, key_shift = 0, key_leds = (binfo->leds >> 4) & 7, keycmd_wait = -1;
+    struct CONSOLE *cons;
 
     init_gdtidt();
     init_pic();
@@ -256,11 +257,20 @@ void HariMain(void)
                     fifo32_put(&keycmd, KEYCMD_LED);
                     fifo32_put(&keycmd, key_leds);
                 }
-                if (i == 256 + 0x46) /* NumLock */
+                if (i == 256 + 0x46) /* ScrollLock */
                 {
                     key_leds ^= 1;
                     fifo32_put(&keycmd, KEYCMD_LED);
                     fifo32_put(&keycmd, key_leds);
+                }
+                if (i == 256 + 0x3b && key_shift != 0 && task_cons->tss.ss0 != 0) /* Shift+F1 */
+                {
+                    cons = (struct CONSOLE *) *((int *) 0xfec);
+                    cons_putstr0(cons, "\nBreak(key) :\n");
+                    io_cli(); /* レジスタ変更中にタスクが変わると困るから */
+                    task_cons->tss.eax = (int) &(task_cons->tss.esp0);
+                    task_cons->tss.eip = (int) asm_end_app;
+                    io_sti();
                 }
                 if (i == 256 + 0xfa) /* キーボードがデータを無事に受け取った */
                 {

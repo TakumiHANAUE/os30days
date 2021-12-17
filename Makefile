@@ -62,6 +62,18 @@ $(APPDIR)/bug1.o : $(APPDIR)/bug1.c
 $(APPDIR)/bug1.hrb : $(APPDIR)/bug1.o $(APPDIR)/a_nasm.o
 	ld -m elf_i386 -e HariMain -o $@ -T $(APPDIR)/app.ld $^ -Map $(@:.hrb=.map)
 
+$(APPDIR)/bug2.o : $(APPDIR)/bug2.c
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -Wall
+
+$(APPDIR)/bug2.hrb : $(APPDIR)/bug2.o $(APPDIR)/a_nasm.o
+	ld -m elf_i386 -e HariMain -o $@ -T $(APPDIR)/app.ld $^ -Map $(@:.hrb=.map)
+
+$(APPDIR)/bug3.o : $(APPDIR)/bug3.c
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -Wall
+
+$(APPDIR)/bug3.hrb : $(APPDIR)/bug3.o $(APPDIR)/a_nasm.o
+	ld -m elf_i386 -e HariMain -o $@ -T $(APPDIR)/app.ld $^ -Map $(@:.hrb=.map)
+
 # Generate Image file
 
 $(IMGFILE) : ipl10.bin haribote.sys $(HRBFILES)
@@ -74,6 +86,8 @@ $(IMGFILE) : ipl10.bin haribote.sys $(HRBFILES)
 	mcopy $(APPDIR)/a.hrb -i $@ ::
 	mcopy $(APPDIR)/hello3.hrb -i $@ ::
 	mcopy $(APPDIR)/bug1.hrb -i $@ ::
+	mcopy $(APPDIR)/bug2.hrb -i $@ ::
+	mcopy $(APPDIR)/bug3.hrb -i $@ ::
 #	1440[KB] (= 512 * 2880 byte)
 #	C: to install on MS-DOS file system
 
