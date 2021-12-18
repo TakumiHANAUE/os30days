@@ -1951,6 +1951,10 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### BEEP サウンド (harib22a)
 
+- 書籍に従って `console.c` を修正する（`projects/25_day/harib22a/console.c`を参照する）
+- 書籍に従って `a_nasm.asm` を修正する（`projects/25_day/harib22a/a_nask.nas`を参照する）
+- 書籍に従って `beepdown.c` を新規作成する（`projects/25_day/harib22a/beepdown.c`を参照する）
+
 #### 色を増やそう(1) (harib22b)
 
 #### 色を増やそう(2) (harib22c)
