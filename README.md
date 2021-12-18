@@ -1836,6 +1836,12 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### 線を引く (harib20d)
 
+- 書籍に従って `console.c` を修正する（`projects/23_day/harib20d/console.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/23_day/harib20d/bootpack.h`を参照する）
+- 書籍に従って `a_nasm.asm` を修正する（`projects/23_day/harib20d/a_nask.nas`を参照する）
+- 書籍に従って `lines.c` を新規作成する（`projects/23_day/harib20d/lines.c`を参照する）
+- `Makefile` を修正する
+
 #### ウィンドウのクローズ (harib20e)
 
 #### キー入力の API (harib20f)

@@ -51,6 +51,7 @@ $(IMGFILE) : ipl10.bin haribote.sys $(APPDIR)/.app
 	mcopy $(APPDIR)/star1.hrb -i $@ ::
 	mcopy $(APPDIR)/stars.hrb -i $@ ::
 	mcopy $(APPDIR)/stars2.hrb -i $@ ::
+	mcopy $(APPDIR)/lines.hrb -i $@ ::
 #	1440[KB] (= 512 * 2880 byte)
 #	C: to install on MS-DOS file system
 
