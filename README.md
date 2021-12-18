@@ -1946,3 +1946,25 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 - 書籍に従って `bootpack.h` を修正する（`projects/24_day/harib21h/bootpack.h`を参照する）
 - 書籍に従って `console.c` を修正する（`projects/24_day/harib21h/console.c`を参照する）
 - 書籍に従って `timer.c` を修正する（`projects/24_day/harib21h/timer.c`を参照する）
+
+### 二十五日目 コンソールを増やそう
+
+#### BEEP サウンド (harib22a)
+
+#### 色を増やそう(1) (harib22b)
+
+#### 色を増やそう(2) (harib22c)
+
+#### ウィンドウの初期位置 (harib22d)
+
+#### コンソールを増やそう(1) (harib22e)
+
+#### コンソールを増やそう(2) (harib22f)
+
+#### コンソールを増やそう(3) (harib22g)
+
+#### コンソールを増やそう(4) (harib22h)
+
+#### もっと OS らしく(1) (harib22i)
+
+#### もっと OS らしく(2) (harib22j)
