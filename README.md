@@ -1865,3 +1865,21 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 - 書籍に従って `sheet.c` を修正する（`projects/23_day/harib20g/sheet.c`を参照する）
 - 書籍に従って `console.c` を修正する（`projects/23_day/harib20g/console.c`を参照する）
 - 書籍に従って `bootpack.h` を修正する（`projects/23_day/harib20g/bootpack.h`を参照する）
+
+### 二十四日目 ウィンドウ操作
+
+#### ウィンドウの切り替え(1) (harib21a)
+
+#### ウィンドウの切り替え(2) (harib21b)
+
+#### ウィンドウの移動 (harib21c)
+
+#### ウィンドウをマウスで閉じる (harib21d)
+
+#### アプリケーションウィンドウも入力切り替え (harib21e)
+
+#### 入力ウィンドウをマウスで切り替える (harib21f)
+
+#### タイマ API (harib21g)
+
+#### タイマのキャンセル (harib21h)
