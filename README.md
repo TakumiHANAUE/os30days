@@ -1886,6 +1886,11 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### アプリケーションウィンドウも入力切り替え (harib21e)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/23_day/harib21e/bootpack.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/23_day/harib21e/bootpack.h`を参照する）
+- 書籍に従って `console.c` を修正する（`projects/23_day/harib21e/console.c`を参照する）
+- 書籍に従って `window.c` を修正する（`projects/23_day/harib21e/window.c`を参照する）
+
 #### 入力ウィンドウをマウスで切り替える (harib21f)
 
 #### タイマ API (harib21g)
