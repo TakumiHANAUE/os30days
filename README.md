@@ -1850,6 +1850,11 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### キー入力の API (harib20f)
 
+- 書籍に従って `console.c` を修正する（`projects/23_day/harib20f/console.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/23_day/harib20f/bootpack.h`を参照する）
+- 書籍に従って `a_nasm.asm` を修正する（`projects/23_day/harib20f/a_nask.nas`を参照する）
+- 書籍に従って `lines.c` を修正する（`projects/23_day/harib20f/lines.c`を参照する）
+
 #### キー入力で遊ぶ (harib20g)
 
 #### 強制終了でウィンドウを閉じる (harib20h)
