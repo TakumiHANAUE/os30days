@@ -1861,3 +1861,7 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 - `Makefile` を修正する
 
 #### 強制終了でウィンドウを閉じる (harib20h)
+
+- 書籍に従って `sheet.c` を修正する（`projects/23_day/harib20g/sheet.c`を参照する）
+- 書籍に従って `console.c` を修正する（`projects/23_day/harib20g/console.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/23_day/harib20g/bootpack.h`を参照する）
