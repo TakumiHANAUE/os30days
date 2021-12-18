@@ -1893,6 +1893,8 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### 入力ウィンドウをマウスで切り替える (harib21f)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/23_day/harib21f/bootpack.c`を参照する）
+
 #### タイマ API (harib21g)
 
 #### タイマのキャンセル (harib21h)
