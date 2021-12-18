@@ -1813,6 +1813,11 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### malloc を作ろう (harib20a)
 
+- 書籍に従って `console.c` を修正する（`projects/23_day/harib20a/console.c`を参照する）
+- 書籍に従って `a_nasm.asm` を修正する（`projects/23_day/harib20a/a_nask.nas`を参照する）
+- 書籍に従って `winhelo3.c` を新規作成する（`projects/23_day/harib20a/winhelo3.c`を参照する）
+- `Makefile` を修正する
+
 #### 点を描く (harib20b)
 
 #### ウィンドウのリフレッシュ(harib20c)

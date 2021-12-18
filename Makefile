@@ -47,6 +47,7 @@ $(IMGFILE) : ipl10.bin haribote.sys $(APPDIR)/.app
 	mcopy $(APPDIR)/hello5.hrb -i $@ ::
 	mcopy $(APPDIR)/winhelo.hrb -i $@ ::
 	mcopy $(APPDIR)/winhelo2.hrb -i $@ ::
+	mcopy $(APPDIR)/winhelo3.hrb -i $@ ::
 #	1440[KB] (= 512 * 2880 byte)
 #	C: to install on MS-DOS file system
 

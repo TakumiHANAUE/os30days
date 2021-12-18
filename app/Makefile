@@ -51,6 +51,12 @@ winhelo2.o : winhelo2.c
 winhelo2.hrb : winhelo2.o a_nasm.o
 	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -Map $(@:.hrb=.map)
 
+winhelo3.o : winhelo3.c
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -Wall
+
+winhelo3.hrb : winhelo3.o a_nasm.o
+	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -Map $(@:.hrb=.map)
+
 .PHONY : clean
 clean : 
 	rm *.o \
