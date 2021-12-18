@@ -9,3 +9,4 @@ app/*.hrb
 app/*.map
 app/*.lst
 app/*.o
+app/.app

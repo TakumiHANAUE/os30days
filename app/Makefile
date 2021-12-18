@@ -1,6 +1,7 @@
 APPASMSOURCES=hello.asm hello2.asm hello5.asm
 APPCSOURCES=$(wildcard *.c)
 HRBFILES=$(APPASMSOURCES:.asm=.hrb) $(APPCSOURCES:.c=.hrb)
+GOLIBCPATH=../golibc
 
 .PHONY : all
 all : $(HRBFILES)
@@ -56,6 +57,18 @@ winhelo3.o : winhelo3.c
 
 winhelo3.hrb : winhelo3.o a_nasm.o
 	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -Map $(@:.hrb=.map)
+
+star1.o : star1.c
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -Wall
+
+star1.hrb : star1.o a_nasm.o
+	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -Map $(@:.hrb=.map)
+
+stars.o : stars.c
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -Wall
+
+stars.hrb : stars.o a_nasm.o
+	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -static -L$(GOLIBCPATH) -lgolibc -Map $(@:.hrb=.map)
 
 .PHONY : clean
 clean : 
