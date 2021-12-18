@@ -106,6 +106,12 @@ color.o : color.c
 color.hrb : color.o a_nasm.o
 	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -Map $(@:.hrb=.map)
 
+color2.o : color2.c
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -Wall
+
+color2.hrb : color2.o a_nasm.o
+	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -Map $(@:.hrb=.map)
+
 .PHONY : clean
 clean : 
 	rm *.o \
