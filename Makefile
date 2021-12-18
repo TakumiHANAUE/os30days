@@ -19,7 +19,7 @@ asmhead.bin : asmhead.asm
 	nasm $^ -o $@ -l $(@:.bin=.lst)
 
 %.o : %.c
-	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -Wall
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -I$(GOLIBCPATH) -Wall
 
 nasmfunc.o : nasmfunc.asm
 	nasm -f elf32 $^ -o $@ -l $(@:.o=.lst)

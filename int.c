@@ -1,7 +1,6 @@
 /* 割り込み関係 */
 
 #include "bootpack.h"
-#include "golibc.h"
 
 
 /* PIC の初期化 */

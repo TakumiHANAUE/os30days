@@ -1,4 +1,4 @@
-#include "../golibc.h"
+#include "golibc.h"
 
 int api_openwin(char *buf, int xsiz, int ysiz, int col_inv, char *title);
 void api_boxfilwin(int win, int x0, int y0, int x1, int y1, int col);
