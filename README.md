@@ -1844,6 +1844,10 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### ウィンドウのクローズ (harib20e)
 
+- 書籍に従って `console.c` を修正する（`projects/23_day/harib20e/console.c`を参照する）
+- 書籍に従って `a_nasm.asm` を修正する（`projects/23_day/harib20e/a_nask.nas`を参照する）
+- 書籍に従って `lines.c` を修正する（`projects/23_day/harib20e/lines.c`を参照する）
+
 #### キー入力の API (harib20f)
 
 #### キー入力で遊ぶ (harib20g)
