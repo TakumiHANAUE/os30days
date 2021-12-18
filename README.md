@@ -1942,3 +1942,7 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
   .text セクションが 0x9da まできているため、 .data セクション開始が 0x1000 となるように `app.ld` を書き換えてエラー回避した。
 
 #### タイマのキャンセル (harib21h)
+
+- 書籍に従って `bootpack.h` を修正する（`projects/24_day/harib21h/bootpack.h`を参照する）
+- 書籍に従って `console.c` を修正する（`projects/24_day/harib21h/console.c`を参照する）
+- 書籍に従って `timer.c` を修正する（`projects/24_day/harib21h/timer.c`を参照する）
