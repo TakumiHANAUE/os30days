@@ -1957,6 +1957,9 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### 色を増やそう(1) (harib22b)
 
+- 書籍に従って `graphic.c` を修正する（`projects/25_day/harib22b/graphic.c`を参照する）
+- 書籍に従って `color.c` を新規作成する（`projects/25_day/harib22b/color.c`を参照する）
+
 #### 色を増やそう(2) (harib22c)
 
 #### ウィンドウの初期位置 (harib22d)

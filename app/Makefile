@@ -100,6 +100,12 @@ beepdown.o : beepdown.c
 beepdown.hrb : beepdown.o a_nasm.o
 	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -Map $(@:.hrb=.map)
 
+color.o : color.c
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -Wall
+
+color.hrb : color.o a_nasm.o
+	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -Map $(@:.hrb=.map)
+
 .PHONY : clean
 clean : 
 	rm *.o \
