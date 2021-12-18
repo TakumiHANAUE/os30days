@@ -1897,4 +1897,48 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### タイマ API (harib21g)
 
+- 書籍に従って `console.c` を修正する（`projects/23_day/harib21g/console.c`を参照する）
+- 書籍に従って `a_nasm.asm` を修正する（`projects/23_day/harib21g/a_nask.nas`を参照する）
+- 書籍に従って `noodle.c` を新規作成する（`projects/23_day/harib21g/noodle.c`を参照する）
+- `Makefile` を修正する
+- `app.ld`を修正する  
+  ld コマンドで `noodle.hrb` を生成しようとしたところ、下記エラーが発生した。
+
+  ```
+  ld -m elf_i386 -e HariMain -o noodle.hrb -T app.ld noodle.o a_nasm.o -static -L../golibc -lgolibc -Map noodle.map
+  ld: section .data VMA [0000000000000400,0000000000000434] overlaps section .text VMA [0000000000000030,00000000000009da]
+  ```
+
+  .data セクションが .text セクションに重なっているとのこと（.data セクションは 0x400 から開始となっているが、.text セクションが 0x9da まで来ている）。
+  `noodle.hrb` のメモリマップ(ld コマンド時に `noodle.map` として生成)は以下の通り。
+
+  ```
+  .text           0x0000000000000030      0x9ab
+  *(.text)
+  .text          0x0000000000000030      0x11c noodle.o
+                  0x0000000000000030                HariMain
+  （中略）
+  .text          0x00000000000002ee       0x2d ../golibc/libgolibc.a(sprintf.o)
+                  0x00000000000002ee                sprintf
+  .text          0x000000000000031b      0x4f4 ../golibc/libgolibc.a(vsprintf.o)
+                  0x0000000000000369                vsprintf
+  .text          0x000000000000080f       0x28 ../golibc/libgolibc.a(strlen.o)
+                  0x000000000000080f                strlen
+  .text          0x0000000000000837      0x1a4 ../golibc/libgolibc.a(strtoul0.o)
+                  0x0000000000000883                strtoul0
+
+  （golibcのプログラムで 0x400 を大幅に超えてしまっている）
+  （.data セクションは 0x400 から開始しようとしている↓）
+
+  .data           0x0000000000000400       0x35 load address 0x00000000000009db
+  *(.data)
+  .data          0x0000000000000400        0x0 noodle.o
+  .data          0x0000000000000400        0x0 ../golibc/libgolibc.a(sprintf.o)
+  .data          0x0000000000000400       0x20 ../golibc/libgolibc.a(vsprintf.o)
+  .data          0x0000000000000420        0x0 ../golibc/libgolibc.a(strlen.o)
+  .data          0x0000000000000420        0x0 ../golibc/libgolibc.a(strtoul0.o)
+  ```
+
+  .text セクションが 0x9da まできているため、 .data セクション開始が 0x1000 となるように `app.ld` を書き換えてエラー回避した。
+
 #### タイマのキャンセル (harib21h)

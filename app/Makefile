@@ -88,6 +88,12 @@ walk.o : walk.c
 walk.hrb : walk.o a_nasm.o
 	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -Map $(@:.hrb=.map)
 
+noodle.o : noodle.c
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -I$(GOLIBCPATH) -Wall
+
+noodle.hrb : noodle.o a_nasm.o
+	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -static -L$(GOLIBCPATH) -lgolibc -Map $(@:.hrb=.map)
+
 .PHONY : clean
 clean : 
 	rm *.o \
