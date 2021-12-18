@@ -77,10 +77,16 @@ stars2.hrb : stars2.o a_nasm.o
 	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -static -L$(GOLIBCPATH) -lgolibc -Map $(@:.hrb=.map)
 
 lines.o : lines.c
-	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -I$(GOLIBCPATH) -Wall
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -Wall
 
 lines.hrb : lines.o a_nasm.o
-	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -static -L$(GOLIBCPATH) -lgolibc -Map $(@:.hrb=.map)
+	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -Map $(@:.hrb=.map)
+
+walk.o : walk.c
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -Wall
+
+walk.hrb : walk.o a_nasm.o
+	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -Map $(@:.hrb=.map)
 
 .PHONY : clean
 clean : 
