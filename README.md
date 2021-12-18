@@ -1857,49 +1857,49 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### キー入力で遊ぶ (harib20g)
 
-- 書籍に従って `walk.c` を新規作成する（`projects/23_day/harib20dg/walk.c`を参照する）
+- 書籍に従って `walk.c` を新規作成する（`projects/23_day/harib20g/walk.c`を参照する）
 - `Makefile` を修正する
 
 #### 強制終了でウィンドウを閉じる (harib20h)
 
-- 書籍に従って `sheet.c` を修正する（`projects/23_day/harib20g/sheet.c`を参照する）
-- 書籍に従って `console.c` を修正する（`projects/23_day/harib20g/console.c`を参照する）
-- 書籍に従って `bootpack.h` を修正する（`projects/23_day/harib20g/bootpack.h`を参照する）
+- 書籍に従って `sheet.c` を修正する（`projects/23_day/harib20h/sheet.c`を参照する）
+- 書籍に従って `console.c` を修正する（`projects/23_day/harib20h/console.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/23_day/harib20h/bootpack.h`を参照する）
 
 ### 二十四日目 ウィンドウ操作
 
 #### ウィンドウの切り替え(1) (harib21a)
 
-- 書籍に従って `bootpack.c` を修正する（`projects/23_day/harib21a/bootpack.c`を参照する）
+- 書籍に従って `bootpack.c` を修正する（`projects/24_day/harib21a/bootpack.c`を参照する）
 
 #### ウィンドウの切り替え(2) (harib21b)
 
-- 書籍に従って `bootpack.c` を修正する（`projects/23_day/harib21b/bootpack.c`を参照する）
+- 書籍に従って `bootpack.c` を修正する（`projects/24_day/harib21b/bootpack.c`を参照する）
 
 #### ウィンドウの移動 (harib21c)
 
-- 書籍に従って `bootpack.c` を修正する（`projects/23_day/harib21c/bootpack.c`を参照する）
+- 書籍に従って `bootpack.c` を修正する（`projects/24_day/harib21c/bootpack.c`を参照する）
 
 #### ウィンドウをマウスで閉じる (harib21d)
 
-- 書籍に従って `bootpack.c` を修正する（`projects/23_day/harib21d/bootpack.c`を参照する）
+- 書籍に従って `bootpack.c` を修正する（`projects/24_day/harib21d/bootpack.c`を参照する）
 
 #### アプリケーションウィンドウも入力切り替え (harib21e)
 
-- 書籍に従って `bootpack.c` を修正する（`projects/23_day/harib21e/bootpack.c`を参照する）
-- 書籍に従って `bootpack.h` を修正する（`projects/23_day/harib21e/bootpack.h`を参照する）
-- 書籍に従って `console.c` を修正する（`projects/23_day/harib21e/console.c`を参照する）
-- 書籍に従って `window.c` を修正する（`projects/23_day/harib21e/window.c`を参照する）
+- 書籍に従って `bootpack.c` を修正する（`projects/24_day/harib21e/bootpack.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/24_day/harib21e/bootpack.h`を参照する）
+- 書籍に従って `console.c` を修正する（`projects/24_day/harib21e/console.c`を参照する）
+- 書籍に従って `window.c` を修正する（`projects/24_day/harib21e/window.c`を参照する）
 
 #### 入力ウィンドウをマウスで切り替える (harib21f)
 
-- 書籍に従って `bootpack.c` を修正する（`projects/23_day/harib21f/bootpack.c`を参照する）
+- 書籍に従って `bootpack.c` を修正する（`projects/24_day/harib21f/bootpack.c`を参照する）
 
 #### タイマ API (harib21g)
 
-- 書籍に従って `console.c` を修正する（`projects/23_day/harib21g/console.c`を参照する）
-- 書籍に従って `a_nasm.asm` を修正する（`projects/23_day/harib21g/a_nask.nas`を参照する）
-- 書籍に従って `noodle.c` を新規作成する（`projects/23_day/harib21g/noodle.c`を参照する）
+- 書籍に従って `console.c` を修正する（`projects/24_day/harib21g/console.c`を参照する）
+- 書籍に従って `a_nasm.asm` を修正する（`projects/24_day/harib21g/a_nask.nas`を参照する）
+- 書籍に従って `noodle.c` を新規作成する（`projects/24_day/harib21g/noodle.c`を参照する）
 - `Makefile` を修正する
 - `app.ld`を修正する  
   ld コマンドで `noodle.hrb` を生成しようとしたところ、下記エラーが発生した。
