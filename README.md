@@ -1825,8 +1825,14 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 - 書籍に従って `star1.c` を新規作成する（`projects/23_day/harib20b/star1.c`を参照する）
 - 書籍に従って `stars.c` を新規作成する（`projects/23_day/harib20b/stars.c`を参照する）
 - `golibc.a` に rand 関数を含めて再生成
+- `Makefile` を修正する
 
 #### ウィンドウのリフレッシュ(harib20c)
+
+- 書籍に従って `console.c` を修正する（`projects/23_day/harib20c/console.c`を参照する）
+- 書籍に従って `a_nasm.asm` を修正する（`projects/23_day/harib20c/a_nask.nas`を参照する）
+- 書籍に従って `stars2.c` を新規作成する（`projects/23_day/harib20c/stars2.c`を参照する）
+- `Makefile` を修正する
 
 #### 線を引く (harib20d)
 
