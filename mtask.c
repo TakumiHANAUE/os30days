@@ -50,7 +50,7 @@ void task_remove(struct TASK *task)
     /* ずらし */
     for (; i < tl->running; i++)
     {
-        tl->tasks[i] = tl->tasks[i + i];
+        tl->tasks[i] = tl->tasks[i + 1];
     }
 
     return;

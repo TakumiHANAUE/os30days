@@ -177,4 +177,5 @@ void putblock8_8(char *vram, int vxsize, int pxsize, int pysize, int px0, int py
             vram[(py0 + y) * vxsize + (px0 + x)] = buf[y * bxsize + x];
         }
     }
+    return;
 }

@@ -45,8 +45,8 @@ void memman_init(struct MEMMAN *man)
 {
     man->frees = 0;     /* あき情報の個数 */
     man->maxfrees = 0;  /* 状況観察用：freesの最大値 */
-    man->lostsize = 0;  /* 開放に失敗した合計サイズ */
-    man->losts = 0;     /* 開放に失敗した回数 */
+    man->lostsize = 0;  /* 解放に失敗した合計サイズ */
+    man->losts = 0;     /* 解放に失敗した回数 */
     return;
 }
 
@@ -88,7 +88,7 @@ unsigned int memman_alloc(struct MEMMAN *man, unsigned int size)
     return 0; /* あきがない */
 }
 
-/* 開放 */
+/* 解放 */
 int memman_free(struct MEMMAN *man, unsigned int addr, unsigned int size)
 {
     int i, j;

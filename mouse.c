@@ -46,7 +46,7 @@ int mouse_decode(struct MOUSE_DEC *mdec, unsigned char dat)
         }
         return 0;
     }
-    else if (mdec->phase == 1)
+    if (mdec->phase == 1)
     {
         /* マウスの1バイト目を待っている段階 */
         if ( (dat & 0xc8) == 0x08 ) /* 7,8ビット目が立っていない(上位4ビットは0-3)である かつ 4ビット目が立っている(下位4ビットは8-F)である */
@@ -57,14 +57,14 @@ int mouse_decode(struct MOUSE_DEC *mdec, unsigned char dat)
         }
         return 0;
     }
-    else if (mdec->phase == 2)
+    if (mdec->phase == 2)
     {
         /* マウスの2バイト目を待っている段階 */
         mdec->buf[1] = dat;
         mdec->phase = 3;
         return 0;
     }
-    else if (mdec->phase == 3)
+    if (mdec->phase == 3)
     {
         /* マウスの3バイト目を待っている段階 */
         mdec->buf[2] = dat;

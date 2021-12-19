@@ -80,10 +80,6 @@ next:
     MOV     [0x0ff0], CH        ; IPLがどこまで読んだのかメモ
     JMP     0xc200
 
-fin:
-    HLT
-    JMP     fin
-
 error:
     MOV     SI, msg
 
@@ -96,7 +92,9 @@ putloop:
     MOV     BX, 15              ; カラーコード
     INT     0x10
     JMP     putloop
-
+fin:
+    HLT
+    JMP     fin
 msg:
     DB      0x0a, 0x0a
     DB      "load error"
