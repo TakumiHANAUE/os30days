@@ -1970,6 +1970,50 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### コンソールを増やそう(1) (harib22e)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/25_day/harib22e/bootpack.c`を参照する）
+- 画面は表示されるが、一般保護例外(0x0D)が発生し、フリーズ状態になる（マウス・キーボードが効かない）  
+  結論を言うと、`mtask.c` の下記箇所を書き間違えていた。
+
+  ```diff
+    void task_remove(struct TASK *task)
+    {
+    （中略）
+        /* ずらし */
+        for (; i < tl->running; i++)
+        {
+  -         tl->tasks[i] = tl->tasks[i + i];
+  +         tl->tasks[i] = tl->tasks[i + 1];
+        }
+
+        return;
+    }
+  ```
+
+  一般保護例外発生時に inthandler0d() に渡された値 `esp[11] (EIP)` および `esp[14] (ESP)` の値は以下のようになっていた。
+
+  ```
+    esp[11] (EIP) : 0x5803
+    esp[14] (EIP) : 0x1AC7
+  ```
+
+  `bootpack.map` の該当箇所は以下の通り。
+
+  ```
+                  0x0000000000001ace                task_switch
+   .text          0x0000000000001ba1      0x276 dsctbl.o
+  （中略）
+                  0x0000000000005803                farjmp
+  ```
+
+  これにより、
+
+  - farjmp しようとして例外が発生していること
+  - task_switch 処理中にあったこと
+
+  がわかった。
+  task_switch 時に不正な場所にアクセスしてしまった模様。  
+  上記の書き間違いと合わせると、task のずらし処理が正しく動いていなかったために、不正な task 情報を使って task_switch を行い、一般保護例外(0x0D)が発生したと思われる。
+
 #### コンソールを増やそう(2) (harib22f)
 
 #### コンソールを増やそう(3) (harib22g)
