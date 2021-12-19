@@ -2040,3 +2040,6 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 - 書籍に従って `bootpack.c` を修正する（`projects/25_day/harib22i/bootpack.c`を参照する）
 
 #### もっと OS らしく(2) (harib22j)
+
+- 書籍に従って `bootpack.c` を修正する（`projects/25_day/harib22j/bootpack.c`を参照する）
+- 書籍に従って `console.c` を修正する（`projects/25_day/harib22j/console.c`を参照する）
