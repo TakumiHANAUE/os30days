@@ -68,7 +68,7 @@ struct FILEINFO *file_search(char *name, struct FILEINFO *finfo, int max)
     }
     for (i = 0; i < max; )
     {
-        if (finfo[i].name[0] == 0x00)
+        if (finfo->name[0] == 0x00)
         {
             break;
         }

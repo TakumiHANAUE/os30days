@@ -2016,6 +2016,17 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### コンソールを増やそう(2) (harib22f)
 
+- 書籍に従って `bootpack.h` を修正する（`projects/25_day/harib22f/bootpack.h`を参照する）
+- 書籍に従って `console.c` を修正する（`projects/25_day/harib22f/console.c`を参照する）
+- 書籍では言及がないが、以下ファイルにも差分があったため修正する。
+  - 書籍に従って `asmhead.asm` を修正する（`projects/25_day/harib22f/asmhead.nas`を参照する）
+  - 書籍に従って `bootpack.c` を修正する（`projects/25_day/harib22f/bootpack.c`を参照する）
+  - 書籍に従って `dsctbl.c` を修正する（`projects/25_day/harib22f/dsctbl.c`を参照する）
+  - 書籍に従って `file.c` を修正する（`projects/25_day/harib22f/file.c`を参照する）
+  - 書籍に従って `int.c` を修正する（`projects/25_day/harib22f/int.c`を参照する）
+  - 書籍に従って `ipl10.asm` を修正する（`projects/25_day/harib22f/asmhead.nas`を参照する）
+  - 書籍に従って `nasmfunc.asm` を修正する（`projects/25_day/harib22f/naskfunc.nas`を参照する）
+
 #### コンソールを増やそう(3) (harib22g)
 
 #### コンソールを増やそう(4) (harib22h)
