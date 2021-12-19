@@ -2037,4 +2037,6 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### もっと OS らしく(1) (harib22i)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/25_day/harib22i/bootpack.c`を参照する）
+
 #### もっと OS らしく(2) (harib22j)
