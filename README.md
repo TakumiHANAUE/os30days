@@ -2052,6 +2052,10 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### ウィンドウ移動を速く(2) (harib23b)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/26_day/harib23b/bootpack.c`を参照する）
+- 書籍に従って `console.c` を修正する（`projects/26_day/harib23b/console.c`を参照する）
+- 書籍に従って `sheet.c` を修正する（`projects/26_day/harib23b/sheet.c`を参照する）
+
 #### ウィンドウ移動を速く(3) (harib23c)
 
 #### ウィンドウ移動を速く(4) (harib23d)
