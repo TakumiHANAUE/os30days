@@ -2074,6 +2074,10 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### コンソールを閉じる(1) (harib23g)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/26_day/harib23g/bootpack.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/26_day/harib23g/bootpack.h`を参照する）
+- 書籍に従って `console.c` を修正する（`projects/26_day/harib23g/console.c`を参照する）
+
 #### コンソールを閉じる(2) (harib23h)
 
 #### start コマンド (harib23i)
