@@ -2085,4 +2085,8 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### start コマンド (harib23i)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/26_day/harib23i/bootpack.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/26_day/harib23i/bootpack.h`を参照する）
+- 書籍に従って `console.c` を修正する（`projects/26_day/harib23i/console.c`を参照する）
+
 #### ncst コマンド (harib23j)
