@@ -2094,3 +2094,19 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 - 書籍に従って `bootpack.c` を修正する（`projects/26_day/harib23j/bootpack.c`を参照する）
 - 書籍に従って `bootpack.h` を修正する（`projects/26_day/harib23j/bootpack.h`を参照する）
 - 書籍に従って `console.c` を修正する（`projects/26_day/harib23j/console.c`を参照する）
+
+### 二十七日目 LDT とライブラリ
+
+#### まずはバグを直そう (harib24a)
+
+#### アプリ実行中でもコンソールを閉じたい (harib24b)
+
+#### アプリケーションを守ろう(1) (harib24c)
+
+#### アプリケーションを守ろう(2) (harib24d)
+
+#### アプリケーションのサイズ改善 (harib24e)
+
+#### ライブラリ (harib24f)
+
+#### make 環境の整理 (harib24g)
