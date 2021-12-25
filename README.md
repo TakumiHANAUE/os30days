@@ -2080,6 +2080,9 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### コンソールを閉じる(2) (harib23h)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/26_day/harib23h/bootpack.c`を参照する）
+- 書籍に従って `console.c` を修正する（`projects/26_day/harib23h/console.c`を参照する）
+
 #### start コマンド (harib23i)
 
 #### ncst コマンド (harib23j)
