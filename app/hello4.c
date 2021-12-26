@@ -1,5 +1,4 @@
-void api_putstr0(char *s);
-void api_end(void);
+#include "applib.h"
 
 void HariMain(void)
 {

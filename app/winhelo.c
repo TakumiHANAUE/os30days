@@ -1,5 +1,4 @@
-int api_openwin(char *buf, int xsiz, int ysiz, int col_inv, char *title);
-void api_end(void);
+#include "applib.h"
 
 char buf[150 * 50];
 

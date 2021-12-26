@@ -1,9 +1,4 @@
-void api_end(void);
-int api_openwin(char *buf, int xsiz, int ysiz, int col_inv, char *title);
-void api_initmalloc(void);
-char *api_malloc(int size);
-void api_refreshwin(int win, int x0, int y0, int x1, int y1);
-int api_getkey(int mode);
+#include "applib.h"
 
 void HariMain(void)
 {
