@@ -2127,3 +2127,5 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 - applib 内の API から 静的ライブラリ `libapplib.a` を生成するように修正
 
 #### make 環境の整理 (harib24g)
+
+- haribote OS のソースファイルを haribote ディレクトリに移動
