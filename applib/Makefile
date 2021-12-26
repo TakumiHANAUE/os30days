@@ -1,16 +1,18 @@
+TARGET=libapplib.a
 APIASMSOURCES=$(wildcard *.asm)
-APPLIBOBJECTS=$(APIASMSOURCES:.asm=.o)
+APPLIBOBJECTS=$(addprefix $(OBJDIR)/,$(APIASMSOURCES:.asm=.o))
+OBJDIR=./obj
 
 .PHONY : all
-all : $(APPLIBOBJECTS)
-	touch .applib
+all : $(TARGET)
 
-%.o : %.asm
+$(TARGET) : $(APPLIBOBJECTS)
+	ar rsv $@ $^
+
+$(OBJDIR)/%.o : %.asm
+	$(shell [ ! -d $(OBJDIR) ] && mkdir $(OBJDIR))
 	nasm -f elf32 $^ -o $@ -l $(@:.o=.lst)
 
 .PHONY : clean
 clean : 
-	rm *.o \
-	   *.lst \
-	   .applib
-	
+	rm -rf $(OBJDIR) $(TARGET)
