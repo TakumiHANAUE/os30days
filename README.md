@@ -2130,3 +2130,19 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 #### make 環境の整理 (harib24g)
 
 - haribote OS のソースファイルを haribote ディレクトリに移動
+
+### 二十八日目 ファイルと日本語表示
+
+#### alloca(1) (harib25a)
+
+#### alloca(2) (harib25b)
+
+#### ファイル API (harib25c)
+
+#### コマンドライン API (harib25d)
+
+#### 日本語表示(1) (harib25e)
+
+#### 日本語表示(2) (harib25f)
+
+#### 日本語表示(3) (harib25g)
