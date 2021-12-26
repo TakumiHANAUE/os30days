@@ -2113,6 +2113,10 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### アプリケーションを守ろう(2) (harib24d)
 
+- 書籍に従って `bootpack.h` を修正する（`projects/27_day/harib24d/bootpack.h`を参照する）
+- 書籍に従って `console.c` を修正する（`projects/27_day/harib24d/console.c`を参照する）
+- 書籍に従って `mtask.c` を修正する（`projects/27_day/harib24d/mtask.c`を参照する）
+
 #### アプリケーションのサイズ改善 (harib24e)
 
 #### ライブラリ (harib24f)
