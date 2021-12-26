@@ -1,4 +1,4 @@
-APPASMSOURCES=hello.asm hello2.asm hello5.asm crack7.asm
+APPASMSOURCES=hello5.asm
 APPCSOURCES=$(wildcard *.c)
 HRBFILES=$(APPASMSOURCES:.asm=.hrb) $(APPCSOURCES:.c=.hrb)
 APPLIBPATH=../applib
@@ -7,12 +7,6 @@ GOLIBCPATH=../golibc
 .PHONY : all
 all : $(HRBFILES)
 	touch .app
-
-hello.hrb : hello.asm
-	nasm $^ -o $@ -l $(@:.hrb=.lst)
-
-hello2.hrb : hello2.asm
-	nasm $^ -o $@ -l $(@:.hrb=.lst)
 
 a.o : a.c
 	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -Wall
@@ -109,12 +103,6 @@ color2.o : color2.c
 
 color2.hrb : color2.o
 	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -static -L$(APPLIBPATH) -lapplib -Map $(@:.hrb=.map)
-
-crack7.o : crack7.asm
-	nasm -f elf32 $^ -o $@ -l $(@:.o=.lst)
-
-crack7.hrb : crack7.o
-	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -Map $(@:.hrb=.map)
 
 .PHONY : clean
 clean : 

@@ -39,8 +39,6 @@ $(IMGFILE) : ipl10.bin haribote.sys $(APPDIR)/.app
 	mcopy haribote.sys -i $@ ::
 	mcopy ipl10.asm -i $@ ::
 	mcopy Makefile -i $@ ::
-	mcopy $(APPDIR)/hello.hrb -i $@ ::
-	mcopy $(APPDIR)/hello2.hrb -i $@ ::
 	mcopy $(APPDIR)/a.hrb -i $@ ::
 	mcopy $(APPDIR)/hello3.hrb -i $@ ::
 	mcopy $(APPDIR)/hello4.hrb -i $@ ::
@@ -57,7 +55,6 @@ $(IMGFILE) : ipl10.bin haribote.sys $(APPDIR)/.app
 	mcopy $(APPDIR)/beepdown.hrb -i $@ ::
 	mcopy $(APPDIR)/color.hrb -i $@ ::
 	mcopy $(APPDIR)/color2.hrb -i $@ ::
-	mcopy $(APPDIR)/crack7.hrb -i $@ ::
 #	1440[KB] (= 512 * 2880 byte)
 #	C: to install on MS-DOS file system
 
