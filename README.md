@@ -2103,6 +2103,9 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### アプリ実行中でもコンソールを閉じたい (harib24b)
 
+- 書籍に従って `bootpack.c` を修正する（`projects/27_day/harib24b/bootpack.c`を参照する）
+- 書籍に従って `console.c` を修正する（`projects/27_day/harib24b/console.c`を参照する）
+
 #### アプリケーションを守ろう(1) (harib24c)
 
 #### アプリケーションを守ろう(2) (harib24d)
