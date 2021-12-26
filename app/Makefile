@@ -1,4 +1,4 @@
-APPASMSOURCES=hello.asm hello2.asm hello5.asm
+APPASMSOURCES=hello.asm hello2.asm hello5.asm crack7.asm
 APPCSOURCES=$(wildcard *.c)
 HRBFILES=$(APPASMSOURCES:.asm=.hrb) $(APPCSOURCES:.c=.hrb)
 GOLIBCPATH=../golibc
@@ -110,6 +110,12 @@ color2.o : color2.c
 	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -Wall
 
 color2.hrb : color2.o a_nasm.o
+	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -Map $(@:.hrb=.map)
+
+crack7.o : crack7.asm
+	nasm -f elf32 $^ -o $@ -l $(@:.o=.lst)
+
+crack7.hrb : crack7.o
 	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -Map $(@:.hrb=.map)
 
 .PHONY : clean
