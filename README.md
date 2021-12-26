@@ -2108,7 +2108,7 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### アプリケーションを守ろう(1) (harib24c)
 
-- 書籍に従って `crack7.asm` を修正する（`projects/27_day/harib24c/crack7.asm`を参照する）
+- 書籍に従って `crack7.asm` を新規作成する（`projects/27_day/harib24c/crack7.asm`を参照する）
 - `Makefile` を修正する
 
 #### アプリケーションを守ろう(2) (harib24d)
