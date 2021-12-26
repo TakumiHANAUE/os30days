@@ -2119,12 +2119,13 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### アプリケーションのサイズ改善 (harib24e)
 
-- `a_nasm.asm`内の API を個別のファイルに分割し、applib ディレクトリに移動
+- `a_nasm.asm`内の API を個別のファイルに分割し、apilib ディレクトリに移動
 - 書籍の環境とは違う(obj2bim)を使っていないのでアプリのサイズ削減はしない
 
 #### ライブラリ (harib24f)
 
-- applib 内の API から 静的ライブラリ `libapplib.a` を生成するように修正
+- apilib 内の API から 静的ライブラリ `libapilib.a` を生成するように修正  
+  (当初 libapplib.a としていたが、二十八日目に libapilib.a にリネーム)
 
 #### make 環境の整理 (harib24g)
 

@@ -1,12 +1,12 @@
-TARGET=libapplib.a
+TARGET=libapilib.a
 APIASMSOURCES=$(wildcard *.asm)
-APPLIBOBJECTS=$(addprefix $(OBJDIR)/,$(APIASMSOURCES:.asm=.o))
+APILIBOBJECTS=$(addprefix $(OBJDIR)/,$(APIASMSOURCES:.asm=.o))
 OBJDIR=./obj
 
 .PHONY : all
 all : $(TARGET)
 
-$(TARGET) : $(APPLIBOBJECTS)
+$(TARGET) : $(APILIBOBJECTS)
 	ar rsv $@ $^
 
 $(OBJDIR)/%.o : %.asm
