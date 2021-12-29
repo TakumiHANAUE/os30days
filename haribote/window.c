@@ -49,7 +49,7 @@ void make_wtitle8(char *buf, int xsize, char *title, char act)
         tbc = COL8_848484;
     }
     boxfill8(buf, xsize, tbc,         3,         3,         xsize - 4, 20       );
-    putfonts8_asc(buf, xsize, 24, 4, tc, title);
+    putfonts8_asc(buf, xsize, 24, 4, tc, (unsigned char *)title);
     for (y = 0; y < 14; y++)
     {
         for (x = 0; x < 16; x++)
@@ -85,7 +85,7 @@ void make_wtitle8(char *buf, int xsize, char *title, char act)
 void putfonts8_asc_sht(struct SHEET *sht, int x, int y, int c, int b, char *s, int l)
 {
     boxfill8(sht->buf, sht->bxsize, b, x, y, x + l * 8 - 1, y + 15);
-    putfonts8_asc(sht->buf, sht->bxsize, x, y, c, s);
+    putfonts8_asc(sht->buf, sht->bxsize, x, y, c, (unsigned char *)s);
     sheet_refresh(sht, x, y, x + l * 8, y + 16);
     return;
 }

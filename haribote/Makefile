@@ -63,6 +63,7 @@ $(IMGFILE) : ipl20.bin haribote.sys $(APPDIR)/.app
 	mcopy $(APPDIR)/iroha.hrb -i $@ ::
 	mcopy $(APPDIR)/chklang.hrb -i $@ ::
 	mcopy ../euc.txt -i $@ ::
+	mcopy ../jis.txt -i $@ ::
 	mcopy ../nihongo/nihongo.fnt -i $@ ::
 #	1440[KB] (= 512 * 2880 byte)
 #	C: to install on MS-DOS file system

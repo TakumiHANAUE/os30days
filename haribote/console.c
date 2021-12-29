@@ -11,7 +11,7 @@ void console_task(struct SHEET *sheet, int memtotal)
     struct CONSOLE cons;
     struct FILEHANDLE fhandle[8];
     char cmdline[30];
-    char *nihongo = (char *) *((int *) 0x0fe8);
+    unsigned char *nihongo = (unsigned char *) *((int *) 0x0fe8);
 
     cons.sht = sheet;
     cons.cur_x = 8;
@@ -562,7 +562,7 @@ int *hrb_api(int edi, int esi, int ebp, int esp, int ebx, int edx, int ecx, int 
     else if (edx == 6)
     {
         sht = (struct SHEET *) (ebx & 0xfffffffe);
-        putfonts8_asc(sht->buf, sht->bxsize, esi, edi, eax, (char *) ebp + ds_base);
+        putfonts8_asc(sht->buf, sht->bxsize, esi, edi, eax, (unsigned char *) ebp + ds_base);
         if ((ebx & 1) == 0)
         {
             sheet_refresh(sht, esi, edi, esi + ecx * 8, edi + 16);

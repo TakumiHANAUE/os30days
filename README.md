@@ -2214,7 +2214,13 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 - 書籍に従って `bootpack.h` を修正する（`projects/28_day/harib25e/haribote/bootpack.h`を参照する）
 - 書籍に従って `console.c` を修正する（`projects/28_day/harib25e/haribote/console.c`を参照する）
 - 書籍に従って `graphic.c` を修正する（`projects/28_day/harib25e/haribote/graphic.c`を参照する）
-- UTF-8 で作成しているため、 iroha コマンドは文字化け表示となるが無視しておく。
+- ~~UTF-8 で作成しているため、 iroha コマンドは文字化け表示となるが無視しておく。~~  
+  フォントのデータを char で扱っていたために正しく計算ができていなかった。
+  unsigned char に修正し、 iroha コマンドで半角カタカナが表示されることを確認した（ harib25g の後に対応した）。
+
+【参考】
+
+- [「30 日でできる！OS 自作入門」を読み始めた (28 日目 ファイルの操作と日本語表示)](https://msyksphinz.hatenablog.com/entry/2018/05/27/032512)
 
 #### 日本語表示(2) (harib25f)
 
@@ -2232,3 +2238,4 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 - 書籍に従って `ipl20.asm` を新規作成する（`projects/28_day/harib25g/haribote/ipl20.asm`を参照する）  
   (`ipl10.asm`を修正し、リネーム)
 - `Makefile` を修正する
+- `euc.txt` と同様の `jis.txt` を作成した。
