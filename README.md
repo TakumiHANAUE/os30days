@@ -2223,3 +2223,12 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 - 書籍に従って `graphic.c` を修正する（`projects/28_day/harib25f/haribote/graphic.c`を参照する）
 
 #### 日本語表示(3) (harib25g)
+
+- 書籍に従って `api_getlang.asm` を新規作成する（`projects/28_day/harib25g/apilib/api027.nas`を参照する）
+- 書籍に従って `apilib.h` を修正する（`projects/28_day/harib25g/apilib.h`を参照する）
+- 書籍に従って `chklang.c` を新規作成する（`projects/28_day/harib25e/chklang/chklang.c`を参照する）
+- 書籍に従って `console.c` を修正する（`projects/28_day/harib25g/haribote/console.c`を参照する）
+- 書籍に従って `graphic.c` を修正する（`projects/28_day/harib25g/haribote/graphic.c`を参照する）
+- 書籍に従って `ipl20.asm` を新規作成する（`projects/28_day/harib25g/haribote/ipl20.asm`を参照する）  
+  (`ipl10.asm`を修正し、リネーム)
+- `Makefile` を修正する

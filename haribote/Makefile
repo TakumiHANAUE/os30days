@@ -1,6 +1,6 @@
 
 IMGFILE=haribote.img
-IPLFILE=ipl10.asm
+IPLFILE=ipl20.asm
 GOLIBCPATH=../golibc
 CSOURCES=$(wildcard *.c)
 COBJS=$(CSOURCES:.c=.o)
@@ -12,7 +12,7 @@ all : $(IMGFILE)
 
 # OS files
 
-ipl10.bin : $(IPLFILE)
+ipl20.bin : $(IPLFILE)
 	nasm $^ -o $@ -l $(@:.bin=.lst)
 
 asmhead.bin : asmhead.asm
@@ -34,10 +34,10 @@ haribote.sys : asmhead.bin bootpack.bin
 $(APPDIR)/.app : 
 	make -C $(APPDIR)
 
-$(IMGFILE) : ipl10.bin haribote.sys $(APPDIR)/.app
-	mformat -f 1440 -B ipl10.bin -C -i $@ ::
+$(IMGFILE) : ipl20.bin haribote.sys $(APPDIR)/.app
+	mformat -f 1440 -B ipl20.bin -C -i $@ ::
 	mcopy haribote.sys -i $@ ::
-	mcopy ipl10.asm -i $@ ::
+	mcopy ipl20.asm -i $@ ::
 	mcopy Makefile -i $@ ::
 	mcopy $(APPDIR)/a.hrb -i $@ ::
 	mcopy $(APPDIR)/hello3.hrb -i $@ ::
@@ -61,6 +61,8 @@ $(IMGFILE) : ipl10.bin haribote.sys $(APPDIR)/.app
 	mcopy $(APPDIR)/typeipl.hrb -i $@ ::
 	mcopy $(APPDIR)/type.hrb -i $@ ::
 	mcopy $(APPDIR)/iroha.hrb -i $@ ::
+	mcopy $(APPDIR)/chklang.hrb -i $@ ::
+	mcopy ../euc.txt -i $@ ::
 	mcopy ../nihongo/nihongo.fnt -i $@ ::
 #	1440[KB] (= 512 * 2880 byte)
 #	C: to install on MS-DOS file system
@@ -73,7 +75,7 @@ run : $(IMGFILE)
 .PHONY : clean
 clean : 
 	$(shell [ -e $(OBJDIR) ] && rm $(IMGFILE))
-	rm ipl10.bin \
+	rm ipl20.bin \
 	   asmhead.bin \
 	   $(OBJS) \
 	   bootpack.bin bootpack.map\
