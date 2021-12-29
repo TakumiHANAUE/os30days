@@ -2200,6 +2200,13 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### コマンドライン API (harib25d)
 
+- 書籍に従って `api_cmdline.asm` を新規作成する（`projects/28_day/harib25d/apilib/api026.nas`を参照する）
+- 書籍に従って `apilib.h` を修正する（`projects/28_day/harib25d/apilib.h`を参照する）
+- 書籍に従って `type.c` を新規作成する（`projects/28_day/harib25d/type/type.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/28_day/harib25d/haribote/bootpack.h`を参照する）
+- 書籍に従って `console.c` を修正する（`projects/28_day/harib25d/haribote/console.c`を参照する）
+- `Makefile` を修正する
+
 #### 日本語表示(1) (harib25e)
 
 #### 日本語表示(2) (harib25f)

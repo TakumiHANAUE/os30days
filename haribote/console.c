@@ -17,6 +17,7 @@ void console_task(struct SHEET *sheet, int memtotal)
     cons.cur_y = 28;
     cons.cur_c = -1;
     task->cons = &cons;
+    task->cmdline = cmdline;
 
     if (cons.sht != 0)
     {
@@ -252,10 +253,6 @@ void cons_runcmd(char *cmdline, struct CONSOLE *cons, int *fat, int memtotal)
     {
         cmd_dir(cons);
     }
-    else if (strncmp(cmdline, "type ", 5) == 0 && cons->sht != 0)
-    {
-        cmd_type(cons, fat, cmdline);
-    }
     else if (strcmp(cmdline, "exit") == 0)
     {
         cmd_exit(cons, fat);
@@ -330,28 +327,6 @@ void cmd_dir(struct CONSOLE *cons)
                 cons_putstr0(cons, s);
             }
         }
-    }
-    cons_newline(cons);
-    return;
-}
-
-void cmd_type(struct CONSOLE *cons, int *fat, char *cmdline)
-{
-    struct MEMMAN *memman = (struct MEMMAN *)MEMMAN_ADDR;
-    struct FILEINFO *finfo = file_search(cmdline + 5, (struct FILEINFO *)(ADR_DISKIMG + 0x002600), 224);
-    char *p;
-    if (finfo != 0)
-    {
-        /* ファイルが見つかった場合 */
-        p = (char *)memman_alloc_4k(memman, finfo->size);
-        file_loadfile(finfo->clustno, finfo->size, p, fat, (char *)(ADR_DISKIMG + 0x003e00));
-        cons_putstr1(cons, p, finfo->size);
-        memman_free_4k(memman, (int)p, finfo->size);
-    }
-    else
-    {
-        /* ファイルが見つからなかった場合 */
-        cons_putstr0(cons, "File not found.\n");
     }
     cons_newline(cons);
     return;
@@ -773,6 +748,24 @@ int *hrb_api(int edi, int esi, int ebp, int esp, int ebx, int edx, int ecx, int 
             }
             *((char *) ebx + ds_base + i) = fh->buf[fh->pos];
             fh->pos++;
+        }
+        reg[7] = i;
+    }
+    else if (edx == 26)
+    {
+        i = 0;
+        while (1)
+        {
+            *((char *) ebx + ds_base + i) = task->cmdline[i];
+            if (task->cmdline[i] == 0)
+            {
+                break;
+            }
+            if (i >= ecx)
+            {
+                break;
+            }
+            i++;
         }
         reg[7] = i;
     }
