@@ -2147,6 +2147,43 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### alloca(2) (harib25b)
 
+- 書籍に従って `alloca.asm` を新規作成する（`projects/28_day/harib25b/apilib/alloca.nas`を参照する）  
+  alloca 関数は一応作ったが、実際は使っていない。
+  c ファイルをコンパイルする際に `-nostdlib` オプションを指定しているため alloca 関数は呼ばれないと思われる。
+  アプリ用のスタックサイズを十分量用意しておく必要があるため、アプリ用リンカスクリプト `app.ld` のスタック初期値を修正する。
+
+  ```diff
+      .head 0x0 : {
+          LONG(128 * 1024)  /*  0 : stack+.data+heap の大きさ（4KBの倍数） */
+          LONG(0x69726148)      /*  4 : シグネチャ "Hari" */
+          LONG(0)               /*  8 : mmarea の大きさ（4KBの倍数） */
+  -       LONG(0x1000)          /* 12 : スタック初期値＆.data転送先 */
+  +       LONG(0x2c00)          /* 12 : スタック初期値＆.data転送先 */
+          LONG(SIZEOF(.data))   /* 16 : .dataサイズ */
+          LONG(LOADADDR(.data)) /* 20 : .dataの初期値列のファイル位置 */
+          LONG(0xE9000000)      /* 24 : 0xE9000000 */
+          LONG(HariMain - 0x20) /* 28 : エントリアドレス - 0x20 */
+          LONG(24 * 1024)       /* 32 : heap領域（malloc領域）開始アドレス */
+      }
+
+      .text : { *(.text) }
+  -   .data 0x1000 : AT ( ADDR(.text) + SIZEOF(.text) ) {
+  +   .data 0x2c00 : AT ( ADDR(.text) + SIZEOF(.text) ) {
+          *(.data)
+          *(.rodata*)
+          *(.bss)
+    }
+  ```
+
+- 書籍に従って `winhelo.c` を修正する（`projects/28_day/harib25b/winhelo/winhelo.c`を参照する）
+- 書籍に従って `winhelo2.c` を修正する（`projects/28_day/harib25b/winhelo2/winhelo2.c`を参照する）
+
+【参考】
+
+- [OS 自作入門 28 日目 【Linux】 | alloca、ファイル API](http://bttb.s1.valueserver.jp/wordpress/blog/2018/04/02/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%8028%E6%97%A5%E7%9B%AE-%E3%80%90linux%E3%80%91-alloca%E3%80%81%E3%83%95%E3%82%A1%E3%82%A4%E3%83%ABapi/)
+- [30 日でできる!OS 自作入門 on macOS](https://github.com/zacfukuda/hariboteos#harib25b)  
+  こちらの方は、アプリ毎にスタックサイズを指定するようにリンカスクリプトを修正していた。
+
 #### ファイル API (harib25c)
 
 #### コマンドライン API (harib25d)
