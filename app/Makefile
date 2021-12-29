@@ -134,6 +134,12 @@ type.o : type.c
 type.hrb : type.o
 	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -static -L$(APILIBPATH) -lapilib -Map $(@:.hrb=.map)
 
+iroha.o : iroha.c
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -I$(APILIBPATH) -Wall
+
+iroha.hrb : iroha.o
+	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -static -L$(APILIBPATH) -lapilib -Map $(@:.hrb=.map)
+
 .PHONY : clean
 clean : 
 	rm *.o \
