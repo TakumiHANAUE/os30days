@@ -2218,4 +2218,8 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### 日本語表示(2) (harib25f)
 
+- 書籍に従って `bootpack.h` を修正する（`projects/28_day/harib25f/haribote/bootpack.h`を参照する）
+- 書籍に従って `console.c` を修正する（`projects/28_day/harib25f/haribote/console.c`を参照する）
+- 書籍に従って `graphic.c` を修正する（`projects/28_day/harib25f/haribote/graphic.c`を参照する）
+
 #### 日本語表示(3) (harib25g)
