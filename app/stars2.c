@@ -16,5 +16,12 @@ void HariMain(void)
         api_point(win + 1, x, y, 3 /* 黄 */);
     }
     api_refreshwin(win, 6, 26, 144, 94);
+    while (1)
+    {
+        if (api_getkey(1) == 0x0a)
+        {
+            break; /* Enterならbreak; */
+        }
+    }
     api_end();
 }

@@ -2130,6 +2130,12 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 #### make 環境の整理 (harib24g)
 
 - haribote OS のソースファイルを haribote ディレクトリに移動
+- 書籍に従って `winhelo.c` を修正する（`projects/27_day/harib24g/winhelo/winhelo.c`を参照する）
+- 書籍に従って `winhelo2.c` を修正する（`projects/27_day/harib24g/winhelo2/winhelo2.c`を参照する）
+- 書籍に従って `winhelo3.c` を修正する（`projects/27_day/harib24g/winhelo3/winhelo3.c`を参照する）
+- 書籍に従って `star1.c` を修正する（`projects/27_day/harib24g/star1/star1.c`を参照する）
+- 書籍に従って `stars.c` を修正する（`projects/27_day/harib24g/stars/stars.c`を参照する）
+- 書籍に従って `star2.c` を修正する（`projects/27_day/harib24g/star2/star2.c`を参照する）
 
 ### 二十八日目 ファイルと日本語表示
 
