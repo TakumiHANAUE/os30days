@@ -2141,6 +2141,10 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### alloca(1) (harib25a)
 
+- 書籍に従って `sosu.c` を新規作成する（`projects/28_day/harib25a/sosu.c`を参照する）
+- 書籍に従って `sosu2.c` を新規作成する（`projects/28_day/harib25a/sosu2.c`を参照する）
+- 書籍に従って `sosu3.c` を新規作成する（`projects/28_day/harib25a/sosu3.c`を参照する）
+
 #### alloca(2) (harib25b)
 
 #### ファイル API (harib25c)
