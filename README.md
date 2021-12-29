@@ -2244,6 +2244,8 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### バグ修正 (harib26a)
 
+- 書籍に従って `window.c` を修正する（`projects/29_day/harib26a/haribote/window.c`を参照する）
+
 #### ファイル圧縮 (harib26b)
 
 #### 標準関数
