@@ -2186,6 +2186,17 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### ファイル API (harib25c)
 
+- 書籍に従って `api_fopen.asm` を新規作成する（`projects/28_day/harib25c/apilib/api021.nas`を参照する）
+- 書籍に従って `api_fclose.asm` を新規作成する（`projects/28_day/harib25c/apilib/api022.nas`を参照する）
+- 書籍に従って `api_fseek.asm` を新規作成する（`projects/28_day/harib25c/apilib/api023.nas`を参照する）
+- 書籍に従って `api_fsize.asm` を新規作成する（`projects/28_day/harib25c/apilib/api024.nas`を参照する）
+- 書籍に従って `api_fread.asm` を新規作成する（`projects/28_day/harib25c/apilib/api025.nas`を参照する）
+- 書籍に従って `apilib.h` を修正する（`projects/28_day/harib25c/apilib.h`を参照する）
+- 書籍に従って `typeipl.c` を修正する（`projects/28_day/harib25c/typeipl/typeipl.c`を参照する）
+- 書籍に従って `bootpack.h` を修正する（`projects/28_day/harib25c/haribote/bootpack.h`を参照する）
+- 書籍に従って `console.c` を修正する（`projects/28_day/harib25c/haribote/console.c`を参照する）
+- `Makefile` を修正する
+
 #### コマンドライン API (harib25d)
 
 #### 日本語表示(1) (harib25e)
