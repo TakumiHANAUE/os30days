@@ -122,12 +122,6 @@ sosu3.o : sosu3.c
 sosu3.hrb : sosu3.o
 	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -static -L$(GOLIBCPATH) -lgolibc -L$(APILIBPATH) -lapilib -Map $(@:.hrb=.map)
 
-typeipl.o : typeipl.c
-	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -I$(APILIBPATH) -Wall
-
-typeipl.hrb : typeipl.o
-	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -static -L$(APILIBPATH) -lapilib -Map $(@:.hrb=.map)
-
 type.o : type.c
 	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -I$(APILIBPATH) -Wall
 
@@ -144,6 +138,12 @@ chklang.o : chklang.c
 	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -I$(APILIBPATH) -Wall
 
 chklang.hrb : chklang.o
+	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -static -L$(APILIBPATH) -lapilib -Map $(@:.hrb=.map)
+
+notrec.o : notrec.c
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -I$(APILIBPATH) -Wall
+
+notrec.hrb : notrec.o
 	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -static -L$(APILIBPATH) -lapilib -Map $(@:.hrb=.map)
 
 .PHONY : clean

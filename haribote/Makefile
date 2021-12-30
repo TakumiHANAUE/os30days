@@ -58,10 +58,10 @@ $(IMGFILE) : ipl20.bin haribote.sys $(APPDIR)/.app
 	mcopy $(APPDIR)/sosu.hrb -i $@ ::
 	mcopy $(APPDIR)/sosu2.hrb -i $@ ::
 	mcopy $(APPDIR)/sosu3.hrb -i $@ ::
-	mcopy $(APPDIR)/typeipl.hrb -i $@ ::
 	mcopy $(APPDIR)/type.hrb -i $@ ::
 	mcopy $(APPDIR)/iroha.hrb -i $@ ::
 	mcopy $(APPDIR)/chklang.hrb -i $@ ::
+	mcopy $(APPDIR)/notrec.hrb -i $@ ::
 	mcopy ../euc.txt -i $@ ::
 	mcopy ../jis.txt -i $@ ::
 	mcopy ../nihongo/nihongo.fnt -i $@ ::
