@@ -152,6 +152,12 @@ bball.o : bball.c
 bball.hrb : bball.o
 	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -static -L$(APILIBPATH) -lapilib -Map $(@:.hrb=.map)
 
+invader.o : invader.c
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -I$(GOLIBCPATH) -I$(APILIBPATH) -Wall
+
+invader.hrb : invader.o
+	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -static -L$(GOLIBCPATH) -lgolibc -L$(APILIBPATH) -lapilib -Map $(@:.hrb=.map)
+
 .PHONY : clean
 clean : 
 	rm *.o \

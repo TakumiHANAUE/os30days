@@ -2274,3 +2274,7 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 - `Makefile` を修正する
 
 #### インベーダーゲーム (harib26e)
+
+- 書籍に従って `invader.c` を新規作成する（`projects/29_day/harib26d/invader/invader.c`を参照する）
+- - `golibc.h` に `strlen()` のプロトタイプ宣言を記載する。
+- `Makefile` を修正する
