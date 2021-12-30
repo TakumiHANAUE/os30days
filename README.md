@@ -2269,4 +2269,8 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### bball (harib26d)
 
+- 書籍に従って `bball.c` を新規作成する（`projects/29_day/harib26d/bball/bball.c`を参照する）
+- 書籍に従って `console.c` を修正する（`projects/29_day/harib26d/haribote/console.c`を参照する）
+- `Makefile` を修正する
+
 #### インベーダーゲーム (harib26e)
