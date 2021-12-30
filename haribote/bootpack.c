@@ -394,7 +394,7 @@ void HariMain(void)
                     }
                 }
             }
-            else if (768 < i && i <= 1023) /* コンソール終了処理 */
+            else if (768 <= i && i <= 1023) /* コンソール終了処理 */
             {
                 close_console(shtctl->sheets0 + (i - 768));
             }
