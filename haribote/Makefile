@@ -66,11 +66,14 @@ $(IMGFILE) : ipl20.bin haribote.sys $(APPDIR)/.app
 	mcopy $(APPDIR)/invader.hrb -i $@ ::
 	mcopy $(APPDIR)/calc.hrb -i $@ ::
 	mcopy $(APPDIR)/tview.hrb -i $@ ::
+	mcopy $(APPDIR)/gview.hrb -i $@ ::
 	mcopy $(APPDIR)/mmlplay.hrb -i $@ ::
 	mcopy $(APPDIR)/mmldata/daigo.mml -i $@ ::
 	mcopy $(APPDIR)/mmldata/daiku.mml -i $@ ::
 	mcopy $(APPDIR)/mmldata/fujisan.mml -i $@ ::
 	mcopy $(APPDIR)/mmldata/kirakira.mml -i $@ ::
+	mcopy $(APPDIR)/gview/fujisan.jpg -i $@ ::
+	mcopy $(APPDIR)/gview/night.bmp -i $@ ::
 	mcopy ../euc.txt -i $@ ::
 	mcopy ../jis.txt -i $@ ::
 	mcopy ../nihongo/nihongo.fnt -i $@ ::

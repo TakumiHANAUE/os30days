@@ -2311,6 +2311,25 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### 画像ビューア (harib27d)
 
+- 書籍に従って `gview.c` を新規作成する（`projects/30_day/harib27d/gview/gview.c`を参照する）
+- 書籍に従って `jpeg.c` を新規作成する（`projects/30_day/harib27d/gview/jpeg.c`を参照する）
+- CD-ROM 付属の `bmp.asm` を流用する。  
+  ただし、以下の修正を加える。
+
+  - `[BITS 32]` を削除
+  - 関数 \_info_BMP を info_BMP に修正
+  - 関数 \_decode0_BMP を decode0_BMP に修正
+  - .do4.1 ラベルにコロンが抜けているため `:` 追記
+
+- 非圧縮の画像データ `fujisan_.jpg`, `night_.bmp` をそれぞれ `fujisan.jpg`, `night.bmp` として使用。
+- `Makefile` を修正する
+- gview のウィンドウを動かすと背景の特定の場所の色が変になる。
+  harib27b と同じような原因で、シートの更新処理に何か問題があるのかもしれない。
+
+【参考】
+
+- [30 日でできる!OS 自作入門 on macOS](https://github.com/zacfukuda/hariboteos#harib27d)
+
 #### IPL の改良 (harib27e)
 
 #### CD-ROM 起動 (harib27f)

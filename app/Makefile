@@ -141,40 +141,52 @@ chklang.hrb : chklang.o
 	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -static -L$(APILIBPATH) -lapilib -Map $(@:.hrb=.map)
 
 notrec.o : notrec.c
-	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -I$(APILIBPATH) -Wall
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -I$(APILIBPATH)
 
 notrec.hrb : notrec.o
 	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -static -L$(APILIBPATH) -lapilib -Map $(@:.hrb=.map)
 
 bball.o : bball.c
-	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -I$(APILIBPATH) -Wall
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -I$(APILIBPATH)
 
 bball.hrb : bball.o
 	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -static -L$(APILIBPATH) -lapilib -Map $(@:.hrb=.map)
 
 invader.o : invader.c
-	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -I$(GOLIBCPATH) -I$(APILIBPATH) -Wall
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -I$(GOLIBCPATH) -I$(APILIBPATH)
 
 invader.hrb : invader.o
 	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -static -L$(GOLIBCPATH) -lgolibc -L$(APILIBPATH) -lapilib -Map $(@:.hrb=.map)
 
 calc.o : calc.c
-	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -I$(GOLIBCPATH) -I$(APILIBPATH) -Wall
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -I$(GOLIBCPATH) -I$(APILIBPATH)
 
 calc.hrb : calc.o
 	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -static -L$(GOLIBCPATH) -lgolibc -L$(APILIBPATH) -lapilib -Map $(@:.hrb=.map)
 
 tview.o : tview.c
-	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -I$(GOLIBCPATH) -I$(APILIBPATH) -Wall
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -I$(GOLIBCPATH) -I$(APILIBPATH)
 
 tview.hrb : tview.o
 	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -static -L$(GOLIBCPATH) -lgolibc -L$(APILIBPATH) -lapilib -Map $(@:.hrb=.map)
 
 mmlplay.o : mmlplay.c
-	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -I$(GOLIBCPATH) -I$(APILIBPATH) -Wall
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -I$(GOLIBCPATH) -I$(APILIBPATH)
 
 mmlplay.hrb : mmlplay.o
 	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -static -L$(GOLIBCPATH) -lgolibc -L$(APILIBPATH) -lapilib -Map $(@:.hrb=.map)
+
+gview.o : gview.c
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -I$(APILIBPATH) -Wall
+
+jpeg.o : gview/jpeg.c
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $<
+
+bmp.o : gview/bmp.asm
+	nasm -f elf32 $^ -o $@ -l $(@:.o=.lst)
+
+gview.hrb : gview.o jpeg.o bmp.o
+	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -static -L$(APILIBPATH) -lapilib -Map $(@:.hrb=.map)
 
 .PHONY : clean
 clean : 
