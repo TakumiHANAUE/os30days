@@ -170,6 +170,12 @@ tview.o : tview.c
 tview.hrb : tview.o
 	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -static -L$(GOLIBCPATH) -lgolibc -L$(APILIBPATH) -lapilib -Map $(@:.hrb=.map)
 
+mmlplay.o : mmlplay.c
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -I$(GOLIBCPATH) -I$(APILIBPATH) -Wall
+
+mmlplay.hrb : mmlplay.o
+	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -static -L$(GOLIBCPATH) -lgolibc -L$(APILIBPATH) -lapilib -Map $(@:.hrb=.map)
+
 .PHONY : clean
 clean : 
 	rm *.o \

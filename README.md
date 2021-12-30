@@ -2296,6 +2296,19 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### MML プレイヤ (harib27c)
 
+- 書籍に従って `mmlplay.c` を新規作成する（`projects/30_day/harib27c/mmlplay/mmlplay.c`を参照する）
+- mml データは圧縮していない生データを使用した。
+- `Makefile` を修正する
+- img 起動スクリプトにオプション `-soundhw pcspk` を追加し、QEMU から音が出るようにした。
+  ```diff
+  - "C:\Program Files\qemu\qemu-system-i386.exe" -m 32M -fda \\wsl$\Ubuntu-20.04\PATH_TO_IMG\haribote.img"
+  + "C:\Program Files\qemu\qemu-system-i386.exe" -soundhw pcspk -m 32M -fda \\wsl$\Ubuntu-20.04\PATH_TO_IMG\haribote.img"
+  ```
+
+【参考】
+
+- [30 日でできる!OS 自作入門 on macOS](https://github.com/zacfukuda/hariboteos#harib27c)
+
 #### 画像ビューア (harib27d)
 
 #### IPL の改良 (harib27e)
