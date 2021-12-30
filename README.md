@@ -2283,6 +2283,10 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### コマンドライン計算機 (harib27a)
 
+- 書籍に従って `calc.c` を新規作成する（`projects/30_day/harib27a/calc/calc.c`を参照する）
+- - `golibc.h` に `strtol()` のプロトタイプ宣言を記載する。
+- `Makefile` を修正する
+
 #### テキストビューア (harib27b)
 
 #### MML プレイヤ (harib27c)

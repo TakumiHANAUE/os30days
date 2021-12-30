@@ -158,6 +158,12 @@ invader.o : invader.c
 invader.hrb : invader.o
 	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -static -L$(GOLIBCPATH) -lgolibc -L$(APILIBPATH) -lapilib -Map $(@:.hrb=.map)
 
+calc.o : calc.c
+	gcc -c -m32 -fno-pic -nostdlib -o $@ $< -I$(GOLIBCPATH) -I$(APILIBPATH) -Wall
+
+calc.hrb : calc.o
+	ld -m elf_i386 -e HariMain -o $@ -T app.ld $^ -static -L$(GOLIBCPATH) -lgolibc -L$(APILIBPATH) -lapilib -Map $(@:.hrb=.map)
+
 .PHONY : clean
 clean : 
 	rm *.o \

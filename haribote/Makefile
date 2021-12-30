@@ -64,6 +64,7 @@ $(IMGFILE) : ipl20.bin haribote.sys $(APPDIR)/.app
 	mcopy $(APPDIR)/notrec.hrb -i $@ ::
 	mcopy $(APPDIR)/bball.hrb -i $@ ::
 	mcopy $(APPDIR)/invader.hrb -i $@ ::
+	mcopy $(APPDIR)/calc.hrb -i $@ ::
 	mcopy ../euc.txt -i $@ ::
 	mcopy ../jis.txt -i $@ ::
 	mcopy ../nihongo/nihongo.fnt -i $@ ::
