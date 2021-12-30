@@ -2248,6 +2248,14 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### ファイル圧縮 (harib26b)
 
+- longjmp(), setjmp() 関数がないため `tek.c` をコンパイルできない。  
+  ファイル圧縮については必須ではないため、`tek.c`等を導入せずに進める。
+
+【参考】
+
+- [30 日でできる!OS 自作入門 on macOS](https://github.com/zacfukuda/hariboteos#harib26b)
+- [「30 日でできる！OS 自作入門」を Rust で。29 日目](https://yoshitsugu.net/posts/2019-08-20-haribote-os-in-rust-day29.html)
+
 #### 標準関数
 
 #### 非矩形ウィンドウ (harib26c)
