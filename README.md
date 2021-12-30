@@ -2278,3 +2278,17 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 - 書籍に従って `invader.c` を新規作成する（`projects/29_day/harib26d/invader/invader.c`を参照する）
 - - `golibc.h` に `strlen()` のプロトタイプ宣言を記載する。
 - `Makefile` を修正する
+
+### 三十日目 高度なアプリケーション
+
+#### コマンドライン計算機 (harib27a)
+
+#### テキストビューア (harib27b)
+
+#### MML プレイヤ (harib27c)
+
+#### 画像ビューア (harib27d)
+
+#### IPL の改良 (harib27e)
+
+#### CD-ROM 起動 (harib27f)
