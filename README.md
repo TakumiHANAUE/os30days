@@ -2332,4 +2332,7 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### IPL の改良 (harib27e)
 
+- 書籍に従って `invader.c` を修正する（`projects/30_day/harib27e/invader/invader.c`を参照する）
+- tek 圧縮等はしていないため、9 シリンダに収める修正はしない。
+
 #### CD-ROM 起動 (harib27f)
