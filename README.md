@@ -2262,7 +2262,7 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 #### 非矩形ウィンドウ (harib26c)
 
-- 書籍に従って `notrec.c` を新規作成する（`projects/28_day/harib25e/notrec/notrec.c`を参照する）  
+- 書籍に従って `notrec.c` を新規作成する（`projects/29_day/harib26c/notrec/notrec.c`を参照する）  
   透明色を 100 で指定する（255 で指定すると黒く表示された。原因は追っていない。）
 - `typeipl.c` を削除する。
 - `Makefile` を修正する
