@@ -1,6 +1,3 @@
-int api_openwin(char *buf, int xsiz, int ysiz, int col_inv, char *title);
-void api_initmalloc(void);
-char *api_malloc(int size);
 #include "apilib.h"
 
 void HariMain(void)

@@ -4,7 +4,7 @@
 
 #define SHEET_USE 1
 
-struct SHTCTL *shtctl_init(struct MEMMAN *memman, char *vram, int xsize, int ysize)
+struct SHTCTL *shtctl_init(struct MEMMAN *memman, unsigned char *vram, int xsize, int ysize)
 {
     struct SHTCTL *ctl;
     int i;
@@ -13,7 +13,7 @@ struct SHTCTL *shtctl_init(struct MEMMAN *memman, char *vram, int xsize, int ysi
     {
         goto err;
     }
-    ctl->map = (char *)memman_alloc_4k(memman, xsize * ysize);
+    ctl->map = (unsigned char *)memman_alloc_4k(memman, xsize * ysize);
     if (ctl->map == 0)
     {
         memman_free_4k(memman, (int)ctl, sizeof(struct SHTCTL));
@@ -50,7 +50,7 @@ struct SHEET *sheet_alloc(struct SHTCTL *ctl)
     return 0; /* すべてのシートが使用中だった */
 }
 
-void sheet_setbuf(struct SHEET *sht, char *buf, int xsize, int ysize, int col_inv)
+void sheet_setbuf(struct SHEET *sht, unsigned char *buf, int xsize, int ysize, int col_inv)
 {
     sht->buf = buf;
     sht->bxsize = xsize;
@@ -62,7 +62,7 @@ void sheet_setbuf(struct SHEET *sht, char *buf, int xsize, int ysize, int col_in
 void sheet_refreshmap(struct SHTCTL *ctl, int vx0, int vy0, int vx1, int vy1, int h0)
 {
     int h, bx, by, vx, vy, bx0, by0, bx1, by1, sid4, *p;
-    char *buf, sid, *map = ctl->map;
+    unsigned char *buf, sid, *map = ctl->map;
     struct SHEET *sht;
     if (vx0 < 0) { vx0 = 0; }
     if (vy0 < 0) { vy0 = 0; }
@@ -137,7 +137,7 @@ void sheet_refreshmap(struct SHTCTL *ctl, int vx0, int vy0, int vx1, int vy1, in
 void sheet_refreshsub(struct SHTCTL *ctl, int vx0, int vy0, int vx1, int vy1, int h0, int h1)
 {
     int h, bx, by, vx, vy, bx0, by0, bx1, by1, bx2, sid4, i, i1, *p, *q, *r;
-    char *buf, *vram = ctl->vram, *map = ctl->map, sid;
+    unsigned char *buf, *vram = ctl->vram, *map = ctl->map, sid;
     struct SHEET *sht;
     /* refresh範囲が画面外にはみ出していたら補正 */
     if (vx0 < 0) { vx0 = 0; }

@@ -49,7 +49,7 @@ int fifo32_status(struct FIFO32 *fifo);
 /* graphic.c */
 void init_palette(void);
 void set_palette(int start, int end, unsigned char *rgb);
-void boxfill8(char *vram, int xsize, unsigned char c, int x0, int y0, int x1, int y1);
+void boxfill8(unsigned char *vram, int xsize, unsigned char c, int x0, int y0, int x1, int y1);
 void init_screen8(char *vram, int x, int y);
 void putfont8(char *vram, int xsize, int x, int y, char c, char *font);
 void putfonts8_asc(char *vram, int xsize, int x, int y, char c, unsigned char *s);
@@ -160,20 +160,20 @@ int memman_free_4k(struct MEMMAN *man, unsigned int addr, unsigned int size);
 /* sheet.c */
 #define MAX_SHEETS 256
 struct SHEET {
-    char *buf;
+    unsigned char *buf;
     int bxsize, bysize, vx0, vy0, col_inv, height, flags;
     struct SHTCTL *ctl;
     struct TASK *task;
 };
 struct SHTCTL {
-    char *vram, *map;
+    unsigned char *vram, *map;
     int xsize, ysize, top;
     struct SHEET *sheets[MAX_SHEETS];
     struct SHEET sheets0[MAX_SHEETS];
 };
-struct SHTCTL *shtctl_init(struct MEMMAN *memman, char *vram, int xsize, int ysize);
+struct SHTCTL *shtctl_init(struct MEMMAN *memman, unsigned char *vram, int xsize, int ysize);
 struct SHEET *sheet_alloc(struct SHTCTL *ctl);
-void sheet_setbuf(struct SHEET *sht, char *buf, int xsize, int ysize, int col_inv);
+void sheet_setbuf(struct SHEET *sht, unsigned char *buf, int xsize, int ysize, int col_inv);
 void sheet_updown(struct SHEET *sht, int height);
 void sheet_refresh(struct SHEET *sht, int bx0, int by0, int bx1, int by1);
 void sheet_slide(struct SHEET *sht, int vx0, int vy0);
@@ -251,10 +251,10 @@ void task_switch(void);
 void task_sleep(struct TASK *task);
 
 /* window.c */
-void make_window8(char *buf, int xsize, int ysize, char *title, char act);
+void make_window8(unsigned char *buf, int xsize, int ysize, char *title, char act);
 void putfonts8_asc_sht(struct SHEET *sht, int x, int y, int c, int b, char *s, int l);
 void make_textbox8(struct SHEET *sht, int x0, int y0, int sx, int sy, int c);
-void make_wtitle8(char *buf, int xsize, char *title, char act);
+void make_wtitle8(unsigned char *buf, int xsize, char *title, char act);
 void change_wtitle8(struct SHEET *sht, char act);
 
 /* console.c */

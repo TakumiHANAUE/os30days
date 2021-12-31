@@ -19,7 +19,7 @@ void HariMain(void)
     unsigned int memtotal;
     struct MOUSE_DEC mdec;
     struct MEMMAN *memman = (struct MEMMAN *) MEMMAN_ADDR;
-    char *buf_back, buf_mouse[256];
+    unsigned char *buf_back, buf_mouse[256];
     struct SHEET *sht_back, *sht_mouse;
     struct TASK *task_a, *task;
     static char keytable0[0x80] = {
@@ -78,7 +78,7 @@ void HariMain(void)
 
     /* sht_back */
     sht_back = sheet_alloc(shtctl);
-    buf_back = (char *)memman_alloc_4k(memman, binfo->scrnx * binfo->scrny);
+    buf_back = (unsigned char *)memman_alloc_4k(memman, binfo->scrnx * binfo->scrny);
     sheet_setbuf(sht_back, buf_back, binfo->scrnx, binfo->scrny, -1); /* 透明色なし */
     init_screen8(buf_back, binfo->scrnx, binfo->scrny);
 
@@ -457,7 +457,7 @@ struct SHEET *open_console(struct SHTCTL *shtctl, unsigned int memtotal)
 {
     struct MEMMAN *memman = (struct MEMMAN *) MEMMAN_ADDR;
     struct SHEET *sht = sheet_alloc(shtctl);
-    char *buf = (char *)memman_alloc_4k(memman, 256 * 165);
+    unsigned char *buf = (unsigned char *)memman_alloc_4k(memman, 256 * 165);
     sheet_setbuf(sht, buf, 256, 165, -1);
     make_window8(buf, 256, 165, "console", 0);
     make_textbox8(sht, 8, 28, 240, 128, COL8_000000);

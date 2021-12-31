@@ -2267,9 +2267,25 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 #### 非矩形ウィンドウ (harib26c)
 
 - 書籍に従って `notrec.c` を新規作成する（`projects/29_day/harib26c/notrec/notrec.c`を参照する）  
-  透明色を 100 で指定する（255 で指定すると黒く表示された。原因は追っていない。）
+  ~~透明色を 100 で指定する（255 で指定すると黒く表示された。原因は追っていない。）~~
 - `typeipl.c` を削除する。
 - `Makefile` を修正する
+- harib27f の後に修正
+  - バッファ関連の変数の型を書籍に合わせて修正した。
+    - HariMain() : buf_back, buf_mouse
+    - sheet_refreshmap() : buf, sid, map
+    - sheet_refreshsub() : buf, vram, map, sid
+  - 関数の引数の型を書籍に合わせて修正した。
+    - boxfill8()
+    - shtctl_init()
+    - sheet_setbuf()
+    - make_window8
+    - make_wtitle8()
+  - 構造体メンバの型を書籍に合わせて修正した。
+    - SHEET.buf
+    - SHTCTL.vram, SHTCTL.map
+  - 書籍に合わせて透明色を 255 指定に修正した。
+    (修正前は、char, unsigned char の違いで 255 が上手く指定できていなかったと思われる)
 
 #### bball (harib26d)
 

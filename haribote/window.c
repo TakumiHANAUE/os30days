@@ -2,7 +2,7 @@
 
 #include "bootpack.h"
 
-void make_window8(char *buf, int xsize, int ysize, char *title, char act)
+void make_window8(unsigned char *buf, int xsize, int ysize, char *title, char act)
 {
     boxfill8(buf, xsize, COL8_C6C6C6, 0,         0,         xsize - 1, 0        );
     boxfill8(buf, xsize, COL8_FFFFFF, 1,         1,         xsize - 2, 1        );
@@ -17,7 +17,7 @@ void make_window8(char *buf, int xsize, int ysize, char *title, char act)
     return;
 }
 
-void make_wtitle8(char *buf, int xsize, char *title, char act)
+void make_wtitle8(unsigned char *buf, int xsize, char *title, char act)
 {
     static char closebtn[14][16] = {
         "OOOOOOOOOOOOOOO@",
