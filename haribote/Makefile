@@ -80,9 +80,9 @@ $(IMGFILE) : ipl20.bin haribote.sys $(APPDIR)/.app
 #	1440[KB] (= 512 * 2880 byte)
 #	C: to install on MS-DOS file system
 
-.PHONY : run
-run : $(IMGFILE)
-	qemu-system-i386 -fda $(IMGFILE)
+#.PHONY : run
+#run : $(IMGFILE)
+#	qemu-system-i386 -fda $(IMGFILE)
 # -fda: use 'file' as floppy disk 0/1 image
 
 .PHONY : clean
@@ -95,11 +95,3 @@ clean :
 	   *.lst \
 	   haribote.sys
 
-.PHONY : appclean
-appclean : 
-	make -C $(APPDIR) clean
-
-.PHONY : allclean
-allclean :
-	make clean
-	make -C $(APPDIR) clean

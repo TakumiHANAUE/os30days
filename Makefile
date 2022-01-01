@@ -5,15 +5,25 @@ SRCDIR=haribote
 all : $(IMGFILE)
 
 $(IMGFILE) : 
-	make -C haribote
+	make -C $(SRCDIR)
 	mv $(SRCDIR)/$(IMGFILE) ./$(IMGFILE)
+
+.PHONY : full
+full :
+	make -C golibc
+	make -C apilib
+	make -C app
+	make all
 
 .PHONY : clean
 clean : 
 	rm $(IMGFILE)
 	make -C $(SRCDIR) clean
 
-.PHONY : allclean
-allclean :
+.PHONY : fullclean
+fullclean :
 	rm $(IMGFILE)
-	make -C $(SRCDIR) allclean
+	make -C golibc clean
+	make -C apilib clean
+	make -C app clean
+	make -C $(SRCDIR) clean
