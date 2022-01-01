@@ -79,12 +79,38 @@
 - img 起動スクリプト  
   Ubuntu 上でビルドした img ファイルを QEMU を使って起動する bat ファイル。
   ```bat
-  "C:\Program Files\qemu\qemu-system-i386.exe" -fda "\\wsl$\Ubuntu-20.04\PATH_TO_IMG\haribote.img"
+  "C:\Program Files\qemu\qemu-system-i386.exe" -soundhw pcspk -m 32M -fda "\\wsl$\Ubuntu-20.04\home\takumi\work\os30days\haribote.img"
   ```
 
 ## 参考にしたサイト
 
+「30 日でできる OS 自作入門」を進めるにあたって以下サイトを参考にさせていただきました。
+本当にありがとうございました。
+
+### 「30 日でできる OS 自作入門」関連記事
+
 - [30 日でできる！OS 自作入門（記事一覧）[Ubuntu16.04/NASM]](https://qiita.com/pollenjp/items/b7e4392d945b8aa4ff98)
+- [Ubuntu で OS 自作入門 1 日目](https://blog.shosato.jp/2019/09/12/hand-made-os-in-30-days-day-1/)
+- [『OS 自作入門』を読んでみた。（その 6） - いものやま。](https://yamaimo.hatenablog.jp/entry/2017/07/05/200000)
+- [『30 日でできる！OS 自作入門』のメモ](https://vanya.jp.net/os/haribote.html)
+- [papamitra (HariboteOS カテゴリ)](https://papamitra.hatenadiary.org/archive/category/HariboteOS)
+- [はりぼて OS を NASM・GCC で動かす(Mac OSX)](https://tatsumack.hatenablog.com/entry/2017/03/24/225706)
+- [30 日でできる!OS 自作入門 on macOS](https://github.com/zacfukuda/hariboteos)
+- [「30 日でできる！ OS 自作入門」を Mac 向けに環境構築する](https://qiita.com/tatsumack/items/491e47c1a7f0d48fc762)
+- [サラリーマンがハッカーを真剣に目指す (「OS 自作」タグ)](http://bttb.s1.valueserver.jp/wordpress/blog/tag/os%e8%87%aa%e4%bd%9c/)
+- [FPGA 開発日記 (OS 自作の記事)](https://msyksphinz.hatenablog.com/search?q=OS%E8%87%AA%E4%BD%9C)
+- [TSUGULOG Home (TSUGULOG Home タグ)](https://yoshitsugu.net/tags/OS%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80.html)
+- [VESA - os-wiki](http://oswiki.osask.jp/?VESA)
+
+### その他
+
+- [【 mformat 】 MS-DOS フォーマットを行う](https://xtech.nikkei.com/it/article/COLUMN/20060227/230828/)
+- [Mtools 4.0.20: drive letters - GNU.org](https://www.gnu.org/software/mtools/manual/html_node/drive-letters.html)
+- [リンカスクリプトの書き方](http://blueeyes.sakura.ne.jp/2018/10/31/1676/)
+- [objdump - オブジェクトファイルの情報を表示する](https://linuxcommand.net/objdump/)
+- [size - コマンド (プログラム) の説明 - Linux コマンド集 一覧表](https://kazmax.zpp.jp/cmd/s/size.1.html)
+- [NASM Document](https://www.nasm.us/xdoc/2.15.05/html/nasmdoc3.html#section-3.5)
+- [C: 静的ライブラリと共有ライブラリについて](https://blog.amedama.jp/entry/2016/05/29/222739)
 
 ## 作業ログ
 
@@ -122,7 +148,7 @@
 #### アセンブラ初体験
 
 - 著者作の nask ではなく一般的な nasm を使用する。
-- 書籍記載の`helloos.nas`ではなく`helloos.asm`という名前で作る
+- 書籍記載の`helloos.nas`ではなく`helloos.asm`という名前で作る（今後 .nas ファイルは .asm として作っていく）
 - nasm コマンドで img ファイルを作る
   ```bash
   $ nasm helloos.asm -o helloos.img
@@ -181,7 +207,7 @@
 
 #### まずはテキストエディタの紹介
 
-わたしは [VS Code](https://code.visualstudio.com/) を使っています。
+わたしは [VS Code](https://code.visualstudio.com/) を使って開発をしました。
 
 #### さて開発再開
 
@@ -1093,7 +1119,7 @@
   - "C:\Program Files\qemu\qemu-system-i386.exe" -fda "\\wsl$\Ubuntu-20.04\PATH_TO_IMG\haribote.img"
   + "C:\Program Files\qemu\qemu-system-i386.exe" -fda -m 32M \\wsl$\Ubuntu-20.04\PATH_TO_IMG\haribote.img"
   ```
-  書籍の"32MB じゃなくて 3072MB だって？"になっていないが、書籍とは環境が異なるので気にしないでおく。
+  書籍の "32MB じゃなくて 3072MB だって？" になっていないが、書籍とは環境が異なるので気にしないでおく。
 
 #### メモリ容量チェック(2) (harib06c)
 
@@ -1226,7 +1252,7 @@
 - harib10c
 
   - 書籍に従って `bootpack.c` を修正する（`projects/13_day/harib10c/bootpack.c`を参照する）
-  - `count++` に `sheet_refresh()` を追記する（引数は、ここに元々書かれていた`putfonts8_asc_sht()`の引数に従っている）  
+  - `count++` の後に `sheet_refresh()` を追記する（引数は、ここに元々書かれていた`putfonts8_asc_sht()`の引数に従っている）  
     この処理を入れなかった場合に、OS の動作がすごく遅くなった
     （マウスがほとんど動かない、点滅カーソル・3 秒・10 秒の表示がされない など）  
     原因は分かっていないが、
@@ -1361,7 +1387,7 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 
 - 書籍に従って `bootpack.c` を修正する（`projects/14_day/harib11g/bootpack.c`を参照する）  
   書籍に書いてある
-  > 「@」等のキーを押すと「W」が表示されて・・・
+  > "「@」等のキーを押すと「W」が表示されて・・・"
   > の現象は起きなかった（「@」を押すと「@」が表示された）
 
 #### おまけ(1) (harib11h)
@@ -2179,15 +2205,14 @@ QEMU 上で測定したためばらつきが大きく、性能が上がったと
 - 書籍に従って `winhelo.c` を修正する（`projects/28_day/harib25b/winhelo/winhelo.c`を参照する）
 - 書籍に従って `winhelo2.c` を修正する（`projects/28_day/harib25b/winhelo2/winhelo2.c`を参照する）
 - harib27f の後に修正  
-  30 日`app.ld`, `Makefile` を修正し、アプリ毎にスタックサイズを指定するように変更。
+  `app.ld`, `Makefile` を修正し、アプリ毎にスタックサイズを指定するように変更。
   スタックサイズは ld コマンドの `--defsym` オプションを使用した。
   また、指定するスタックサイズは各アプリの Makefile に指定されている `STACK` の値を参考に指定した。
 
 【参考】
 
 - [OS 自作入門 28 日目 【Linux】 | alloca、ファイル API](http://bttb.s1.valueserver.jp/wordpress/blog/2018/04/02/os%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%8028%E6%97%A5%E7%9B%AE-%E3%80%90linux%E3%80%91-alloca%E3%80%81%E3%83%95%E3%82%A1%E3%82%A4%E3%83%ABapi/)
-- [30 日でできる!OS 自作入門 on macOS](https://github.com/zacfukuda/hariboteos#harib25b)  
-  こちらの方は、アプリ毎にスタックサイズを指定するようにリンカスクリプトを修正していた。
+- [30 日でできる!OS 自作入門 on macOS](https://github.com/zacfukuda/hariboteos#harib25b)
 
 #### ファイル API (harib25c)
 
